@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.jhotdraw</groupId>
+    <artifactId>JHotDraw</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    
+    <repositories>
+        <!--
+        Repository hosting NetBeans modules, especially APIs.
+        Versions are based on IDE releases, e.g.: RELEASE691
+        To create your own repository, use: nbm:populate-repository
+        -->
+        <repository>
+            <id>git-corfixen</id>
+            <name>corfixen's Git based repo</name>
+            <url>https://github.com/sweat-tek/MavenRepository/raw/repository/</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupId>dk.sdu.mmmi</groupId>
+            <artifactId>featuretracer</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.jgiven</groupId>
+            <artifactId>jgiven-junit</artifactId>
+            <version>1.0.0-RC6</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+ </project>
