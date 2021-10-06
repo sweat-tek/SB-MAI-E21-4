@@ -1,4 +1,4 @@
-/*
+    /*
  * @(#)SVGAttributedFigure.java  1.0  December 10, 2006
  *
  * Copyright (c) 1996-2007 by the original authors of JHotDraw
