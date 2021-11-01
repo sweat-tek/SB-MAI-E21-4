@@ -124,7 +124,7 @@ public class JDisclosureToolBar extends JToolBar {
         removeAll();
         JComponent c = getDisclosedComponent(newValue);
         GridBagLayout layout = (GridBagLayout) getLayout();
-        GridBagConstraints gbc = new GridBagConstraints();
+        GridBagConstraints gbc;
         if (c != null) {
             gbc = new GridBagConstraints();
             gbc = setupGridbagConstraints(gbc, 1, false, 1d, 1d, GridBagConstraints.WEST, GridBagConstraints.BOTH);
