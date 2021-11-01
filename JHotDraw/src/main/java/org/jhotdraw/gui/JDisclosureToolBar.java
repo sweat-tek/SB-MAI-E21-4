@@ -45,6 +45,58 @@ public class JDisclosureToolBar extends JToolBar {
         gbc = new GridBagConstraints();
         if (disclosureButton == null) {
             btn = new JButton();
+            setupDisclosedButton(btn);
+//            btn = new JButton();
+//            btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
+//            btn.setBorderPainted(false);
+//            btn.setIcon(new DisclosureIcon());
+//            btn.setOpaque(false);
+//            disclosureButton = (JButton) btn;
+//            disclosureButton.putClientProperty(DisclosureIcon.CURRENT_STATE_PROPERTY, 1);
+//            disclosureButton.putClientProperty(DisclosureIcon.STATE_COUNT_PROPERTY, 2);
+//            disclosureButton.addActionListener(new ActionListener() {
+//
+//                public void actionPerformed(ActionEvent e) {
+//                    int newState = ((Integer) disclosureButton.getClientProperty(DisclosureIcon.CURRENT_STATE_PROPERTY) + 1) %
+//                            (Integer) disclosureButton.getClientProperty(DisclosureIcon.STATE_COUNT_PROPERTY);
+//                    setDisclosureState(newState);
+//                }
+//            });
+        } else {
+            btn = disclosureButton;
+        }
+
+//        gbc.gridx = 0;
+//        gbc.insets = new Insets(0, 1, 0, 1);
+//        gbc.anchor = GridBagConstraints.SOUTHWEST;
+//        gbc.fill = GridBagConstraints.NONE;
+//        gbc.weighty = 1d;
+//        gbc.weightx = 1d;
+        gbc = setupGridbagConstraints(gbc, 0, true, 1d, 1d, GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE);
+        add(btn, gbc);
+
+        putClientProperty(PaletteToolBarUI.TOOLBAR_INSETS_OVERRIDE_PROPERTY, new Insets(0, 0, 0, 0));
+        putClientProperty(PaletteToolBarUI.TOOLBAR_ICON_PROPERTY, new EmptyIcon(10, 8));
+    }
+    
+    private GridBagConstraints setupGridbagConstraints(GridBagConstraints gbc, 
+            int gridx, boolean insets, double weighty, double weightx, 
+            int anchor, int fill) {
+        
+        gbc.gridx = gridx;
+//        gbc.insets = new Insets(0, 1, 0, 1);
+        gbc.anchor = anchor;
+        gbc.fill = fill;
+        gbc.weighty = weighty;
+        gbc.weightx = weightx;
+        if (insets == true) {
+            gbc.insets = new Insets(0,1,0,1);
+        }
+        return gbc;
+    }
+    
+    
+    private void setupDisclosedButton (AbstractButton btn) {
             btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
             btn.setBorderPainted(false);
             btn.setIcon(new DisclosureIcon());
@@ -54,26 +106,13 @@ public class JDisclosureToolBar extends JToolBar {
             disclosureButton.putClientProperty(DisclosureIcon.STATE_COUNT_PROPERTY, 2);
             disclosureButton.addActionListener(new ActionListener() {
 
+                @Override
                 public void actionPerformed(ActionEvent e) {
                     int newState = ((Integer) disclosureButton.getClientProperty(DisclosureIcon.CURRENT_STATE_PROPERTY) + 1) %
                             (Integer) disclosureButton.getClientProperty(DisclosureIcon.STATE_COUNT_PROPERTY);
                     setDisclosureState(newState);
                 }
             });
-        } else {
-            btn = disclosureButton;
-        }
-
-        gbc.gridx = 0;
-        gbc.insets = new Insets(0, 1, 0, 1);
-        gbc.anchor = GridBagConstraints.SOUTHWEST;
-        gbc.fill = GridBagConstraints.NONE;
-        gbc.weighty = 1d;
-        gbc.weightx = 1d;
-        add(btn, gbc);
-
-        putClientProperty(PaletteToolBarUI.TOOLBAR_INSETS_OVERRIDE_PROPERTY, new Insets(0, 0, 0, 0));
-        putClientProperty(PaletteToolBarUI.TOOLBAR_ICON_PROPERTY, new EmptyIcon(10, 8));
     }
 
     public void setDisclosureStateCount(int newValue) {
@@ -92,28 +131,31 @@ public class JDisclosureToolBar extends JToolBar {
         GridBagConstraints gbc = new GridBagConstraints();
         if (c != null) {
             gbc = new GridBagConstraints();
-            gbc.gridx = 1;
-            gbc.weightx = 1d;
-            gbc.weighty = 1d;
-            gbc.fill = GridBagConstraints.BOTH;
-            gbc.anchor = GridBagConstraints.WEST;
+            gbc = setupGridbagConstraints(gbc, 1, false, 1d, 1d, GridBagConstraints.WEST, GridBagConstraints.BOTH);
+//            gbc.gridx = 1;
+//            gbc.weightx = 1d;
+//            gbc.weighty = 1d;
+//            gbc.fill = GridBagConstraints.BOTH;
+//            gbc.anchor = GridBagConstraints.WEST;
             add(c, gbc);
             gbc = new GridBagConstraints();
-            gbc.gridx = 0;
-            gbc.weightx = 0d;
-            gbc.insets = new Insets(0, 1, 0, 1);
-            gbc.weighty = 1d;
-            gbc.fill = GridBagConstraints.NONE;
-            gbc.anchor = GridBagConstraints.SOUTHWEST;
+            gbc = setupGridbagConstraints(gbc, 0, true, 1d, 0d, GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE);
+//            gbc.gridx = 0;
+//            gbc.weightx = 0d;
+//            gbc.insets = new Insets(0, 1, 0, 1);
+//            gbc.weighty = 1d;
+//            gbc.fill = GridBagConstraints.NONE;
+//            gbc.anchor = GridBagConstraints.SOUTHWEST;
             add(disclosureButton, gbc);
         } else {
             gbc = new GridBagConstraints();
-            gbc.gridx = 1;
-            gbc.weightx = 1d;
-            gbc.weighty = 1d;
-            gbc.fill = GridBagConstraints.NONE;
-            gbc.anchor = GridBagConstraints.SOUTHWEST;
-            gbc.insets = new Insets(0, 1, 0, 1);
+            gbc = setupGridbagConstraints(gbc, 1, true, 1d, 1d, GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE);
+//            gbc.gridx = 1;
+//            gbc.weightx = 1d;
+//            gbc.weighty = 1d;
+//            gbc.fill = GridBagConstraints.NONE;
+//            gbc.anchor = GridBagConstraints.SOUTHWEST;
+//            gbc.insets = new Insets(0, 1, 0, 1);
             add(disclosureButton, gbc);
         }
 
@@ -124,7 +166,6 @@ public class JDisclosureToolBar extends JToolBar {
         }
         parent.validate();
         repaint();
-
         firePropertyChange(DISCLOSURE_STATE_PROPERTY, oldValue, newValue);
     }
 
