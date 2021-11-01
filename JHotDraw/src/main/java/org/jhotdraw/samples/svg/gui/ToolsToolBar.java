@@ -75,8 +75,8 @@ public class ToolsToolBar extends AbstractToolBar {
 
                 GridBagLayout layout = new GridBagLayout();
                 p.setLayout(layout);
-                GridBagConstraints gbc;
-                AbstractButton btn;
+                GridBagConstraints gbc = null;
+                AbstractButton btn = null;
                 //CreationTool creationTool;
                 //PathTool pathTool;
                 //TextCreationTool textTool;
@@ -84,18 +84,19 @@ public class ToolsToolBar extends AbstractToolBar {
                 //SVGCreateFromFileTool imageTool;
 
                 HashMap<AttributeKey, Object> attributes;
-                btn = ButtonFactory.addSelectionToolTo(this, editor,
-                        ButtonFactory.createDrawingActions(editor),
-                        createSelectionActions(editor));
-                btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
-//                gbc = new GridBagConstraints();
-//                gbc.gridx = 0;
-//                gbc.gridy = 0;
-                gbc = setupGridBagConstraints(0, 0);
-                p.add(btn, gbc);
+//                btn = ButtonFactory.addSelectionToolTo(this, editor,
+//                        ButtonFactory.createDrawingActions(editor),
+//                        createSelectionActions(editor));
+//                btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
+////                gbc = new GridBagConstraints();
+////                gbc.gridx = 0;
+////                gbc.gridy = 0;
+//                gbc = setupGridBagConstraints(0, 0);
+//                p.add(btn, gbc);
+                createSelectionTool(p, btn, gbc);
                 labels.configureToolBarButton(btn, "selectionTool");
 
-                attributes = new HashMap<AttributeKey, Object>();
+                attributes = new HashMap<>();
 //                btn = ButtonFactory.addToolTo(this, editor, creationTool = new CreationTool(new SVGRectFigure(), attributes), "createRectangle", labels);
 //                creationTool.setToolDoneAfterCreation(false);
 //                btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
@@ -129,7 +130,7 @@ public class ToolsToolBar extends AbstractToolBar {
 //                p.add(btn, gbc);
                 createPolygonTool(p, btn, gbc, labels, attributes);
 
-                attributes = new HashMap<AttributeKey, Object>();
+                attributes = new HashMap<>();
 //                attributes.put(AttributeKeys.FILL_COLOR, null);
 //                attributes.put(CLOSED, false);
 //                btn = ButtonFactory.addToolTo(this, editor, creationTool = new CreationTool(new SVGPathFigure(), attributes), "createLine", labels);
@@ -154,7 +155,7 @@ public class ToolsToolBar extends AbstractToolBar {
 //                p.add(btn, gbc);
                 createScribbleTool(p, btn, gbc, labels, attributes);
 
-                attributes = new HashMap<AttributeKey, Object>();
+                attributes = new HashMap<>();
 //                attributes.put(AttributeKeys.FILL_COLOR, Color.black);
 //                attributes.put(AttributeKeys.STROKE_COLOR, null);
 //                btn = ButtonFactory.addToolTo(this, editor, textTool = new TextCreationTool(new SVGTextFigure(), attributes), "createText", labels);
@@ -195,7 +196,7 @@ public class ToolsToolBar extends AbstractToolBar {
 ////                gbc.insets = new Insets(3, 3, 0, 0);
 //                gbc = setupGridBagConstraints(2, 2, new int[]{3,3,0,0});
 //                p.add(btn, gbc);
-                attributes = new HashMap<AttributeKey, Object>();
+                attributes = new HashMap<>();
                 createImageTool(p, btn, gbc, labels, attributes);
             }
             break;
@@ -310,7 +311,7 @@ public class ToolsToolBar extends AbstractToolBar {
     }
 
     public static Collection<Action> createSelectionActions(DrawingEditor editor) {
-        LinkedList<Action> a = new LinkedList<Action>();
+        LinkedList<Action> a = new LinkedList<>();
         a.add(new DuplicateAction());
 
         a.add(null); // separator
