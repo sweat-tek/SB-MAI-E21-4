@@ -104,7 +104,6 @@ public abstract class AbstractAttributedFigure extends AbstractFigure {
         return hasAttribute(key) ? key.get(attributes) : key.getDefaultValue();
     }
     
-    
     public void draw(Graphics2D g) {
         if (AttributeKeys.FILL_COLOR.get(this) != null) {
             g.setColor(AttributeKeys.FILL_COLOR.get(this));
@@ -116,18 +115,15 @@ public abstract class AbstractAttributedFigure extends AbstractFigure {
             
             drawStroke(g);
         }
-        if (TEXT_COLOR.get(this) != null) {
-            if (TEXT_SHADOW_COLOR.get(this) != null &&
-                    TEXT_SHADOW_OFFSET.get(this) != null) {
-                Dimension2DDouble d = TEXT_SHADOW_OFFSET.get(this);
-                g.translate(d.width, d.height);
-                g.setColor(TEXT_SHADOW_COLOR.get(this));
-                drawText(g);
-                g.translate(-d.width,-d.height);
-            }
-            g.setColor(TEXT_COLOR.get(this));
-            drawText(g);
-        }
+        //After
+        Dimension2DDouble d = TEXT_SHADOW_OFFSET.get(this);
+        g.translate(d.width, d.height);
+        g.setColor(TEXT_SHADOW_COLOR.get(this));
+        drawText(g);
+        g.translate(-d.width,-d.height);
+        
+        g.setColor(TEXT_COLOR.get(this));
+        drawText(g);
     }
     
     public Stroke getStroke() {

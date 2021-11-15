@@ -224,7 +224,7 @@ public class AttributeKeys {
      * The value of this attribute is a String object, which is used to
      * display the text of the figure.
      */
-    public final static AttributeKey<String> TEXT = new AttributeKey<String>("text", String.class, null, true, labels);
+    public final static AttributeKey<String> TEXT = new AttributeKey<String>("text", String.class, "Text", false, labels);
     /**
      * Text color. The value of this attribute is a Color object.
      */
@@ -232,7 +232,7 @@ public class AttributeKeys {
     /**
      * Text shadow color. The value of this attribute is a Color object.
      */
-    public final static AttributeKey<Color> TEXT_SHADOW_COLOR = new AttributeKey<Color>("textShadowColor", Color.class, null, true, labels);
+    public final static AttributeKey<Color> TEXT_SHADOW_COLOR = new AttributeKey<Color>("textShadowColor", Color.class, Color.BLACK, false, labels);
     /**
      * Text shadow offset. The value of this attribute is a Dimension2DDouble object.
      */

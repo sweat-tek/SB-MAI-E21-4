@@ -1,4 +1,4 @@
-/*
+    /*
  * @(#)TextEditingTool.java  1.0  2009-04-16
  *
  * Copyright (c) 2009 by the original authors of JHotDraw
