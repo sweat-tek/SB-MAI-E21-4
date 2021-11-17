@@ -5,18 +5,20 @@
  */
 package org.jhotdraw.draw;
 
+import com.tngtech.jgiven.junit.ScenarioTest;
 import java.awt.Color;
+import org.jhotdraw.draw.TextScenarioTest.GivenCanvas;
+import org.jhotdraw.draw.TextScenarioTest.ThenTextShows;
+import org.jhotdraw.draw.TextScenarioTest.WhenText;
 import org.jhotdraw.util.ResourceBundleUtil;
-import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 
 /**
  *
  * @author kjalris
  */
-public class AttributeKeysTest {
+public class AttributeKeysTest extends ScenarioTest<GivenCanvas, WhenText, ThenTextShows> {
     
     private static ResourceBundleUtil labels;
     
@@ -61,6 +63,18 @@ public class AttributeKeysTest {
         hence why i use expected=AssertionError for the test
         */
 
+    }
+    // Acceptance test
+    
+    // Given i have a blank canvas (or with figures)
+    // When the user writes down something in the textbox
+    // Then the text is shown
+    
+    @Test
+     public void user_can_add_text_to_figures() {
+        given().an_empty_sheet_or_sheet_with_figures();
+        when().the_user_adds_text_to_the_canvas();
+        then().the_text_is_shown_on_the_canvas_without_any_null_objects();
     }
     
 }
