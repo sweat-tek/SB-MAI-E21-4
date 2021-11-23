@@ -236,22 +236,7 @@ public class SVGEllipseFigure extends SVGAttributedFigure implements SVGFigure {
         }
         return handles;
     }
-    // CONNECTING
 
-    @Override
-    public boolean canConnect() {
-        return false; // SVG does not support connecting
-    }
-
-    @Override
-    public Connector findConnector(Point2D.Double p, ConnectionFigure prototype) {
-        return null; // SVG does not support connectors
-    }
-
-    @Override
-    public Connector findCompatibleConnector(Connector c, boolean isStartConnector) {
-        return null; // SVG does not support connectors
-    }
     // COMPOSITE FIGURES
     // CLONING
 
