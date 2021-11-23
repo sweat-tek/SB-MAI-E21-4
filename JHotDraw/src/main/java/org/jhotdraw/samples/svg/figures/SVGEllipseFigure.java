@@ -5,11 +5,11 @@
  * and all its contributors.
  * All rights reserved.
  *
- * The copyright of this software is owned by the authors and  
- * contributors of the JHotDraw project ("the copyright holders").  
- * You may not use, copy or modify this software, except in  
- * accordance with the license agreement you entered into with  
- * the copyright holders. For details see accompanying license terms. 
+ * The copyright of this software is owned by the authors and
+ * contributors of the JHotDraw project ("the copyright holders").
+ * You may not use, copy or modify this software, except in
+ * accordance with the license agreement you entered into with
+ * the copyright holders. For details see accompanying license terms.
  */
 package org.jhotdraw.samples.svg.figures;
 
@@ -113,14 +113,17 @@ public class SVGEllipseFigure extends SVGAttributedFigure implements SVGFigure {
     }
 
     /**
-     * Checks if a Point2D.Double is inside the figure.
+     * Clear attributes used for caching.
      */
-    @Override
-    public boolean contains(Point2D.Double p) {
-        return getHitShape().contains(p);
+    private void clearCache() {
+        cachedTransformedShape = null;
+        cachedHitShape = null;
     }
 
-    private Shape getTransformedShape() {
+    /**
+     * @return the cachedTransformedShape
+     */
+    private Shape getCachedTransformedShape() {
         if (cachedTransformedShape == null) {
             if (TRANSFORM.get(this) == null) {
                 cachedTransformedShape = ellipse;
@@ -130,7 +133,11 @@ public class SVGEllipseFigure extends SVGAttributedFigure implements SVGFigure {
         }
         return cachedTransformedShape;
     }
-    private Shape getHitShape() {
+
+    /**
+     * @return the cachedHitShape
+     */
+    private Shape getCachedHitShape() {
         if (cachedHitShape == null) {
             if (FILL_COLOR.get(this) != null || FILL_GRADIENT.get(this) != null) {
                 cachedHitShape = new GrowStroke(
@@ -142,6 +149,21 @@ public class SVGEllipseFigure extends SVGAttributedFigure implements SVGFigure {
             }
         }
         return cachedHitShape;
+    }
+
+    /**
+     * Checks if a Point2D.Double is inside the figure.
+     */
+    @Override
+    public boolean contains(Point2D.Double p) {
+        return getHitShape().contains(p);
+    }
+
+    private Shape getTransformedShape() {
+        return getCachedTransformedShape();
+    }
+    private Shape getHitShape() {
+        return getCachedHitShape();
     }
 
     @Override
@@ -244,7 +266,7 @@ public class SVGEllipseFigure extends SVGAttributedFigure implements SVGFigure {
     public SVGEllipseFigure clone() {
         SVGEllipseFigure that = (SVGEllipseFigure) super.clone();
         that.ellipse = (Ellipse2D.Double) this.ellipse.clone();
-        that.cachedTransformedShape = null;
+        that.clearCache();
         return that;
     }
 
@@ -258,7 +280,6 @@ public class SVGEllipseFigure extends SVGAttributedFigure implements SVGFigure {
     @Override
     public void invalidate() {
         super.invalidate();
-        cachedTransformedShape = null;
-        cachedHitShape = null;
+        clearCache();
     }
 }
