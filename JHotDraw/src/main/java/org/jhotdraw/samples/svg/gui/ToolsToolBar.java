@@ -91,12 +91,12 @@ public class ToolsToolBar extends AbstractToolBar {
                 gbc = new GridBagConstraints();
                 gbc.gridx = 0;
                 gbc.gridy = 0;
-                gbc = setupGridBagConstraints(0, 0);
+                //gbc = setupGridBagConstraints(0, 0);
                 p.add(btn, gbc);
                 //createSelectionTool(p, btn, gbc);
                 labels.configureToolBarButton(btn, "selectionTool");
 
-                attributes = new HashMap<>();
+                attributes = new HashMap<AttributeKey, Object>();
                 btn = ButtonFactory.addToolTo(this, editor, creationTool = new CreationTool(new SVGRectFigure(), attributes), "createRectangle", labels);
                 creationTool.setToolDoneAfterCreation(false);
                 btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
@@ -104,7 +104,7 @@ public class ToolsToolBar extends AbstractToolBar {
                 gbc.gridx = 0;
                 gbc.gridy = 1;
                 gbc.insets = new Insets(3, 0, 0, 0);
-                gbc = setupGridBagConstraints(0, 1, new int[]{3, 0, 0, 0});
+                //gbc = setupGridBagConstraints(0, 1, new int[]{3, 0, 0, 0});
                 p.add(btn, gbc);
                 //createRectangleTool(p, btn, gbc, labels, attributes);
 
@@ -115,7 +115,7 @@ public class ToolsToolBar extends AbstractToolBar {
                 gbc.gridx = 1;
                 gbc.gridy = 1;
                 gbc.insets = new Insets(3, 3, 0, 0);
-                gbc = setupGridBagConstraints(1, 1, new int[]{3, 3, 0, 0});
+                //gbc = setupGridBagConstraints(1, 1, new int[]{3, 3, 0, 0});
                 p.add(btn, gbc);
                 //createEllipseTool(p, btn, gbc, labels, attributes);
 
@@ -126,7 +126,7 @@ public class ToolsToolBar extends AbstractToolBar {
                 gbc.gridx = 2;
                 gbc.gridy = 1;
                 gbc.insets = new Insets(3, 3, 0, 0);
-                gbc = setupGridBagConstraints(2, 1, new int[]{3, 3, 0, 0});
+                //gbc = setupGridBagConstraints(2, 1, new int[]{3, 3, 0, 0});
                 p.add(btn, gbc);
                 //createPolygonTool(p, btn, gbc, labels, attributes);
 
@@ -140,7 +140,7 @@ public class ToolsToolBar extends AbstractToolBar {
                 gbc.gridx = 1;
                 gbc.gridy = 0;
                 gbc.insets = new Insets(0, 3, 0, 0);
-                gbc = setupGridBagConstraints(1, 0, new int[]{0, 3, 0, 0});
+                //gbc = setupGridBagConstraints(1, 0, new int[]{0, 3, 0, 0});
                 p.add(btn, gbc);
                 //createLineTool(p, btn, gbc, labels, attributes);
 
@@ -151,7 +151,7 @@ public class ToolsToolBar extends AbstractToolBar {
                 gbc.gridx = 2;
                 gbc.gridy = 0;
                 gbc.insets = new Insets(0, 3, 0, 0);
-                gbc = setupGridBagConstraints(2, 0, new int[]{0, 3, 0, 0});
+                //gbc = setupGridBagConstraints(2, 0, new int[]{0, 3, 0, 0});
                 p.add(btn, gbc);
                 //createScribbleTool(p, btn, gbc, labels, attributes);
 
@@ -166,7 +166,7 @@ public class ToolsToolBar extends AbstractToolBar {
                 gbc.gridx = 0;
                 gbc.gridy = 2;
                 gbc.insets = new Insets(3, 0, 0, 0);
-                gbc = setupGridBagConstraints(0, 2, new int[]{3, 0, 0, 0});
+                //gbc = setupGridBagConstraints(0, 2, new int[]{3, 0, 0, 0});
                 p.add(btn, gbc);
                 //createTextCreationTool(p, btn, gbc, labels, attributes);
 
@@ -179,7 +179,7 @@ public class ToolsToolBar extends AbstractToolBar {
                 gbc.gridx = 1;
                 gbc.gridy = 2;
                 gbc.insets = new Insets(3, 3, 0, 0);
-                gbc = setupGridBagConstraints(1, 2, new int[]{3, 3, 0, 0});
+                //gbc = setupGridBagConstraints(1, 2, new int[]{3, 3, 0, 0});
                 p.add(btn, gbc);
                 //createTextAreaTool(p, btn, gbc, labels, attributes);
 
@@ -194,7 +194,7 @@ public class ToolsToolBar extends AbstractToolBar {
                 gbc.gridx = 2;
                 gbc.gridy = 2;
                 gbc.insets = new Insets(3, 3, 0, 0);
-                gbc = setupGridBagConstraints(2, 2, new int[]{3,3,0,0});
+                //gbc = setupGridBagConstraints(2, 2, new int[]{3,3,0,0});
                 p.add(btn, gbc);
                 attributes = new HashMap<>();
                 //createImageTool(p, btn, gbc, labels, attributes);
