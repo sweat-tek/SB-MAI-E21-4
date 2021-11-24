@@ -75,8 +75,8 @@ public class ToolsToolBar extends AbstractToolBar {
 
                 GridBagLayout layout = new GridBagLayout();
                 p.setLayout(layout);
-                GridBagConstraints gbc = null;
-                AbstractButton btn = null;
+                GridBagConstraints gbc;
+                AbstractButton btn;
                 CreationTool creationTool;
                 PathTool pathTool;
                 TextCreationTool textTool;
