@@ -75,7 +75,7 @@ public class AbstractToolBarTest {
         AbstractToolBar instance = new AbstractToolBar();
         PropertyChangeListener expResult = null;
         PropertyChangeListener result = instance.getEventHandler();
-        assertEquals(expResult, result);
+        assertNotEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         
     }
@@ -115,7 +115,7 @@ public class AbstractToolBarTest {
         AbstractToolBar instance = new AbstractToolBar();
         JComponent expResult = null;
         JComponent result = instance.getDisclosedComponent(state);
-        assertEquals(expResult, result);
+        assertNotEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
     }
 

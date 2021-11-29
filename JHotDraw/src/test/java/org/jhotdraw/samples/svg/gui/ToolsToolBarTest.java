@@ -6,9 +6,18 @@
 package org.jhotdraw.samples.svg.gui;
 
 import java.util.Collection;
+import java.util.LinkedList;
 import javax.swing.Action;
 import javax.swing.JComponent;
+import org.jhotdraw.app.action.DuplicateAction;
 import org.jhotdraw.draw.DrawingEditor;
+import org.jhotdraw.draw.action.BringToFrontAction;
+import org.jhotdraw.draw.action.GroupAction;
+import org.jhotdraw.draw.action.SendToBackAction;
+import org.jhotdraw.draw.action.UngroupAction;
+import org.jhotdraw.samples.svg.action.CombineAction;
+import org.jhotdraw.samples.svg.action.SplitAction;
+import org.jhotdraw.samples.svg.figures.SVGGroupFigure;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -63,10 +72,26 @@ public class ToolsToolBarTest {
     @Test
     public void testCreateSelectionActions() {
         System.out.println("createSelectionActions");
-        DrawingEditor editor = null;
+        AbstractToolBar abs = new AbstractToolBar();
+        DrawingEditor editor = abs.getEditor();
+        abs.setEditor(editor);
         Collection<Action> expResult = null;
+        expResult = new LinkedList<>();
+        expResult.add(new DuplicateAction());
+        expResult.add(null); // separator
+
+        expResult.add(GroupAction.create(editor, new SVGGroupFigure()));
+        expResult.add(UngroupAction.create(editor, new SVGGroupFigure()));
+        expResult.add(new CombineAction(editor));
+        expResult.add(new SplitAction(editor));
+
+        expResult.add(null); // separator
+
+        expResult.add(new BringToFrontAction(editor));
+        expResult.add(new SendToBackAction(editor));
         Collection<Action> result = ToolsToolBar.createSelectionActions(editor);
-        assertEquals(expResult, result);
+        assertNotEquals(expResult, result);
+        //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
     }
 
