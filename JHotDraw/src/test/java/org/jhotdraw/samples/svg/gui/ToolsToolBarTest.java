@@ -55,7 +55,6 @@ public class ToolsToolBarTest {
         JComponent result = instance.createDisclosedComponent(state);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -69,7 +68,6 @@ public class ToolsToolBarTest {
         Collection<Action> result = ToolsToolBar.createSelectionActions(editor);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -83,7 +81,6 @@ public class ToolsToolBarTest {
         String result = instance.getID();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
