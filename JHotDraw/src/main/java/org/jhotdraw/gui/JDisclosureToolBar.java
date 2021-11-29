@@ -45,40 +45,40 @@ public class JDisclosureToolBar extends JToolBar {
         gbc = new GridBagConstraints();
         if (disclosureButton == null) {
             btn = new JButton();
-            //setupDisclosedButton(btn);
-            btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
-            btn.setBorderPainted(false);
-            btn.setIcon(new DisclosureIcon());
-            btn.setOpaque(false);
-            disclosureButton = (JButton) btn;
-            disclosureButton.putClientProperty(DisclosureIcon.CURRENT_STATE_PROPERTY, 1);
-            disclosureButton.putClientProperty(DisclosureIcon.STATE_COUNT_PROPERTY, 2);
-            disclosureButton.addActionListener(new ActionListener() {
-
-                public void actionPerformed(ActionEvent e) {
-                    int newState = ((Integer) disclosureButton.getClientProperty(DisclosureIcon.CURRENT_STATE_PROPERTY) + 1) %
-                            (Integer) disclosureButton.getClientProperty(DisclosureIcon.STATE_COUNT_PROPERTY);
-                    setDisclosureState(newState);
-                }
-            });
+            setupDisclosedButton((JButton) btn);
+//            btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
+//            btn.setBorderPainted(false);
+//            btn.setIcon(new DisclosureIcon());
+//            btn.setOpaque(false);
+//            disclosureButton = (JButton) btn;
+//            disclosureButton.putClientProperty(DisclosureIcon.CURRENT_STATE_PROPERTY, 1);
+//            disclosureButton.putClientProperty(DisclosureIcon.STATE_COUNT_PROPERTY, 2);
+//            disclosureButton.addActionListener(new ActionListener() {
+//
+//                public void actionPerformed(ActionEvent e) {
+//                    int newState = ((Integer) disclosureButton.getClientProperty(DisclosureIcon.CURRENT_STATE_PROPERTY) + 1) %
+//                            (Integer) disclosureButton.getClientProperty(DisclosureIcon.STATE_COUNT_PROPERTY);
+//                    setDisclosureState(newState);
+//                }
+//            });
         } else {
             btn = disclosureButton;
         }
 
-        gbc.gridx = 0;
-        gbc.insets = new Insets(0, 1, 0, 1);
-        gbc.anchor = GridBagConstraints.SOUTHWEST;
-        gbc.fill = GridBagConstraints.NONE;
-        gbc.weighty = 1d;
-        gbc.weightx = 1d;
-        //gbc = setupGridbagConstraints(gbc, 0, true, 1d, 1d, GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE);
+//        gbc.gridx = 0;
+//        gbc.insets = new Insets(0, 1, 0, 1);
+//        gbc.anchor = GridBagConstraints.SOUTHWEST;
+//        gbc.fill = GridBagConstraints.NONE;
+//        gbc.weighty = 1d;
+//        gbc.weightx = 1d;
+        setupGridbagConstraints(gbc, 0, true, 1d, 1d, GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE);
         add(btn, gbc);
 
         putClientProperty(PaletteToolBarUI.TOOLBAR_INSETS_OVERRIDE_PROPERTY, new Insets(0, 0, 0, 0));
         putClientProperty(PaletteToolBarUI.TOOLBAR_ICON_PROPERTY, new EmptyIcon(10, 8));
     }
     
-    private GridBagConstraints setupGridbagConstraints(GridBagConstraints gbc, 
+    private void setupGridbagConstraints(GridBagConstraints gbc, 
             int gridx, boolean insets, double weighty, double weightx, 
             int anchor, int fill) {
         
@@ -91,11 +91,10 @@ public class JDisclosureToolBar extends JToolBar {
         if (insets == true) {
             gbc.insets = new Insets(0,1,0,1);
         }
-        return gbc;
     }
     
     
-    private void setupDisclosedButton (AbstractButton btn) {
+    private void setupDisclosedButton (JButton btn) {
             btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
             btn.setBorderPainted(false);
             btn.setIcon(new DisclosureIcon());
@@ -122,35 +121,35 @@ public class JDisclosureToolBar extends JToolBar {
 
         removeAll();
         JComponent c = getDisclosedComponent(newValue);
-        GridBagLayout layout = (GridBagLayout) getLayout();
-        GridBagConstraints gbc = new GridBagConstraints();
+        //GridBagLayout layout = (GridBagLayout) getLayout();
+        GridBagConstraints gbc;
         if (c != null) {
             gbc = new GridBagConstraints();
-            //gbc = setupGridbagConstraints(gbc, 1, false, 1d, 1d, GridBagConstraints.WEST, GridBagConstraints.BOTH);
-            gbc.gridx = 1;
-            gbc.weightx = 1d;
-            gbc.weighty = 1d;
-            gbc.fill = GridBagConstraints.BOTH;
-            gbc.anchor = GridBagConstraints.WEST;
+            setupGridbagConstraints(gbc, 1, false, 1d, 1d, GridBagConstraints.WEST, GridBagConstraints.BOTH);
+//            gbc.gridx = 1;
+//            gbc.weightx = 1d;
+//            gbc.weighty = 1d;
+//            gbc.fill = GridBagConstraints.BOTH;
+//            gbc.anchor = GridBagConstraints.WEST;
             add(c, gbc);
             gbc = new GridBagConstraints();
-            //gbc = setupGridbagConstraints(gbc, 0, true, 1d, 0d, GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE);
-            gbc.gridx = 0;
-            gbc.weightx = 0d;
-            gbc.insets = new Insets(0, 1, 0, 1);
-            gbc.weighty = 1d;
-            gbc.fill = GridBagConstraints.NONE;
-            gbc.anchor = GridBagConstraints.SOUTHWEST;
+            setupGridbagConstraints(gbc, 0, true, 1d, 0d, GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE);
+//            gbc.gridx = 0;
+//            gbc.weightx = 0d;
+//            gbc.insets = new Insets(0, 1, 0, 1);
+//            gbc.weighty = 1d;
+//            gbc.fill = GridBagConstraints.NONE;
+//            gbc.anchor = GridBagConstraints.SOUTHWEST;
             add(disclosureButton, gbc);
         } else {
             gbc = new GridBagConstraints();
-            //gbc = setupGridbagConstraints(gbc, 1, true, 1d, 1d, GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE);
-            gbc.gridx = 1;
-            gbc.weightx = 1d;
-            gbc.weighty = 1d;
-            gbc.fill = GridBagConstraints.NONE;
-            gbc.anchor = GridBagConstraints.SOUTHWEST;
-            gbc.insets = new Insets(0, 1, 0, 1);
+            setupGridbagConstraints(gbc, 1, true, 1d, 1d, GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE);
+//            gbc.gridx = 1;
+//            gbc.weightx = 1d;
+//            gbc.weighty = 1d;
+//            gbc.fill = GridBagConstraints.NONE;
+//            gbc.anchor = GridBagConstraints.SOUTHWEST;
+//            gbc.insets = new Insets(0, 1, 0, 1);
             add(disclosureButton, gbc);
         }
 
