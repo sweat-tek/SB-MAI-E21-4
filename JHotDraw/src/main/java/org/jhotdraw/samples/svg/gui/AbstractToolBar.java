@@ -176,26 +176,26 @@ public /*abstract*/ class AbstractToolBar extends JDisclosureToolBar {
                         }
                         // long end = System.currentTimeMillis();
                         // System.out.println(AbstractToolBar.this.getClass()+" state:"+state+" elapsed:"+(end-start));
-                        //setupGridbag(state);
-                        JComponent parent = (JComponent) getParent();
-                        if (parent != null) {
-                            GridBagLayout layout = (GridBagLayout) parent.getLayout();
-                            GridBagConstraints gbc = layout.getConstraints(ProxyPanel.this);
-
-                            parent.remove(ProxyPanel.this);
-                            if (getDisclosureState() == state) {
-                            if (panels[state] != null) {
-                                parent.add(panels[state], gbc);
-                            } else {
-                                JPanel empty = new JPanel(new BorderLayout());
-                                empty.setOpaque(false);
-                                parent.add(empty, gbc);
-                            }
-                            }
-                            parent.revalidate();
-                            ((JComponent) parent.getRootPane().getContentPane()).revalidate();
-
-                        }
+                        setupGridbag(state);
+//                        JComponent parent = (JComponent) getParent();
+//                        if (parent != null) {
+//                            GridBagLayout layout = (GridBagLayout) parent.getLayout();
+//                            GridBagConstraints gbc = layout.getConstraints(ProxyPanel.this);
+//
+//                            parent.remove(ProxyPanel.this);
+//                            if (getDisclosureState() == state) {
+//                            if (panels[state] != null) {
+//                                parent.add(panels[state], gbc);
+//                            } else {
+//                                JPanel empty = new JPanel(new BorderLayout());
+//                                empty.setOpaque(false);
+//                                parent.add(empty, gbc);
+//                            }
+//                            }
+//                            parent.revalidate();
+//                            ((JComponent) parent.getRootPane().getContentPane()).revalidate();
+//
+//                        }
                     }
                 };
                 SwingUtilities.invokeLater(runner);
