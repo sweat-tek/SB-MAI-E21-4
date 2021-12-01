@@ -15,6 +15,7 @@
 package org.jhotdraw.draw.action;
 
 import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
+import org.jhotdraw.draw.arrange.Arrange;
 import org.jhotdraw.util.*;
 import javax.swing.*;
 import java.util.*;
@@ -43,7 +44,7 @@ public class BringToFrontAction extends AbstractSelectedAction {
     @FeatureEntryPoint(JHotDrawFeatures.ARRANGE)
     public void actionPerformed(java.awt.event.ActionEvent e) {
         final DrawingView view = getView();
-        final LinkedList<Figure> figures = new LinkedList<Figure>(view.getSelectedFigures());
+        final ArrayList<Figure> figures = new ArrayList<Figure>(view.getSelectedFigures());
         bringToFront(view, figures);
         fireUndoableEditHappened(new AbstractUndoableEdit() {
             @Override
@@ -64,13 +65,14 @@ public class BringToFrontAction extends AbstractSelectedAction {
         
         );
     }
-    public static void bringToFront(DrawingView view, Collection<Figure> figures) {
+    public static void bringToFront(DrawingView view, ArrayList<Figure> figures) {
         Drawing drawing = view.getDrawing();
         Iterator i = drawing.sort(figures).iterator();
         while (i.hasNext()) {
             Figure figure = (Figure) i.next();
-            drawing.bringToFront(figure);
+            drawing.sendToFront(figure);
         }
+
     }
     
 }

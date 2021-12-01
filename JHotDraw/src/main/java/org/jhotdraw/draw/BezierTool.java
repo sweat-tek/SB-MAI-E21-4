@@ -48,7 +48,7 @@ public class BezierTool extends AbstractTool {
     /**
      * The prototype for new figures.
      */
-    private BezierFigure prototype;
+    private final BezierFigure prototype;
     /**
      * The created figure.
      */
@@ -58,7 +58,7 @@ public class BezierTool extends AbstractTool {
      * A localized name for this tool. The presentationName is displayed by the
      * UndoableEdit.
      */
-    private String presentationName;
+    private final String presentationName;
     private Point mouseLocation;
     /** Holds the view on which we are currently creating a figure. */
     private DrawingView creationView;
@@ -154,7 +154,7 @@ public class BezierTool extends AbstractTool {
 
     @SuppressWarnings("unchecked")
     protected BezierFigure createFigure() {
-        BezierFigure f = (BezierFigure) prototype.clone();
+        BezierFigure f = prototype.clone();
         getEditor().applyDefaultAttributesTo(f);
         if (attributes != null) {
             for (Map.Entry<AttributeKey, Object> entry : attributes.entrySet()) {

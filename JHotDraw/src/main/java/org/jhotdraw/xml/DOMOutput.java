@@ -34,7 +34,7 @@ public interface DOMOutput {
     /**
      * Sets the doctype for the XML document.
      */
-    public void setDoctype(String doctype);
+    void setDoctype(String doctype);
     
     /**
      * Adds a new element to the DOM Document and opens it.
@@ -42,72 +42,72 @@ public interface DOMOutput {
      * document. Then it becomes the current element.
      * The element must be closed using closeElement.
      */
-    public void openElement(String tagName);
+    void openElement(String tagName);
     /**
      * Closes the current element of the DOM Document.
      * The parent of the current element becomes the current element.
      * @exception IllegalArgumentException if the provided tagName does
      * not match the tag name of the element.
      */
-    public void closeElement();
+    void closeElement();
     /**
      * Adds a comment to the current element of the DOM Document.
      */
-    public void addComment(String comment);
+    void addComment(String comment);
     /**
      * Adds a text to current element of the DOM Document.
      * Note: Multiple consecutives texts will be merged.
      */
-    public void addText(String text);
+    void addText(String text);
     /**
      * Adds an attribute to current element of the DOM Document.
      */
-    public void addAttribute(String name, String value);
+    void addAttribute(String name, String value);
     /**
      * Adds an attribute to current element of the DOM Document if it is
      * different from the default value.
      */
-    public void addAttribute(String name, String value, String defaultValue);
+    void addAttribute(String name, String value, String defaultValue);
     /**
      * Adds an attribute to current element of the DOM Document.
      */
-    public void addAttribute(String name, int value);
+    void addAttribute(String name, int value);
     /**
      * Adds an attribute to current element of the DOM Document if it is
      * different from the default value.
      */
-    public void addAttribute(String name, int value, int defaultValue);
+    void addAttribute(String name, int value, int defaultValue);
     /**
      * Adds an attribute to current element of the DOM Document.
      */
-    public void addAttribute(String name, boolean value);
+    void addAttribute(String name, boolean value);
     /**
      * Adds an attribute to current element of the DOM Document if it is
      * different from the default value.
      */
-    public void addAttribute(String name, boolean value, boolean defaultValue);
+    void addAttribute(String name, boolean value, boolean defaultValue);
     /**
      * Adds an attribute to current element of the DOM Document.
      */
-    public void addAttribute(String name, float value);
+    void addAttribute(String name, float value);
     /**
      * Adds an attribute to current element of the DOM Document if it is
      * different from the default value.
      */
-    public void addAttribute(String name, float value, float defaultValue);
+    void addAttribute(String name, float value, float defaultValue);
     /**
      * Adds an attribute to current element of the DOM Document.
      */
-    public void addAttribute(String name, double value);
+    void addAttribute(String name, double value);
     /**
      * Adds an attribute to current element of the DOM Document if it is
      * different from the default value.
      */
-    public void addAttribute(String name, double value, double defaultValue);
+    void addAttribute(String name, double value, double defaultValue);
     /**
      * Writes an object.
      */
-    public void writeObject(Object o) throws IOException;
+    void writeObject(Object o) throws IOException;
     
     /**
      * Returns a prototype for the object currently being written.
@@ -115,5 +115,5 @@ public interface DOMOutput {
      * For example, by not writing object attributes, which have the same values
      * as the prototype.
      */
-    public Object getPrototype();
+    Object getPrototype();
 }

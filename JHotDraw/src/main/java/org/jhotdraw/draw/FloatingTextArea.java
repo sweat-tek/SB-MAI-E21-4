@@ -42,7 +42,7 @@ public class FloatingTextArea {
      */
     protected DrawingView view;
     private TextHolderFigure editedFigure;
-    private FigureListener figureHandler = new FigureAdapter() {
+    private final FigureListener figureHandler = new FigureAdapter() {
 
         @Override
         public void attributeChanged(FigureEvent e) {

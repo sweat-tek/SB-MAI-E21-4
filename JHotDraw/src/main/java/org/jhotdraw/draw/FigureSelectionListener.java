@@ -27,5 +27,5 @@ package org.jhotdraw.draw;
  * @version 1.0 2003-12-01 Derived from JHotDraw 5.4b1.
  */
 public interface FigureSelectionListener extends java.util.EventListener {
-    public void selectionChanged(FigureSelectionEvent evt);
+    void selectionChanged(FigureSelectionEvent evt);
 }

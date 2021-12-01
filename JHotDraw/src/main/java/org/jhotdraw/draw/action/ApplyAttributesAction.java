@@ -35,9 +35,9 @@ import static org.jhotdraw.draw.AttributeKeys.*;
  */
 public class ApplyAttributesAction extends AbstractSelectedAction {
 
-    private ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels", Locale.getDefault());
+    private final ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels", Locale.getDefault());
     private Set<AttributeKey> excludedAttributes = new HashSet<AttributeKey>(
-            Arrays.asList(new AttributeKey[]{TRANSFORM, TEXT}));
+            Arrays.asList(TRANSFORM, TEXT));
 
     /** Creates a new instance. */
     public ApplyAttributesAction(DrawingEditor editor) {

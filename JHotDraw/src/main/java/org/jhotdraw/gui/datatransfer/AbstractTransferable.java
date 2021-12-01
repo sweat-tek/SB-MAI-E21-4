@@ -23,7 +23,7 @@ import java.awt.datatransfer.*;
  * @version 1.0 22. August 2007 Created.
  */
 public abstract class AbstractTransferable implements Transferable {
-    private DataFlavor[] flavors;
+    private final DataFlavor[] flavors;
     
     /** Creates a new instance. */
     public AbstractTransferable(DataFlavor flavor) {

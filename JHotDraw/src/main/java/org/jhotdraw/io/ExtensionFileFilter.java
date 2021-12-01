@@ -27,9 +27,9 @@ import java.util.*;
  * <br>1.0 7. April 2006 Created.
  */
 public class ExtensionFileFilter extends javax.swing.filechooser.FileFilter {
-    private String description;
-    private HashSet<String> extensions;
-    private String defaultExtension;
+    private final String description;
+    private final HashSet<String> extensions;
+    private final String defaultExtension;
     
     /**
      * Creates a new instance.

@@ -26,6 +26,6 @@ import java.io.*;
  * @version 1.0 February 17, 2004 Create.
  */
 public interface DOMStorable {
-    public void write(DOMOutput out) throws IOException;
-    public void read(DOMInput in) throws IOException;
+    void write(DOMOutput out) throws IOException;
+    void read(DOMInput in) throws IOException;
 }

@@ -39,7 +39,7 @@ public class PathTool extends BezierTool {
     /**
      * The path prototype for new figures.
      */
-    private SVGPathFigure pathPrototype;
+    private final SVGPathFigure pathPrototype;
 
     /** Creates a new instance. */
     public PathTool(SVGPathFigure pathPrototype, SVGBezierFigure bezierPrototype) {
@@ -54,7 +54,7 @@ public class PathTool extends BezierTool {
 
     @SuppressWarnings("unchecked")
     protected SVGPathFigure createPath() {
-        SVGPathFigure f = (SVGPathFigure) pathPrototype.clone();
+        SVGPathFigure f = pathPrototype.clone();
         getEditor().applyDefaultAttributesTo(f);
         if (attributes != null) {
             for (Map.Entry<AttributeKey, Object> entry : attributes.entrySet()) {

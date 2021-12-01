@@ -169,7 +169,7 @@ public class SVGCreateFromFileTool extends CreationTool {
 
                     public Object construct() {
                         try {
-                            ((ImageHolderFigure) loaderFigure).loadImage(file);
+                            loaderFigure.loadImage(file);
                         } catch (Throwable t) {
                             return t;
                         }

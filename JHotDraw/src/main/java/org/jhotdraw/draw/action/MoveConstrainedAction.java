@@ -29,7 +29,7 @@ import java.awt.geom.*;
  */
 public abstract class MoveConstrainedAction extends AbstractSelectedAction {
 
-    private TranslationDirection dir;
+    private final TranslationDirection dir;
 
     /** Creates a new instance. */
     public MoveConstrainedAction(DrawingEditor editor, TranslationDirection dir) {

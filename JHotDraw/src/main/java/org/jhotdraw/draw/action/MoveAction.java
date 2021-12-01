@@ -31,7 +31,8 @@ import javax.swing.undo.*;
  * @version 1.0 17. March 2004  Created.
  */
 public abstract class MoveAction extends AbstractSelectedAction {
-    private int dx, dy;
+    private final int dx;
+    private final int dy;
     
     /** Creates a new instance. */
     public MoveAction(DrawingEditor editor, int dx, int dy) {

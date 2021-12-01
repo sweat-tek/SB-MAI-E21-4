@@ -30,10 +30,10 @@ import static org.jhotdraw.draw.AttributeKeys.*;
  * <br>1.0 25. November 2003  Created.
  */
 public class PickAttributesAction extends AbstractSelectedAction {
-    private ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels", Locale.getDefault());
+    private final ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels", Locale.getDefault());
     
     private Set<AttributeKey> excludedAttributes = new HashSet<AttributeKey>(
-            Arrays.asList(new AttributeKey[] { TRANSFORM, TEXT }));
+            Arrays.asList(TRANSFORM, TEXT));
     
     /** Creates a new instance. */
     public PickAttributesAction(DrawingEditor editor) {
@@ -60,7 +60,7 @@ public class PickAttributesAction extends AbstractSelectedAction {
         DrawingEditor editor = getEditor();
         Collection<Figure> selection = getView().getSelectedFigures();
         if (selection.size() > 0) {
-            Figure figure = (Figure) selection.iterator().next();
+            Figure figure = selection.iterator().next();
             for (Map.Entry<AttributeKey, Object> entry : figure.getAttributes().entrySet()) {
                 if (! excludedAttributes.contains(entry.getKey())) {
                     editor.setDefaultAttribute(entry.getKey(), entry.getValue());

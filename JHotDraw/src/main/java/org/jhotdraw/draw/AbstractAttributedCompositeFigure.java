@@ -156,7 +156,7 @@ public abstract class AbstractAttributedCompositeFigure extends AbstractComposit
     }
 
     public double getStrokeMiterLimitFactor() {
-        Number value = (Number) getAttribute(AttributeKeys.STROKE_MITER_LIMIT);
+        Number value = getAttribute(AttributeKeys.STROKE_MITER_LIMIT);
         return (value != null) ? value.doubleValue() : 10f;
     }
 

@@ -53,9 +53,9 @@ public class BezierScaleHandle extends AbstractHandle {
      * Draws this handle.
      */
     public void draw(Graphics2D g) {
-        drawCircle(g, 
-                (Color) getEditor().getHandleAttribute(HandleAttributeKeys.SCALE_HANDLE_FILL_COLOR),
-                (Color) getEditor().getHandleAttribute(HandleAttributeKeys.SCALE_HANDLE_STROKE_COLOR)
+        drawCircle(g,
+                getEditor().getHandleAttribute(HandleAttributeKeys.SCALE_HANDLE_FILL_COLOR),
+                getEditor().getHandleAttribute(HandleAttributeKeys.SCALE_HANDLE_STROKE_COLOR)
                 );
     }
     

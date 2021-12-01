@@ -45,7 +45,7 @@ public interface InputFormat {
      *
      * @return FileFilter to be used with a javax.swing.JFileChooser
      */
-    public javax.swing.filechooser.FileFilter getFileFilter();
+    javax.swing.filechooser.FileFilter getFileFilter();
     
     /**
      * Return a JFileChooser accessory that can be used to customize the input
@@ -54,7 +54,7 @@ public interface InputFormat {
      * @return A JFileChooser accessory to be used with a javax.swing.JFileChooser
      * Returns null, if no accessory is provided for this format.
      */
-    public JComponent getInputFormatAccessory();
+    JComponent getInputFormatAccessory();
     
     /**
      * Reads figures from a file and replaces the children of the drawing
@@ -65,7 +65,7 @@ public interface InputFormat {
      * @param file The file.
      * @param drawing The drawing.
      */
-    public void read(File file, Drawing drawing) throws IOException;
+    void read(File file, Drawing drawing) throws IOException;
     
     /**
      * Reads figures from a file and adds them to the specified drawing.
@@ -77,7 +77,7 @@ public interface InputFormat {
      * Set this to false, to add the contents of the file to the drawing (for
      * example, when the file has been dropped into the drawing view).
      */
-    public void read(File file, Drawing drawing, boolean replace) throws IOException;
+    void read(File file, Drawing drawing, boolean replace) throws IOException;
 
     /**
      * Reads figures from a file and adds them to the specified drawing.
@@ -89,7 +89,7 @@ public interface InputFormat {
      * Set this to false, to add the contents of the file to the drawing (for
      * example, when the stream has been dropped into the drawing view).
      */
-    public void read(InputStream in, Drawing drawing, boolean replace) throws IOException;
+    void read(InputStream in, Drawing drawing, boolean replace) throws IOException;
 
     /**
      * Returns true, if this InputFormat can readFigures TransferData using the 
@@ -97,7 +97,7 @@ public interface InputFormat {
      * 
      * @param flavor A DataFlavor.
      */
-    public boolean isDataFlavorSupported(DataFlavor flavor);
+    boolean isDataFlavorSupported(DataFlavor flavor);
     
     /**
      * Reads figures from the specified Transferable and adds them to the
@@ -111,5 +111,5 @@ public interface InputFormat {
      * transferable to the drawing (for example, when the transferable has been
      * dropped or pasted into the drawing view).
      */
-    public void read(Transferable t, Drawing drawing, boolean replace) throws UnsupportedFlavorException, IOException;
+    void read(Transferable t, Drawing drawing, boolean replace) throws UnsupportedFlavorException, IOException;
 }

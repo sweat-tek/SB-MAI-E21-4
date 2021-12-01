@@ -26,6 +26,6 @@ public interface DirectoryView extends View {
     /**
      * Gets the file chooser for opening a directory for the view.
      */
-    public JFileChooser getOpenDirectoryChooser();
+    JFileChooser getOpenDirectoryChooser();
 
 }

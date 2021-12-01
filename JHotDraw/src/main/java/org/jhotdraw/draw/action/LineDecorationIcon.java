@@ -28,7 +28,7 @@ import static org.jhotdraw.draw.AttributeKeys.*;
  * <br>1.0 26. November 2003  Created.
  */
 public class LineDecorationIcon implements Icon {
-    private LineFigure lineFigure;
+    private final LineFigure lineFigure;
     
     /** Creates a new instance. */
     public LineDecorationIcon(LineDecoration decoration, boolean isStartDecoration) {

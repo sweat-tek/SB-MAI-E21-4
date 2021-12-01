@@ -48,7 +48,7 @@ public interface IXMLValidator
     *
     * @param resolver the entity resolver.
     */
-   public void setParameterEntityResolver(IXMLEntityResolver resolver);
+   void setParameterEntityResolver(IXMLEntityResolver resolver);
 
 
    /**
@@ -56,7 +56,7 @@ public interface IXMLValidator
     *
     * @return the entity resolver.
     */
-   public IXMLEntityResolver getParameterEntityResolver();
+   IXMLEntityResolver getParameterEntityResolver();
 
 
    /**
@@ -71,10 +71,10 @@ public interface IXMLValidator
     * @throws java.lang.Exception
     *     If something went wrong.
     */
-   public void parseDTD(String             publicID,
-                        IXMLReader         reader,
-                        IXMLEntityResolver entityResolver,
-                        boolean            external)
+   void parseDTD(String publicID,
+                 IXMLReader reader,
+                 IXMLEntityResolver entityResolver,
+                 boolean external)
       throws Exception;
 
 
@@ -88,9 +88,9 @@ public interface IXMLValidator
     * @throws java.lang.Exception
     *     If the element could not be validated.
     */
-   public void elementStarted(String name,
-                              String systemId,
-                              int    lineNr)
+   void elementStarted(String name,
+                       String systemId,
+                       int lineNr)
       throws Exception;
 
 
@@ -104,9 +104,9 @@ public interface IXMLValidator
     * @throws java.lang.Exception
     *     If the element could not be validated.
     */
-   public void elementEnded(String name,
-                            String systemId,
-                            int    lineNr)
+   void elementEnded(String name,
+                     String systemId,
+                     int lineNr)
       throws Exception;
 
 
@@ -121,10 +121,10 @@ public interface IXMLValidator
     * @throws java.lang.Exception
     *     If the attribute could not be validated.
     */
-   public void attributeAdded(String key,
-                              String value,
-                              String systemId,
-                              int    lineNr)
+   void attributeAdded(String key,
+                       String value,
+                       String systemId,
+                       int lineNr)
       throws Exception;
 
 
@@ -142,10 +142,10 @@ public interface IXMLValidator
     * @throws java.lang.Exception
     *     if the element could not be validated.
     */
-   public void elementAttributesProcessed(String     name,
-                                          Properties extraAttributes,
-                                          String     systemId,
-                                          int        lineNr)
+   void elementAttributesProcessed(String name,
+                                   Properties extraAttributes,
+                                   String systemId,
+                                   int lineNr)
       throws Exception;
 
 
@@ -158,8 +158,8 @@ public interface IXMLValidator
     * @throws java.lang.Exception
     *     if the element could not be validated.
     */
-   public void PCDataAdded(String systemId,
-                           int    lineNr)
+   void PCDataAdded(String systemId,
+                    int lineNr)
       throws Exception;
 
 }

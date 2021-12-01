@@ -30,9 +30,9 @@ import javax.swing.event.*;
  * <br>1.0 2. April 2004  Created.
  */
 public class ToolBarPrefsHandler implements ComponentListener, AncestorListener {
-    private JToolBar toolbar;
-    private String prefsPrefix;
-    private Preferences prefs;
+    private final JToolBar toolbar;
+    private final String prefsPrefix;
+    private final Preferences prefs;
     private boolean firstTimeShown;
     
     public ToolBarPrefsHandler(JToolBar toolbar, String prefsPrefix, Preferences prefs) {

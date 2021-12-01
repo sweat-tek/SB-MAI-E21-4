@@ -50,7 +50,7 @@ public abstract class AbstractTool extends AbstractBean implements Tool {
     protected DrawingEditor editor;
     protected Point anchor = new Point();
     protected EventListenerList listenerList = new EventListenerList();
-    private DrawingEditorProxy editorProxy;
+    private final DrawingEditorProxy editorProxy;
     /*
     private PropertyChangeListener editorHandler;
     private PropertyChangeListener viewHandler;

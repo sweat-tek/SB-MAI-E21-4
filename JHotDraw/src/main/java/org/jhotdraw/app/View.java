@@ -37,35 +37,35 @@ public interface View {
     /**
      * The name of the application property.
      */
-    public final static String APPLICATION_PROPERTY = "application";
+    String APPLICATION_PROPERTY = "application";
     /**
      * The name of the file property.
      */
-    public final static String FILE_PROPERTY = "file";
+    String FILE_PROPERTY = "file";
     /**
      * The name of the title property.
      */
-    public final static String TITLE_PROPERTY = "title";
+    String TITLE_PROPERTY = "title";
     /**
      * The name of the enabled property.
      */
-    public final static String ENABLED_PROPERTY = "enabled";
+    String ENABLED_PROPERTY = "enabled";
     /**
      * The name of the hasUnsavedChanges property.
      */
-    public final static String HAS_UNSAVED_CHANGES_PROPERTY = "hasUnsavedChanges";
+    String HAS_UNSAVED_CHANGES_PROPERTY = "hasUnsavedChanges";
     /**
      * The name of the multipleOpenId property.
      */
-    public final static String MULTIPLE_OPEN_ID_PROPERTY = "multipleOpenId";
+    String MULTIPLE_OPEN_ID_PROPERTY = "multipleOpenId";
     /**
      * The name of the showing property.
      */
-    public final static String SHOWING_PROPERTY = "showing";
+    String SHOWING_PROPERTY = "showing";
     /**
      * Gets the application to which this view belongs.
      */
-    public Application getApplication();
+    Application getApplication();
     
     /**
      * Sets the application of the view.
@@ -73,28 +73,28 @@ public interface View {
      * Application.remove().
      * This is a bound property.
      */
-    public void setApplication(Application newValue);
+    void setApplication(Application newValue);
     
     /**
      * Returns the visual component of the view.
      */
-    public JComponent getComponent();
+    JComponent getComponent();
     
     /**
      * Returns the file which holds the document of the view.
      */
-    public File getFile();
+    File getFile();
     
     /**
      * Sets the file of the view.
      * This is a bound property.
      */
-    public void setFile(File newValue);
+    void setFile(File newValue);
     
     /**
      * Returns the enabled state of the view.
      */
-    public boolean isEnabled();
+    boolean isEnabled();
     
     /**
      * Sets the enabled state of the view.
@@ -112,46 +112,46 @@ public interface View {
      *
      * This is a bound property.
      */
-    public void setEnabled(boolean newValue);
+    void setEnabled(boolean newValue);
     
     /**
      * Writes the view to the specified file.
      * By convention this method is never invoked on the AWT Event Dispatcher Thread.
      */
-    public void write(File f) throws IOException;
+    void write(File f) throws IOException;
     
     /**
      * Reads the view from the specified file.
      * By convention this method is never invoked on the AWT Event Dispatcher Thread.
      */
-    public void read(File f) throws IOException;
+    void read(File f) throws IOException;
     
     /**
      * Clears the view, for example by emptying the contents of
      * the view, or by reading a template contents from a file.
      * By convention this method is never invoked on the AWT Event Dispatcher Thread.
      */
-    public void clear();
+    void clear();
     
     
     /**
      * Gets the open file chooser for the view.
      */
-    public JFileChooser getOpenChooser();
+    JFileChooser getOpenChooser();
     /**
      * Gets the save file chooser for the view.
      */
-    public JFileChooser getSaveChooser();
+    JFileChooser getSaveChooser();
     /**
      * Returns true, if the view has unsaved changes.
      * This is a bound property.
      */
-    public boolean hasUnsavedChanges();
+    boolean hasUnsavedChanges();
     /**
      * Marks all changes as saved.
      * This changes the state of hasUnsavedChanges to false.
      */
-    public void markChangesAsSaved();
+    void markChangesAsSaved();
     
     /**
      * Returns true, if this view can be saved to the specified file.
@@ -165,14 +165,14 @@ public interface View {
      * @param file A file. If this parameter is null, a NullPointerException
      * is thrown.
      */
-    public boolean canSaveTo(File file);
+    boolean canSaveTo(File file);
     
     /**
      * Executes the specified runnable on the worker thread of the view.
      * Execution is perfomred sequentially in the same sequence as the
      * runnables have been passed to this method.
      */
-    public void execute(Runnable worker);
+    void execute(Runnable worker);
     
     /**
      * Initializes the view.
@@ -184,81 +184,81 @@ public interface View {
      * either method clear() must be called
      * or method read, in order to fully initialize a  View.
      */
-    public void init();
+    void init();
     
     /**
      * Starts the view.
      * Invoked after a view has been made visible to the user.
      * Multiple view can be visible at the same time.
      */
-    public void start();
+    void start();
     /**
      * Activates the view.
      * This occurs, when the user activated the parent window of the view.
      * Only one view can be active at any given time.
      * This method is only invoked on a started view.
      */
-    public void activate();
+    void activate();
     /**
      * Deactivates the view.
      * This occurs, when the user closes the view, or activated another view.
      * This method is only invoked on a started view.
      */
-     public void deactivate();    
+    void deactivate();
     /**
      * Stops the view.
      * Invoked after a view window has been minimized or made invisible.
      */
-     public void stop();    
+    void stop();
     /**
      * Gets rid of all the resources of the view.
      * No other methods should be invoked on the view afterwards.
      * A view must not consume many resources after method dispose() has been called.
      * This is crucial for the responsivenes of an application.
      */
-    public void dispose();
+    void dispose();
     
     /**
      * Returns the action with the specified id.
      */
-    public Action getAction(String id);
+    Action getAction(String id);
     
     /**
      * Puts an action with the specified id.
      */
-    public void putAction(String id, Action action);
+    void putAction(String id, Action action);
     
     /**
      * Adds a property change listener.
      */
-    public void addPropertyChangeListener(PropertyChangeListener l);
+    void addPropertyChangeListener(PropertyChangeListener l);
     
     /**
      * Removes a property change listener.
      */
-    public void removePropertyChangeListener(PropertyChangeListener l);
+    void removePropertyChangeListener(PropertyChangeListener l);
     
     /**
      * Sets the multiple open id.
      * The id is used to help distinguish multiply opened views.
      * The id should be displayed in the title of the view.
      */
-    public void setMultipleOpenId(int newValue);
+    void setMultipleOpenId(int newValue);
     
     /**
      * Returns the multiple open id.
      * If a view is open only once this should be 1.
      */
-    public int getMultipleOpenId();
+    int getMultipleOpenId();
     
     /**
      * This is used by Application to keep track if a view is showing.
      */
-    public boolean isShowing();
+    boolean isShowing();
     /**
      * This is used by Application to keep track if a view is showing.
      */
-    public void setShowing(boolean newValue);
+    void setShowing(boolean newValue);
     
     /**
      * Sets the title of the view. 
@@ -272,11 +272,11 @@ public interface View {
      * <p>
      * This is a bound property.
      */
-    public void setTitle(String newValue);
+    void setTitle(String newValue);
     
     /**
      * Gets the title of the view. 
      */
-    public String getTitle();
+    String getTitle();
     
 }

@@ -17,6 +17,7 @@ import java.awt.*;
 import java.awt.datatransfer.*;
 import java.awt.geom.*;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import javax.swing.*;
 import net.n3.nanoxml.*;
 import org.jhotdraw.draw.*;
@@ -46,12 +47,12 @@ public class ImageMapOutputFormat implements OutputFormat {
      * to create scaled image maps.
      */
     private AffineTransform drawingTransform = new AffineTransform();
-    private static boolean DEBUG = true;
+    private static final boolean DEBUG = true;
     /**
      * Set this to true, if AREA elements with <code>nohref="true"</code>
      * shall e included in the image map.
      */
-    private boolean isIncludeNohref = false;
+    private final boolean isIncludeNohref = false;
     /**
      * Image dimension. We only include AREA elements which are within the
      * image dimension.
@@ -134,7 +135,7 @@ public class ImageMapOutputFormat implements OutputFormat {
 
         // Write XML content
         PrintWriter writer = new PrintWriter(
-                new OutputStreamWriter(out, "UTF-8"));
+                new OutputStreamWriter(out, StandardCharsets.UTF_8));
         //new XMLWriter(writer).write(document);
         for (Object o : document.getChildren()) {
             XMLElement child = (XMLElement) o;
@@ -186,7 +187,7 @@ public class ImageMapOutputFormat implements OutputFormat {
         } else if (f instanceof SVGPathFigure) {
             SVGPathFigure path = (SVGPathFigure) f;
             if (path.getChildCount() == 1) {
-                BezierFigure bezier = (BezierFigure) path.getChild(0);
+                BezierFigure bezier = path.getChild(0);
                 boolean isLinear = true;
                 for (int i = 0, n = bezier.getNodeCount(); i < n; i++) {
                     if (bezier.getNode(i).getMask() != 0) {
@@ -257,7 +258,7 @@ public class ImageMapOutputFormat implements OutputFormat {
             writeHrefAttribute(elem, f);
             return bounds.intersects(ellipse.getBounds());
         } else {
-            return writePolyAttributes(elem, f, (Shape) ellipse);
+            return writePolyAttributes(elem, f, ellipse);
         }
     }
 
@@ -298,7 +299,7 @@ public class ImageMapOutputFormat implements OutputFormat {
             writeHrefAttribute(elem, f);
             return bounds.intersects(r);
         } else {
-            return writePolyAttributes(elem, f, (Shape) rect);
+            return writePolyAttributes(elem, f, rect);
         }
     }
 

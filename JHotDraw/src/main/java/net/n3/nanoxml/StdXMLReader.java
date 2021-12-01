@@ -43,6 +43,7 @@ import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Stack;
 
 
@@ -80,7 +81,7 @@ public class StdXMLReader
    /**
     * The stack of readers.
     */
-   private Stack readers;
+   private final Stack readers;
 
 
    /**
@@ -292,14 +293,14 @@ public class StdXMLReader
          case 0xFE:
          case 0xFF:
             pbstream.unread(b);
-            return new InputStreamReader(pbstream, "UTF-16");
+            return new InputStreamReader(pbstream, StandardCharsets.UTF_16);
 
          case 0xEF:
             for (int i = 0; i < 2; i++) {
                pbstream.read();
             }
 
-            return new InputStreamReader(pbstream, "UTF-8");
+            return new InputStreamReader(pbstream, StandardCharsets.UTF_8);
 
          case 0x3C:
             b = pbstream.read();
@@ -317,7 +318,7 @@ public class StdXMLReader
             String encoding = this.getEncoding(charsRead.toString());
 
             if (encoding == null) {
-               return new InputStreamReader(pbstream, "UTF-8");
+               return new InputStreamReader(pbstream, StandardCharsets.UTF_8);
             }
 
             charsRead.setLength(0);
@@ -325,12 +326,12 @@ public class StdXMLReader
             try {
                return new InputStreamReader(pbstream, encoding);
             } catch (UnsupportedEncodingException e) {
-               return new InputStreamReader(pbstream, "UTF-8");
+               return new InputStreamReader(pbstream, StandardCharsets.UTF_8);
             }
 
             default:
                charsRead.append((char) b);
-               return new InputStreamReader(pbstream, "UTF-8");
+               return new InputStreamReader(pbstream, StandardCharsets.UTF_8);
       }
    }
 

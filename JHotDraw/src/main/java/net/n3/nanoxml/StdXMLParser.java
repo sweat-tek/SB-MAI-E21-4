@@ -247,7 +247,7 @@ public class StdXMLParser
                XMLUtil.errorInvalidInput(reader.getSystemID(),
                                          reader.getLineNr(),
                                          "`" + ch + "' (0x"
-                                         + Integer.toHexString((int) ch)
+                                         + Integer.toHexString(ch)
                                          + ')');
          }
       }

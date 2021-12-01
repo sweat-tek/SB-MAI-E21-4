@@ -41,9 +41,9 @@ import java.awt.print.*;
  * @see org.jhotdraw.app.action.PrintAction
  */
 public class DrawingPageable implements Pageable {
-    private Drawing drawing;
-    private PageFormat pageFormat;
-    private boolean isAutorotate = false;
+    private final Drawing drawing;
+    private final PageFormat pageFormat;
+    private final boolean isAutorotate = false;
     
     /** Creates a new instance. */
     public DrawingPageable(Drawing drawing) {

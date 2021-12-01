@@ -28,7 +28,7 @@ import org.jhotdraw.geom.*;
  */
 public class SVGRectRadiusUndoableEdit extends AbstractUndoableEdit {
 
-    private SVGRectFigure owner;
+    private final SVGRectFigure owner;
     private Dimension2DDouble oldArc;
     private Dimension2DDouble newArc;
 

@@ -19,6 +19,7 @@ import java.awt.datatransfer.*;
 import java.awt.geom.*;
 import java.io.*;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -151,7 +152,7 @@ public class SVGOutputFormat implements OutputFormat {
         } else if (f instanceof SVGPathFigure) {
             SVGPathFigure path = (SVGPathFigure) f;
             if (path.getChildCount() == 1) {
-                BezierFigure bezier = (BezierFigure) path.getChild(0);
+                BezierFigure bezier = path.getChild(0);
                 boolean isLinear = true;
                 for (int i = 0, n = bezier.getNodeCount(); i < n; i++) {
                     if (bezier.getNode(i).getMask() != 0) {
@@ -332,7 +333,7 @@ public class SVGOutputFormat implements OutputFormat {
     protected void writePathElement(IXMLElement parent, SVGPathFigure f) throws IOException {
         BezierPath[] beziers = new BezierPath[f.getChildCount()];
         for (int i = 0; i < beziers.length; i++) {
-            beziers[i] = ((BezierFigure) f.getChild(i)).getBezierPath();
+            beziers[i] = f.getChild(i).getBezierPath();
         }
         parent.addChild(createPath(
                 document,
@@ -355,7 +356,7 @@ public class SVGOutputFormat implements OutputFormat {
         LinkedList<Point2D.Double> points = new LinkedList<Point2D.Double>();
         BezierPath[] beziers = new BezierPath[f.getChildCount()];
         for (int i = 0, n = f.getChildCount(); i < n; i++) {
-            BezierPath bezier = ((BezierFigure) f.getChild(i)).getBezierPath();
+            BezierPath bezier = f.getChild(i).getBezierPath();
             for (BezierPath.Node node : bezier) {
                 points.add(new Point2D.Double(node.x[0], node.y[0]));
             }
@@ -383,7 +384,7 @@ public class SVGOutputFormat implements OutputFormat {
         LinkedList<Point2D.Double> points = new LinkedList<Point2D.Double>();
         BezierPath[] beziers = new BezierPath[f.getChildCount()];
         for (int i = 0, n = f.getChildCount(); i < n; i++) {
-            BezierPath bezier = ((BezierFigure) f.getChild(i)).getBezierPath();
+            BezierPath bezier = f.getChild(i).getBezierPath();
             for (BezierPath.Node node : bezier) {
                 points.add(new Point2D.Double(node.x[0], node.y[0]));
             }
@@ -409,7 +410,7 @@ public class SVGOutputFormat implements OutputFormat {
 
     protected void writeLineElement(IXMLElement parent, SVGPathFigure f)
             throws IOException {
-        BezierFigure bezier = (BezierFigure) f.getChild(0);
+        BezierFigure bezier = f.getChild(0);
         parent.addChild(createLine(
                 document,
                 bezier.getNode(0).x[0],
@@ -469,8 +470,7 @@ public class SVGOutputFormat implements OutputFormat {
         try {
             styledDoc.insertString(0, f.getText(), null);
         } catch (BadLocationException e) {
-            InternalError error = new InternalError(e.getMessage());
-            error.initCause(e);
+            InternalError error = new InternalError(e.getMessage(), e);
             throw error;
         }
         parent.addChild(
@@ -513,8 +513,7 @@ public class SVGOutputFormat implements OutputFormat {
         try {
             str = text.getText(0, text.getLength());
         } catch (BadLocationException e) {
-            InternalError error = new InternalError(e.getMessage());
-            error.initCause(e);
+            InternalError error = new InternalError(e.getMessage(), e);
             throw error;
         }
 
@@ -533,8 +532,7 @@ public class SVGOutputFormat implements OutputFormat {
         try {
             styledDoc.insertString(0, f.getText(), null);
         } catch (BadLocationException e) {
-            InternalError error = new InternalError(e.getMessage());
-            error.initCause(e);
+            InternalError error = new InternalError(e.getMessage(), e);
             throw error;
         }
 
@@ -563,8 +561,7 @@ public class SVGOutputFormat implements OutputFormat {
         try {
             str = text.getText(0, text.getLength());
         } catch (BadLocationException e) {
-            InternalError error = new InternalError(e.getMessage());
-            error.initCause(e);
+            InternalError error = new InternalError(e.getMessage(), e);
             throw error;
         }
         String[] lines = str.split("\n");
@@ -1340,7 +1337,7 @@ public class SVGOutputFormat implements OutputFormat {
 
         // Write XML prolog
         PrintWriter writer = new PrintWriter(
-                new OutputStreamWriter(out, "UTF-8"));
+                new OutputStreamWriter(out, StandardCharsets.UTF_8));
         writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 
         // Write XML content

@@ -196,8 +196,8 @@ public class ButtonFactory {
 
     private static class ToolButtonListener implements ItemListener {
 
-        private Tool tool;
-        private DrawingEditor editor;
+        private final Tool tool;
+        private final DrawingEditor editor;
 
         public ToolButtonListener(Tool t, DrawingEditor editor) {
             this.tool = t;
@@ -236,8 +236,8 @@ public class ButtonFactory {
 
         a.add(null); // separator
 
-        a.add(new BringToFrontAction(editor));
-        a.add(new SendToBackAction(editor));
+        a.add(new ArrangeAction(editor, "edit.sendToBack"));
+        a.add(new ArrangeAction(editor,"edit.bringToFront"));
 
         return a;
     }
@@ -1009,8 +1009,8 @@ public class ButtonFactory {
 
         NumberFormat formatter = NumberFormat.getInstance();
         if (formatter instanceof DecimalFormat) {
-            ((DecimalFormat) formatter).setMaximumFractionDigits(1);
-            ((DecimalFormat) formatter).setMinimumFractionDigits(0);
+            formatter.setMaximumFractionDigits(1);
+            formatter.setMinimumFractionDigits(0);
         }
         for (int i = 0; i < widths.length; i++) {
             String label = Double.toString(widths[i]);

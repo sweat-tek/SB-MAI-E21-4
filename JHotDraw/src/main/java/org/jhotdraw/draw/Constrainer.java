@@ -42,7 +42,7 @@ public interface Constrainer {
      * @param p A point on the drawing.
      * @return Returns the constrained point.
      */
-    public Point2D.Double constrainPoint(Point2D.Double p);
+    Point2D.Double constrainPoint(Point2D.Double p);
 
     /**
      * Moves a point to the closest constrained location in the specified
@@ -54,7 +54,7 @@ public interface Constrainer {
      * @param dir A direction.
      * @return Returns the constrained point.
      */
-    public Point2D.Double translatePoint(Point2D.Double p, TranslationDirection dir);
+    Point2D.Double translatePoint(Point2D.Double p, TranslationDirection dir);
 
     /**
      * Constrains the placement of a rectangle towards the closest constrainment
@@ -66,7 +66,7 @@ public interface Constrainer {
      * @param r A rectangle on the drawing.
      * @return Returns the constrained rectangle.
      */
-    public Rectangle2D.Double constrainRectangle(Rectangle2D.Double r);
+    Rectangle2D.Double constrainRectangle(Rectangle2D.Double r);
 
     /**
      * Moves a rectangle to the closest constrained location in the 
@@ -80,7 +80,7 @@ public interface Constrainer {
      * @param dir A direction.
      * @return Returns the constrained rectangle.
      */
-    public Rectangle2D.Double translateRectangle(Rectangle2D.Double r, TranslationDirection dir);
+    Rectangle2D.Double translateRectangle(Rectangle2D.Double r, TranslationDirection dir);
 
     /**
      * Constrains the given angle (in radians).
@@ -89,7 +89,7 @@ public interface Constrainer {
      * @param angle The angle (in radians).
      * @return The closest constrained angle (in radians).
      */
-    public double constrainAngle(double angle);
+    double constrainAngle(double angle);
 
     /**
      * Moves the given angle (in radians) to the closest constrained orientation
@@ -99,20 +99,20 @@ public interface Constrainer {
      * @return The closest constrained angle (in radians) in the specified
      * direction.
      */
-    public double rotateAngle(double angle, RotationDirection dir);
+    double rotateAngle(double angle, RotationDirection dir);
 
     /**
      * Draws the constrainer grid for the specified drawing view.
      */
-    public void draw(Graphics2D g, DrawingView view);
+    void draw(Graphics2D g, DrawingView view);
 
     /**
      * Adds a change listener.
      */
-    public void addChangeListener(ChangeListener listener);
+    void addChangeListener(ChangeListener listener);
 
     /**
      * Removes a change listener.
      */
-    public void removeChangeListener(ChangeListener listener);
+    void removeChangeListener(ChangeListener listener);
 }

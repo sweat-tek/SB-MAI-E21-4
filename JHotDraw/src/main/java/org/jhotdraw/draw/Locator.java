@@ -29,11 +29,11 @@ public interface Locator {
 	 * Locates a position on the provided figure.
 	 * @return a point on the figure.
 	 */
-	public Point2D.Double locate(Figure owner);
+    Point2D.Double locate(Figure owner);
 	/**
 	 * Locates a position on the provided figure relative to the dependent
          * figure.
 	 * @return a point on the figure.
 	 */
-	public Point2D.Double locate(Figure owner, Figure dependent);
+    Point2D.Double locate(Figure owner, Figure dependent);
 }

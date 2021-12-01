@@ -30,7 +30,7 @@ import java.awt.font.*;
  * <br>1.0 June 9, 2006 Created.
  */
 public class GrowStroke extends DoubleStroke {
-    private float grow;
+    private final float grow;
     
     public GrowStroke(float grow, float miterLimit) {
         super(grow * 2f, 1f, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_BEVEL, miterLimit, null, 0f);

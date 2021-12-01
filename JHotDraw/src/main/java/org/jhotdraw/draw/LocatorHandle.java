@@ -28,7 +28,7 @@ import java.awt.geom.*;
  * <br>1.0 2003-12-01 Derived from JHotDraw 5.4b1.
  */
 public abstract class LocatorHandle extends AbstractHandle {
-    private Locator locator;
+    private final Locator locator;
     
     /**
      * Initializes the LocatorHandle with the given Locator.

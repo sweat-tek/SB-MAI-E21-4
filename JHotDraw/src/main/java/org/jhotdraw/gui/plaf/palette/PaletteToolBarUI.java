@@ -67,7 +67,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
     protected Integer constraintBeforeFloating = new Integer(0);
 
     // Rollover button implementation.
-    private static String IS_ROLLOVER = "JToolBar.isRollover";
+    private static final String IS_ROLLOVER = "JToolBar.isRollover";
     /*private*/ static String IS_DIVIDER_DRAWN = "Palette.ToolBar.isDividerDrawn";
     // client properties
     /* The value of this client property must be an Icon or null. */
@@ -80,8 +80,8 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
     private static Border nonRolloverBorder;
     private static Border nonRolloverToggleBorder;
     private boolean rolloverBorders = false;
-    private HashMap<AbstractButton,Border> borderTable = new HashMap<AbstractButton,Border>();
-    private Hashtable<AbstractButton,Boolean> rolloverTable = new Hashtable<AbstractButton,Boolean>();
+    private final HashMap<AbstractButton,Border> borderTable = new HashMap<AbstractButton,Border>();
+    private final Hashtable<AbstractButton,Boolean> rolloverTable = new Hashtable<AbstractButton,Boolean>();
     /**
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
@@ -122,7 +122,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
      */
     @Deprecated
     protected KeyStroke rightKey;
-    private static String FOCUSED_COMP_INDEX = "JToolBar.focusedCompIndex";
+    private static final String FOCUSED_COMP_INDEX = "JToolBar.focusedCompIndex";
 
     public static ComponentUI createUI(JComponent c) {
         return new PaletteToolBarUI();
@@ -680,7 +680,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
         if (c instanceof AbstractButton) {
             AbstractButton b = (AbstractButton) c;
 
-            Border border = (Border) borderTable.get(b);
+            Border border = borderTable.get(b);
             if (border == null || border instanceof UIResource) {
                 borderTable.put(b, b.getBorder());
             }
@@ -720,7 +720,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
         if (c instanceof AbstractButton) {
             AbstractButton b = (AbstractButton) c;
 
-            Border border = (Border) borderTable.get(b);
+            Border border = borderTable.get(b);
             if (border == null || border instanceof UIResource) {
                 borderTable.put(b, b.getBorder());
             }
@@ -728,7 +728,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
             // Only set the border if its the default border
             if (b.getBorder() instanceof UIResource) {
                 if (b instanceof JToggleButton) {
-                    ((JToggleButton) b).setBorder(nonRolloverToggleBorder);
+                    b.setBorder(nonRolloverToggleBorder);
                 } else {
                     b.setBorder(nonRolloverBorder);
                 }
@@ -754,10 +754,10 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
         if (c instanceof AbstractButton) {
             AbstractButton b = (AbstractButton) c;
 
-            Border border = (Border) borderTable.remove(b);
+            Border border = borderTable.remove(b);
             b.setBorder(border);
 
-            Boolean value = (Boolean) rolloverTable.remove(b);
+            Boolean value = rolloverTable.remove(b);
             if (value != null) {
                 b.setRolloverEnabled(value.booleanValue());
             }

@@ -28,7 +28,7 @@ import javax.swing.tree.TreeNode;
 public class FontFaceNode implements MutableTreeNode, Comparable<FontFaceNode>, Cloneable {
 
     private FontFamilyNode parent;
-    private Font typeface;
+    private final Font typeface;
     private String name;
 
     public FontFaceNode(Font typeface) {
@@ -184,8 +184,7 @@ public class FontFaceNode implements MutableTreeNode, Comparable<FontFaceNode>, 
         try {
             that = (FontFaceNode) super.clone();
         } catch (CloneNotSupportedException ex) {
-            InternalError error = new InternalError("Clone failed");
-            error.initCause(ex);
+            InternalError error = new InternalError("Clone failed", ex);
             throw error;
         }
         that.parent = null;

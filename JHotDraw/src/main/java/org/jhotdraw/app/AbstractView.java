@@ -224,7 +224,7 @@ public abstract class AbstractView extends JPanel implements View {
      * Returns the action with the specified id.
      */
     public Action getAction(String id) {
-        return (actions == null) ? null : (Action) actions.get(id);
+        return (actions == null) ? null : actions.get(id);
     }
 
     /**

@@ -31,14 +31,14 @@ public interface HandleListener extends EventListener {
     /**
      * Sent when an area of the drawing view needs to be repainted.
      */
-    public void areaInvalidated(HandleEvent e);
+    void areaInvalidated(HandleEvent e);
     
     /**
      * Sent when requesting to remove a handle.
      */
-    public void handleRequestRemove(HandleEvent e);
+    void handleRequestRemove(HandleEvent e);
     /**
      * Sent when requesting to add secondary handles.
      */
-    public void handleRequestSecondaryHandles(HandleEvent e);
+    void handleRequestSecondaryHandles(HandleEvent e);
 }

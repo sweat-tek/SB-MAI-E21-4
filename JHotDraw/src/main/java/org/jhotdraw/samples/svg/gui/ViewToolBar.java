@@ -188,7 +188,7 @@ public class ViewToolBar extends AbstractToolBar {
                         public void propertyChange(PropertyChangeEvent evt) {
                             if (evt.getPropertyName()==DrawingView.SCALE_FACTOR_PROPERTY) {
                                 if (evt.getNewValue() != null) {
-                                    scaleFactorField.setValue((Double) evt.getNewValue());
+                                    scaleFactorField.setValue(evt.getNewValue());
                                 }
                             }
                         }

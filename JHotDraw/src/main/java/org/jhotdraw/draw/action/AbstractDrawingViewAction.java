@@ -36,7 +36,7 @@ public abstract class AbstractDrawingViewAction extends AbstractAction {
 
     private DrawingEditor editor;
     private DrawingView view;
-    private PropertyChangeListener propertyChangeHandler = new PropertyChangeListener() {
+    private final PropertyChangeListener propertyChangeHandler = new PropertyChangeListener() {
 
         public void propertyChange(PropertyChangeEvent evt) {
             if (evt.getPropertyName().equals("enabled")) {

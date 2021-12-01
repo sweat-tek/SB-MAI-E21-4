@@ -37,7 +37,7 @@ import org.jhotdraw.app.View;
  */
 public class LoadRecentAction extends AbstractSaveBeforeAction {
     public final static String ID = "file.loadRecent";
-    private File file;
+    private final File file;
     
     /** Creates a new instance. */
     public LoadRecentAction(Application app, File file) {

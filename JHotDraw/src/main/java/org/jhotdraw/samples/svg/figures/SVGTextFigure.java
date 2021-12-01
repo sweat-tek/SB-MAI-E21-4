@@ -100,7 +100,7 @@ public class SVGTextFigure
         invalidate();
     }
     public double[] getRotates() {
-        return (double[]) rotates.clone();
+        return rotates.clone();
     }
     
     public Rectangle2D.Double getBounds() {
@@ -234,7 +234,7 @@ public class SVGTextFigure
     }
     
     public Object getTransformRestoreData() {
-        Point2D.Double[] restoredCoordinates = (Point2D.Double[]) this.coordinates.clone();
+        Point2D.Double[] restoredCoordinates = this.coordinates.clone();
         for (int i=0; i < this.coordinates.length; i++) {
             restoredCoordinates[i] = (Point2D.Double) this.coordinates[i].clone();
         }
@@ -251,7 +251,7 @@ public class SVGTextFigure
      * Gets the text shown by the text figure.
      */
     public String getText() {
-        return (String) getAttribute(TEXT);
+        return getAttribute(TEXT);
     }
     @Override
     public <T> void setAttribute(AttributeKey<T> key, T newValue) {
@@ -421,7 +421,7 @@ public class SVGTextFigure
         for (int i=0; i < this.coordinates.length; i++) {
             that.coordinates[i] = (Point2D.Double) this.coordinates[i].clone();
         }
-        that.rotates = (double[]) this.rotates.clone();
+        that.rotates = this.rotates.clone();
         that.cachedBounds = null;
         that.cachedDrawingArea = null;
         that.cachedTextShape = null;

@@ -27,7 +27,7 @@ import java.awt.geom.*;
  * <br>1.0 2003-12-01 Derived from JHotDraw 5.4b1.
  */
 public class SetBoundsEdit extends AbstractUndoableEdit {
-    private AbstractFigure owner;
+    private final AbstractFigure owner;
     private Point2D.Double oldAnchor, oldLead;
     private Point2D.Double newAnchor, newLead;
     

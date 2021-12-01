@@ -26,8 +26,8 @@ import java.util.*;
  * <br>1.0 2003-12-01 Derived from JHotDraw 5.4b1.
  */
 public class ToolEvent extends EventObject {
-    private Rectangle invalidatedArea;
-    private DrawingView view;
+    private final Rectangle invalidatedArea;
+    private final DrawingView view;
     
     /** Creates a new instance. */
     public ToolEvent(Tool src, DrawingView view, Rectangle invalidatedArea) {

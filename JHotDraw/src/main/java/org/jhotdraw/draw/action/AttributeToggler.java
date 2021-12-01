@@ -38,11 +38,11 @@ import org.jhotdraw.util.ResourceBundleUtil;
  * <br>1.0 27. November 2003  Created.
  */
 public class AttributeToggler<T> extends AbstractAction {
-    private DrawingEditor editor;
-    private AttributeKey<T> key;
-    private T value1;
-    private T value2;
-    private Action compatibleTextAction;
+    private final DrawingEditor editor;
+    private final AttributeKey<T> key;
+    private final T value1;
+    private final T value2;
+    private final Action compatibleTextAction;
     
     /** Creates a new instance. */
     public AttributeToggler(DrawingEditor editor, AttributeKey<T> key, T value1, T value2) {

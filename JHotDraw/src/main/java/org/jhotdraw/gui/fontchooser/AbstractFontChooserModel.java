@@ -66,7 +66,7 @@ public abstract class AbstractFontChooserModel implements FontChooserModel {
      * @since 1.4
      */
     public TreeModelListener[] getTreeModelListeners() {
-        return (TreeModelListener[])listenerList.getListeners(
+        return listenerList.getListeners(
                 TreeModelListener.class);
     }
 

@@ -38,13 +38,13 @@ public class TransformEdit extends AbstractUndoableEdit {
      * Implementation note: Owner has package access, because it is accessed
      * by CompositeMoveEdit.
      */
-    private Collection<Figure> figures;
-    private AffineTransform tx;
+    private final Collection<Figure> figures;
+    private final AffineTransform tx;
     
     /** Creates a new instance. */
     public TransformEdit(Figure figure, AffineTransform tx) {
         figures = new LinkedList<Figure>();
-        ((LinkedList<Figure>) figures).add(figure);
+        figures.add(figure);
         this.tx = (AffineTransform) tx.clone();
     }
     public TransformEdit(Collection<Figure> figures, AffineTransform tx) {

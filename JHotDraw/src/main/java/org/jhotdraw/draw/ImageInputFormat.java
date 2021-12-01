@@ -46,24 +46,24 @@ public class ImageInputFormat implements InputFormat {
     /**
      * The prototype for creating a figure that holds the imported image.
      */
-    private ImageHolderFigure prototype;
+    private final ImageHolderFigure prototype;
     /**
      * Format description used for the file filter.
      */
-    private String description;
+    private final String description;
     /**
      * File name extension used for the file filter.
      */
-    private String fileExtension;
+    private final String fileExtension;
     /**
      * Image IO image format name.
      */
-    private String formatName;
+    private final String formatName;
     /**
      * The image type must match the output format, for example, PNG supports
      * BufferedImage.TYPE_INT_ARGB whereas GIF needs BufferedImage.TYPE_
      */
-    private int imageType;
+    private final int imageType;
 
     /** Creates a new image output format for Portable Network Graphics PNG. */
     public ImageInputFormat(ImageHolderFigure prototype) {
@@ -188,8 +188,7 @@ public class ImageInputFormat implements InputFormat {
                 drawing.addAll(list);
             } catch (Throwable e) {
                 e.printStackTrace();
-                IOException ex = new IOException("Couldn't import image as image/png flavor");
-                ex.initCause(e);
+                IOException ex = new IOException("Couldn't import image as image/png flavor", e);
                 throw ex;
             }
         } else {

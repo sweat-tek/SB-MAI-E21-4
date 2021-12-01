@@ -41,5 +41,5 @@ public interface FontChooserModel extends TreeModel {
      * @param   node  a node in the tree, obtained from this data source
      * @return  true if <code>node</code> is editable
      */
-    public boolean isEditable(MutableTreeNode node);    
+    boolean isEditable(MutableTreeNode node);
 }

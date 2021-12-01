@@ -37,12 +37,12 @@ import org.jhotdraw.app.JHotDrawFeatures;
 public class CombineAction extends AbstractSelectedAction {
 
     public final static String ID = "edit.combinePaths";
-    private CompositeFigure prototype;
+    private final CompositeFigure prototype;
     /**
      * If this variable is true, this action groups figures.
      * If this variable is false, this action ungroups figures.
      */
-    private boolean isCombineAction;
+    private final boolean isCombineAction;
 
     /** Creates a new instance. */
     public CombineAction(DrawingEditor editor) {

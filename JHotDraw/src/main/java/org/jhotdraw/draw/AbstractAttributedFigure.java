@@ -93,7 +93,7 @@ public abstract class AbstractAttributedFigure extends AbstractFigure {
     public <T> void setAttribute(AttributeKey<T> key, T newValue) {
         if (forbiddenAttributes == null
                 || ! forbiddenAttributes.contains(key)) {
-            T oldValue = (T) key.put(attributes, newValue);
+            T oldValue = key.put(attributes, newValue);
             fireAttributeChanged(key, oldValue, newValue);
         }
     }
@@ -135,7 +135,7 @@ public abstract class AbstractAttributedFigure extends AbstractFigure {
     }
     
     public double getStrokeMiterLimitFactor() {
-        Number value = (Number) getAttribute(AttributeKeys.STROKE_MITER_LIMIT);
+        Number value = getAttribute(AttributeKeys.STROKE_MITER_LIMIT);
         return (value != null) ? value.doubleValue() : 10f;
     }
     

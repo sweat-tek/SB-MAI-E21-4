@@ -46,11 +46,11 @@ public class TextOverflowHandle extends AbstractHandle {
      */
     @Override public void draw(Graphics2D g) {
         if (getOwner().isTextOverflow()) {
-        drawRectangle(g, 
-                (Color) getEditor().getHandleAttribute(HandleAttributeKeys.OVERFLOW_HANDLE_FILL_COLOR),
-                (Color) getEditor().getHandleAttribute(HandleAttributeKeys.OVERFLOW_HANDLE_STROKE_COLOR)
+        drawRectangle(g,
+                getEditor().getHandleAttribute(HandleAttributeKeys.OVERFLOW_HANDLE_FILL_COLOR),
+                getEditor().getHandleAttribute(HandleAttributeKeys.OVERFLOW_HANDLE_STROKE_COLOR)
                 );
-            g.setColor((Color) getEditor().getHandleAttribute(HandleAttributeKeys.OVERFLOW_HANDLE_STROKE_COLOR));
+            g.setColor(getEditor().getHandleAttribute(HandleAttributeKeys.OVERFLOW_HANDLE_STROKE_COLOR));
             Rectangle r = basicGetBounds();
             g.drawLine(r.x+1, r.y+1, r.x+r.width-2, r.y+r.height-2);
             g.drawLine(r.x+r.width-2, r.y+1, r.x+1, r.y+r.height-2);

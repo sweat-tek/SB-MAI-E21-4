@@ -59,7 +59,7 @@ public class BezierControlPointHandle extends AbstractHandle {
     }
 
     protected BezierFigure getBezierFigure() {
-        return (BezierFigure) getOwner();
+        return getOwner();
     }
 
     protected Figure getTransformOwner() {
@@ -103,19 +103,19 @@ public class BezierControlPointHandle extends AbstractHandle {
             Stroke stroke2;
             Color strokeColor2;
             if (getEditor().getTool().supportsHandleInteraction()) {
-                handleFillColor = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_CONTROL_POINT_HANDLE_FILL_COLOR);
-                handleStrokeColor = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_CONTROL_POINT_HANDLE_STROKE_COLOR);
-                stroke1 = (Stroke) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_STROKE_1);
-                strokeColor1 = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_COLOR_1);
-                stroke2 = (Stroke) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_STROKE_2);
-                strokeColor2 = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_COLOR_2);
+                handleFillColor = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_CONTROL_POINT_HANDLE_FILL_COLOR);
+                handleStrokeColor = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_CONTROL_POINT_HANDLE_STROKE_COLOR);
+                stroke1 = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_STROKE_1);
+                strokeColor1 = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_COLOR_1);
+                stroke2 = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_STROKE_2);
+                strokeColor2 = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_COLOR_2);
             } else {
-                handleFillColor = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_CONTROL_POINT_HANDLE_FILL_COLOR_DISABLED);
-                handleStrokeColor = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_CONTROL_POINT_HANDLE_STROKE_COLOR_DISABLED);
-                stroke1 = (Stroke) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_STROKE_1_DISABLED);
-                strokeColor1 = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_COLOR_1_DISABLED);
-                stroke2 = (Stroke) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_STROKE_2_DISABLED);
-                strokeColor2 = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_COLOR_2_DISABLED);
+                handleFillColor = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_CONTROL_POINT_HANDLE_FILL_COLOR_DISABLED);
+                handleStrokeColor = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_CONTROL_POINT_HANDLE_STROKE_COLOR_DISABLED);
+                stroke1 = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_STROKE_1_DISABLED);
+                strokeColor1 = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_COLOR_1_DISABLED);
+                stroke2 = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_STROKE_2_DISABLED);
+                strokeColor2 = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_TANGENT_COLOR_2_DISABLED);
             }
             if (stroke1 != null && strokeColor1 != null) {
                 g.setStroke(stroke1);

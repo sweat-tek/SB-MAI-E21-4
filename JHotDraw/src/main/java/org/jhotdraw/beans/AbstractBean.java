@@ -58,8 +58,7 @@ public class AbstractBean extends Object implements java.io.Serializable, Clonea
         try {
             that = (AbstractBean) super.clone();
         } catch (CloneNotSupportedException ex) {
-            InternalError error =  new InternalError("Clone failed");
-            error.initCause(ex);
+            InternalError error =  new InternalError("Clone failed", ex);
             throw error;
         }
         that.propertySupport = new PropertyChangeSupport(that);

@@ -101,8 +101,7 @@ public class DefaultApplicationModel
                 try {
                     viewClass = Class.forName(viewClassName);
                 } catch (Exception e) {
-                    InternalError error = new InternalError("unable to get view class");
-                    error.initCause(e);
+                    InternalError error = new InternalError("unable to get view class", e);
                     throw error;
                 }
             }
@@ -114,8 +113,7 @@ public class DefaultApplicationModel
         try {
             return (View) getViewClass().newInstance();
         } catch (Exception e) {
-            InternalError error = new InternalError("unable to create view");
-            error.initCause(e);
+            InternalError error = new InternalError("unable to create view", e);
             throw error;
         }
     }
@@ -220,7 +218,7 @@ public class DefaultApplicationModel
      * Returns the action with the specified id.
      */
     public Action getAction(String id) {
-        return (actions == null) ? null : (Action) actions.get(id);
+        return (actions == null) ? null : actions.get(id);
     }
     
     /**

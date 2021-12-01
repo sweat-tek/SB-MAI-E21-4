@@ -28,7 +28,7 @@ import org.jhotdraw.app.Application;
  * @see org.jhotdraw.app.Application
  */
 public abstract class AbstractApplicationAction extends AbstractAction {
-    private Application app;
+    private final Application app;
     
     private PropertyChangeListener applicationListener;
     

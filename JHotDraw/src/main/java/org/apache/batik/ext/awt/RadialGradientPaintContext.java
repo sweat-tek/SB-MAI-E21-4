@@ -46,21 +46,25 @@ final class RadialGradientPaintContext extends MultipleGradientPaintContext {
     private boolean isNonCyclic = false;
        
     /** Radius of the outermost circle defining the 100% gradient stop. */
-    private float radius;   
+    private final float radius;
     
     /** Variables representing center and focus points. */
-    private float centerX, centerY, focusX, focusY;     
+    private final float centerX;
+    private final float centerY;
+    private float focusX;
+    private float focusY;
 
     /** Radius of the gradient circle squared. */
-    private float radiusSq; 
+    private final float radiusSq;
         
     /** Constant part of X, Y user space coordinates. */
-    private float constA, constB;
+    private final float constA;
+    private final float constB;
        
     /** This value represents the solution when focusX == X.  It is called
      * trivial because it is easier to calculate than the general case.
      */
-    private float trivial;       
+    private final float trivial;
 
     private static final int FIXED_POINT_IMPL = 1;
     private static final int DEFAULT_IMPL     = 2;
@@ -226,7 +230,7 @@ final class RadialGradientPaintContext extends MultipleGradientPaintContext {
      * @param x,y,w,h The area in device space for which colors are
      * generated.
      */
-    protected void fillRaster(int pixels[], int off, int adjust,
+    protected void fillRaster(int[] pixels, int off, int adjust,
                               int x, int y, int w, int h) {
         switch(fillMethod) {
         case FIXED_POINT_IMPL:
@@ -251,10 +255,10 @@ final class RadialGradientPaintContext extends MultipleGradientPaintContext {
      * fast (single array index, no conversion necessary).
      *
      */         
-    private void fixedPointSimplestCaseNonCyclicFillRaster(int pixels[], 
+    private void fixedPointSimplestCaseNonCyclicFillRaster(int[] pixels,
                                                            int off,
-                                                           int adjust, 
-                                                           int x, int y, 
+                                                           int adjust,
+                                                           int x, int y,
                                                            int w, int h) {
         float iSq=0;  // Square distance index
         final float indexFactor = fastGradientArraySize / radius;      
@@ -343,10 +347,10 @@ final class RadialGradientPaintContext extends MultipleGradientPaintContext {
     private float invSqStepFloat; 
     
     /** Used to limit the size of the square root lookup table */
-    private int MAX_PRECISION = 256;
+    private final int MAX_PRECISION = 256;
     
     /** Square root lookup table */
-    private int sqrtLutFixed[] = new int[MAX_PRECISION];
+    private final int[] sqrtLutFixed = new int[MAX_PRECISION];
     
     /**
      * Build square root lookup table
@@ -386,9 +390,9 @@ final class RadialGradientPaintContext extends MultipleGradientPaintContext {
      *  been extracted out of the inner loop.
      *
      */   
-    private void cyclicCircularGradientFillRaster(int pixels[], int off, 
-                                                  int adjust, 
-                                                  int x, int y, 
+    private void cyclicCircularGradientFillRaster(int[] pixels, int off,
+                                                  int adjust,
+                                                  int x, int y,
                                                   int w, int h) {
         // Constant part of the C factor of the quadratic equation
         final double constC = 
@@ -517,9 +521,9 @@ final class RadialGradientPaintContext extends MultipleGradientPaintContext {
      *  formula produces the following set of equations.  Constant factors have
      *  been extracted out of the inner loop.
      * */
-    private void antiAliasFillRaster(int pixels[], int off, 
-                                     int adjust, 
-                                     int x, int y, 
+    private void antiAliasFillRaster(int[] pixels, int off,
+                                     int adjust,
+                                     int x, int y,
                                      int w, int h) {
         // Constant part of the C factor of the quadratic equation
         final double constC = 

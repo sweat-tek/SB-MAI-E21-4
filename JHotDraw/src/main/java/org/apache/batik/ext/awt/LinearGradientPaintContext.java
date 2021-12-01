@@ -44,7 +44,10 @@ final class LinearGradientPaintContext extends MultipleGradientPaintContext {
      * a device space coordinate, (X, Y):
      * g(X, Y) = dgdX*X + dgdY*Y + gc
      */
-    private float dgdX, dgdY, gc, pixSz;    
+    private final float dgdX;
+    private final float dgdY;
+    private final float gc;
+    private final float pixSz;
            
     private static final int DEFAULT_IMPL = 1;
     private static final int ANTI_ALIAS_IMPL  = 3;

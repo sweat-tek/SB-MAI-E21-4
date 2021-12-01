@@ -52,7 +52,7 @@ public interface IXMLReader
     * @throws java.io.IOException
     *		If no character could be read.
     */
-   public char read()
+   char read()
       throws IOException;
 
 
@@ -63,7 +63,7 @@ public interface IXMLReader
     * @throws java.io.IOException
     *		If an I/O error occurred.
     */
-   public boolean atEOFOfCurrentStream()
+   boolean atEOFOfCurrentStream()
       throws IOException;
 
 
@@ -73,7 +73,7 @@ public interface IXMLReader
     * @throws java.io.IOException
     *		If an I/O error occurred.
     */
-   public boolean atEOF()
+   boolean atEOF()
       throws IOException;
 
 
@@ -85,14 +85,14 @@ public interface IXMLReader
     * @throws java.io.IOException
     *		If an I/O error occurred.
     */
-   public void unread(char ch)
+   void unread(char ch)
       throws IOException;
 
 
    /**
     * Returns the line number of the data in the current stream.
     */
-   public int getLineNr();
+   int getLineNr();
 
 
    /**
@@ -108,8 +108,8 @@ public interface IXMLReader
     * @throws java.io.IOException
     *     If an error occurred opening the stream.
     */
-   public Reader openStream(String publicID,
-                            String systemID)
+   Reader openStream(String publicID,
+                     String systemID)
       throws MalformedURLException,
              FileNotFoundException,
              IOException;
@@ -122,7 +122,7 @@ public interface IXMLReader
     *
     * @param reader the reader to read the new data from.
     */
-   public void startNewStream(Reader reader);
+   void startNewStream(Reader reader);
 
 
    /**
@@ -134,14 +134,14 @@ public interface IXMLReader
     * @param isInternalEntity true if the reader is produced by resolving
     *                         an internal entity
     */
-   public void startNewStream(Reader  reader,
-                              boolean isInternalEntity);
+   void startNewStream(Reader reader,
+                       boolean isInternalEntity);
 
 
    /**
     * Returns the current "level" of the stream on the stack of streams.
     */
-   public int getStreamLevel();
+   int getStreamLevel();
 
 
    /**
@@ -152,7 +152,7 @@ public interface IXMLReader
     * @throws java.net.MalformedURLException
     *     If the system ID does not contain a valid URL.
     */
-   public void setSystemID(String systemID)
+   void setSystemID(String systemID)
       throws MalformedURLException;
 
 
@@ -161,18 +161,18 @@ public interface IXMLReader
     *
     * @param publicID the public ID.
     */
-   public void setPublicID(String publicID);
+   void setPublicID(String publicID);
 
 
    /**
     * Returns the current system ID.
     */
-   public String getSystemID();
+   String getSystemID();
 
 
    /**
     * Returns the current public ID.
     */
-   public String getPublicID();
+   String getPublicID();
 
 }

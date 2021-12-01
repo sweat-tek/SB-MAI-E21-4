@@ -43,19 +43,19 @@ class XMLAttribute
    /**
     * The full name of the attribute.
     */
-   private String fullName;
+   private final String fullName;
 
 
    /**
     * The short name of the attribute.
     */
-   private String name;
+   private final String name;
 
 
    /**
     * The namespace URI of the attribute.
     */
-   private String namespace;
+   private final String namespace;
 
 
    /**
@@ -67,7 +67,7 @@ class XMLAttribute
    /**
     * The type of the attribute.
     */
-   private String type;
+   private final String type;
 
 
    /**

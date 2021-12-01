@@ -36,12 +36,12 @@ import java.io.*;
  */
 public abstract class AbstractApplication extends AbstractBean implements Application {
 
-    private LinkedList<View> views = new LinkedList<View>();
+    private final LinkedList<View> views = new LinkedList<View>();
     private Collection<View> unmodifiableDocuments;
     private boolean isEnabled = true;
     protected ResourceBundleUtil labels;
     private ApplicationModel model;
-    private LinkedList<File> recentFiles = new LinkedList<File>();
+    private final LinkedList<File> recentFiles = new LinkedList<File>();
     private final static int maxRecentFilesCount = 10;
     private Preferences prefs;
     private View activeView;
@@ -240,9 +240,7 @@ public abstract class AbstractApplication extends AbstractBean implements Applic
     public void addRecentFile(File file) {
         @SuppressWarnings("unchecked")
         java.util.List<File> oldValue = (java.util.List<File>) recentFiles.clone();
-        if (recentFiles.contains(file)) {
-            recentFiles.remove(file);
-        }
+        recentFiles.remove(file);
         recentFiles.addFirst(file);
         if (recentFiles.size() > maxRecentFilesCount) {
             recentFiles.removeLast();

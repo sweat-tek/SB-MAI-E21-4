@@ -33,7 +33,7 @@ import java.beans.*;
  */
 public abstract class AbstractDrawingEditorAction extends AbstractAction {
     protected DrawingEditor editor;
-    private PropertyChangeListener propertyChangeHandler = new PropertyChangeListener() {
+    private final PropertyChangeListener propertyChangeHandler = new PropertyChangeListener() {
         public void propertyChange(PropertyChangeEvent evt) {
             if (evt.getPropertyName().equals("enabled")) {
                 updateEnabledState();

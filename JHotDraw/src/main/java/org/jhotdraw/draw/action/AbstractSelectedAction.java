@@ -67,9 +67,9 @@ public abstract class AbstractSelectedAction
             updateEnabledState();
             
         }
-    };
-    
-    private EventHandler eventHandler = new EventHandler();
+    }
+
+    private final EventHandler eventHandler = new EventHandler();
     
     
     /** Creates an action which acts on the selected figures on the current view

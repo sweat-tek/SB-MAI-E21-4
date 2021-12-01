@@ -27,7 +27,7 @@ import javax.swing.tree.TreeNode;
  */
 public class FontFamilyNode implements MutableTreeNode, Comparable<FontFamilyNode>, Cloneable {
     private FontCollectionNode parent;
-    private String name;
+    private final String name;
     private ArrayList<FontFaceNode> children = new ArrayList<FontFaceNode>();
 
     public FontFamilyNode(String name) {
@@ -44,8 +44,7 @@ public class FontFamilyNode implements MutableTreeNode, Comparable<FontFamilyNod
         try {
             that = (FontFamilyNode) super.clone();
         } catch (CloneNotSupportedException ex) {
-            InternalError error = new InternalError("Clone failed");
-            error.initCause(ex);
+            InternalError error = new InternalError("Clone failed", ex);
             throw error;
         }
         that.parent = null;
@@ -78,7 +77,7 @@ public class FontFamilyNode implements MutableTreeNode, Comparable<FontFamilyNod
     }
 
     public void remove(int childIndex) {
-	MutableTreeNode child = (MutableTreeNode)getChildAt(childIndex);
+	MutableTreeNode child = getChildAt(childIndex);
 	children.remove(childIndex);
 	child.setParent(null);
     }

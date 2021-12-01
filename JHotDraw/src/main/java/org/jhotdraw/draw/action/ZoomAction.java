@@ -26,9 +26,9 @@ import org.jhotdraw.draw.*;
  * <br>1.0 January 16, 2006 Created.
  */
 public class ZoomAction extends AbstractDrawingViewAction {
-    private double scaleFactor;
-    private AbstractButton button;
-    private String label;
+    private final double scaleFactor;
+    private final AbstractButton button;
+    private final String label;
     /**
      * Creates a new instance.
      */

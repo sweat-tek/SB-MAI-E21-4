@@ -612,9 +612,7 @@ public class NonValidator
    {
       Properties props = (Properties) this.currentElements.peek();
 
-      if (props.containsKey(key)) {
-         props.remove(key);
-      }
+      props.remove(key);
    }
 
 

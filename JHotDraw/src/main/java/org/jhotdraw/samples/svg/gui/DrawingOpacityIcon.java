@@ -27,12 +27,12 @@ import org.jhotdraw.draw.*;
  */
 public class DrawingOpacityIcon extends javax.swing.ImageIcon {
 
-    private DrawingEditor editor;
-    private AttributeKey<Double> opacityKey;
-    private AttributeKey<Color> fillColorKey;
-    private AttributeKey<Color> strokeColorKey;
-    private Shape fillShape;
-    private Shape strokeShape;
+    private final DrawingEditor editor;
+    private final AttributeKey<Double> opacityKey;
+    private final AttributeKey<Color> fillColorKey;
+    private final AttributeKey<Color> strokeColorKey;
+    private final Shape fillShape;
+    private final Shape strokeShape;
 
     /** Creates a new instance.
      * @param editor The drawing editor.

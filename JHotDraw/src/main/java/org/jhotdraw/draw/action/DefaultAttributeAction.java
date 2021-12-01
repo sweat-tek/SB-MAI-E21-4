@@ -30,8 +30,8 @@ import org.jhotdraw.draw.*;
  * <br>1.0 26. November 2003  Created.
  */
 public class DefaultAttributeAction extends AbstractSelectedAction {
-    private AttributeKey[] keys;
-    private Map<AttributeKey,Object> fixedAttributes;
+    private final AttributeKey[] keys;
+    private final Map<AttributeKey,Object> fixedAttributes;
     
     
     /** Creates a new instance. */

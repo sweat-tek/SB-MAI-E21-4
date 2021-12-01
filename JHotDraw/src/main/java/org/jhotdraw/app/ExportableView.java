@@ -29,7 +29,7 @@ public interface ExportableView extends View {
     /**
      * Gets the file chooser for exporting the view.
      */
-  public JFileChooser getExportChooser();
+    JFileChooser getExportChooser();
  
   /**
    * Exports the view. 
@@ -39,5 +39,5 @@ public interface ExportableView extends View {
    * @param filter The FileFilter that was used to choose the file. This can be null.
    * @param accessory The Accessory used by the JFileChooser. This can be null.
    */
-  public void export(File f, javax.swing.filechooser.FileFilter filter, Component accessory) throws IOException;
+  void export(File f, javax.swing.filechooser.FileFilter filter, Component accessory) throws IOException;
 }

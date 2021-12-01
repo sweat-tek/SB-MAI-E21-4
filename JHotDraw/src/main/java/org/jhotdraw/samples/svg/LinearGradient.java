@@ -193,8 +193,7 @@ public class LinearGradient implements Gradient {
             that.transform = (AffineTransform) this.transform.clone();
             return that;
         } catch (CloneNotSupportedException ex) {
-            InternalError e = new InternalError();
-            e.initCause(ex);
+            InternalError e = new InternalError(ex);
             throw e;
         }
     }

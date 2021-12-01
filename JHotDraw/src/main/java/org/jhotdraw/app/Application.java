@@ -52,7 +52,7 @@ public interface Application {
     /**
      * The property name of the activeView property.
      */
-    public final static String ACTIVE_VIEW_PROPERTY = "activeView";
+    String ACTIVE_VIEW_PROPERTY = "activeView";
     
     /**
      * Launches the application from the main method.
@@ -60,11 +60,11 @@ public interface Application {
      * This will invoke configure() on the current thread and then 
      * init() and start() on the AWT Event Dispatcher Thread.
      */
-    public void launch(String[] args);
+    void launch(String[] args);
     /**
      * Configures the application using the provided arguments array.
      */
-    public void configure(String[] args);
+    void configure(String[] args);
     
     /**
      * Initializes the application.
@@ -72,31 +72,31 @@ public interface Application {
      * is inited. Alternatively an application can be configured using setter
      * methods.
      */
-    public void init();
+    void init();
     
     /**
      * Starts the application.
      * This usually creates a new view, and adds it to the application.
      * <code>init()</code> must have been invoked before the application is started.
      */
-    public void start();
+    void start();
     /**
      * Stops the application without saving any unsaved views.
      * <code>init()</code> must have been invoked before the application is stopped.
      */
-    public void stop();
+    void stop();
     
     /**
      * Creates a new view for this application.
      */
-    public View createView();
+    View createView();
     
     /**
      * Adds a view to this application.
      * Fires a "documentCount" property change event.
      * Invokes method setApplication(this) on the view object.
      */
-    public void add(View p);
+    void add(View p);
     
     /**
      * Removes a view from this application and removes it from the users
@@ -104,26 +104,26 @@ public interface Application {
      * Fires a "documentCount" property change event.
      * Invokes method setApplication(null) on the view object.
      */
-    public void remove(View p);
+    void remove(View p);
     
     /**
      * Shows a view.
      */
-    public void show(View p);
+    void show(View p);
     /**
      * Hides a view.
      */
-    public void hide(View p);
+    void hide(View p);
     
     /**
      * This is a convenience method for removing a view and disposing it.
      */
-    public void dispose(View p);
+    void dispose(View p);
     
     /**
      * Returns a read only collection view of the views of this application.
      */
-    public Collection<View> views();
+    Collection<View> views();
     
     /**
      * Returns the active view. This is used for OSXApplication and 
@@ -133,12 +133,12 @@ public interface Application {
      * <p>
      * This is a bound property. 
      */
-    public View getActiveView();
+    View getActiveView();
     
     /**
      * Returns the enabled state of the application.
      */
-    public boolean isEnabled();
+    boolean isEnabled();
     
     
     /**
@@ -157,76 +157,76 @@ public interface Application {
      *
      * This is a bound property.
      */
-    public void setEnabled(boolean newValue);
+    void setEnabled(boolean newValue);
     /**
      * Adds a property change listener.
      */
-    public void addPropertyChangeListener(PropertyChangeListener l);
+    void addPropertyChangeListener(PropertyChangeListener l);
 
     /**
      * Removes a property change listener.
      */
-    public void removePropertyChangeListener(PropertyChangeListener l);
+    void removePropertyChangeListener(PropertyChangeListener l);
     
     /**
      * Returns the name of the application.
      */
-    public String getName();
+    String getName();
     /**
      * Returns the version of the application.
      */
-    public String getVersion();
+    String getVersion();
     /**
      * Returns the copyright of the application.
      */
-    public String getCopyright();
+    String getCopyright();
     
     /**
      * Sets the application model.
      */
-    public void setModel(ApplicationModel newValue);
+    void setModel(ApplicationModel newValue);
 
     /**
      * Returns the application model.
      */
-    public ApplicationModel getModel();
+    ApplicationModel getModel();
     
     /**
      * Returns true, if this application shares tools among multiple views.
      */
-    public boolean isSharingToolsAmongViews();
+    boolean isSharingToolsAmongViews();
     
     /**
      * Returns the application component. 
      * This may return null, if the application is not represented by a component
      * of its own on the user interface.
      */
-    public Component getComponent();
+    Component getComponent();
     
     /**
      * Returns the recently opened files.
      * By convention, this is an immutable list.
      */
-    public java.util.List<File> recentFiles();
+    java.util.List<File> recentFiles();
     /**
      * Appends a file to the list of recent files.
      * This fires a property change event for the property "recentFiles".
      */
-    public void addRecentFile(File file);
+    void addRecentFile(File file);
     /**
      * Clears the list of recent files.
      * This fires a property change event for the property "recentFiles".
      */
-    public void clearRecentFiles();
+    void clearRecentFiles();
     
     /**
      * Adds a palette window to the application.
      */
-    public void addPalette(Window palette);
+    void addPalette(Window palette);
     /**
      * Removes a palette window from the application.
      */
-    public void removePalette(Window palette);
+    void removePalette(Window palette);
     /**
      * Adds a (non-palette) window to the application.
      *
@@ -234,9 +234,9 @@ public interface Application {
      * @param view The View to which this window is associated, or null,
      * if the window is associated to the application.
      */
-    public void addWindow(Window window, View view);
+    void addWindow(Window window, View view);
     /**
      * Removes a (non-palette) window from the application.
      */
-    public void removeWindow(Window window);
+    void removeWindow(Window window);
 }

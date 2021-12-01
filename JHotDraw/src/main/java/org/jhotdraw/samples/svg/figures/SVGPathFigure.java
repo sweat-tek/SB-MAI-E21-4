@@ -178,7 +178,7 @@ public class SVGPathFigure extends AbstractAttributedCompositeFigure implements 
             } else if (STROKE_CAP.get(this) != BasicStroke.CAP_BUTT) {
                 width += strokeTotalWidth * 2;
             }
-            GeneralPath gp = (GeneralPath) getPath();
+            GeneralPath gp = getPath();
             Rectangle2D strokeRect = new Rectangle2D.Double(0, 0, width, width);
             if (TRANSFORM.get(this) != null) {
                 gp = (GeneralPath) gp.clone();
@@ -237,16 +237,14 @@ public class SVGPathFigure extends AbstractAttributedCompositeFigure implements 
             }
         }
         if (!isClosed) {
-            if (Shapes.outlineContains(getPath(), p, tolerance)) {
-                return true;
-            }
+            return Shapes.outlineContains(getPath(), p, tolerance);
         }
         return false;
     }
 
     public void setBounds(Point2D.Double anchor, Point2D.Double lead) {
-        if (getChildCount() == 1 && ((SVGBezierFigure) getChild(0)).getNodeCount() <= 2) {
-            SVGBezierFigure b = (SVGBezierFigure) getChild(0);
+        if (getChildCount() == 1 && getChild(0).getNodeCount() <= 2) {
+            SVGBezierFigure b = getChild(0);
             b.setBounds(anchor, lead);
             invalidate();
         } else {
@@ -484,7 +482,7 @@ public class SVGPathFigure extends AbstractAttributedCompositeFigure implements 
 
     @Override
     public void add(final int index, final Figure figure) {
-        super.add(index, (SVGBezierFigure) figure);
+        super.add(index, figure);
     }
 
     @Override

@@ -39,7 +39,7 @@ import org.w3c.dom.Element;
  */
 public class CSSRule {
     private String selector;
-    private static enum SelectorType {
+    private enum SelectorType {
         ALL, ELEMENT_NAME, CLASS_ATTRIBUTE, ID_ATTRIBUTE
     }
     private SelectorType type;

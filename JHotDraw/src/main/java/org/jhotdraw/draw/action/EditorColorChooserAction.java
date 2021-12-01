@@ -73,7 +73,7 @@ public class EditorColorChooserAction extends AttributeAction {
         }
         Color initialColor = getInitialColor();
         // FIXME - Reuse colorChooser object instead of calling static method here.
-        Color chosenColor = colorChooser.showDialog((Component) e.getSource(), labels.getString("attribute.color.text"), initialColor);
+        Color chosenColor = JColorChooser.showDialog((Component) e.getSource(), labels.getString("attribute.color.text"), initialColor);
         if (chosenColor != null) {
             HashMap<AttributeKey, Object> attr = new HashMap<AttributeKey, Object>(attributes);
             attr.put(key, chosenColor);
@@ -86,7 +86,7 @@ public class EditorColorChooserAction extends AttributeAction {
     }
 
     protected Color getInitialColor() {
-        Color initialColor = (Color) getEditor().getDefaultAttribute(key);
+        Color initialColor = getEditor().getDefaultAttribute(key);
         if (initialColor == null) {
             initialColor = Color.red;
         }

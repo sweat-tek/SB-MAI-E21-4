@@ -83,7 +83,7 @@ public class SVGInputFormat implements InputFormat {
     /**
      * The SVGFigure factory is used to create Figure's for the drawing.
      */
-    private SVGFigureFactory factory;
+    private final SVGFigureFactory factory;
     /**
      * URL pointing to the SVG input file. This is used as a base URL for
      * resources that are referenced from the SVG file.
@@ -139,7 +139,7 @@ public class SVGInputFormat implements InputFormat {
          * XXX - use a more sophisticated variable here
          */
         public boolean isPreserveAspectRatio = true;
-        private HashMap<AttributeKey, Object> attributes = new HashMap<AttributeKey, Object>();
+        private final HashMap<AttributeKey, Object> attributes = new HashMap<AttributeKey, Object>();
 
         public String toString() {
             return "widthPercentFactor:" + widthPercentFactor + ";" +
@@ -196,8 +196,7 @@ public class SVGInputFormat implements InputFormat {
         try {
             parser = XMLParserFactory.createDefaultXMLParser();
         } catch (Exception ex) {
-            InternalError e = new InternalError("Unable to instantiate NanoXML Parser");
-            e.initCause(ex);
+            InternalError e = new InternalError("Unable to instantiate NanoXML Parser", ex);
             throw e;
         }
         IXMLReader reader = new StdXMLReader(in);
@@ -205,8 +204,7 @@ public class SVGInputFormat implements InputFormat {
         try {
             document = (IXMLElement) parser.parse();
         } catch (XMLException ex) {
-            IOException e = new IOException(ex.getMessage());
-            e.initCause(ex);
+            IOException e = new IOException(ex.getMessage(), ex);
             throw e;
         }
 
@@ -319,7 +317,7 @@ public class SVGInputFormat implements InputFormat {
 
                 for (IXMLElement node : elem.getChildren()) {
                     if (node instanceof IXMLElement) {
-                        IXMLElement child = (IXMLElement) node;
+                        IXMLElement child = node;
                         flattenStyles(child);
                     }
                 }
@@ -421,7 +419,7 @@ public class SVGInputFormat implements InputFormat {
             throws IOException {
         for (IXMLElement node : elem.getChildren()) {
             if (node instanceof IXMLElement) {
-                IXMLElement child = (IXMLElement) node;
+                IXMLElement child = node;
                 Figure childFigure = readElement(child);
             }
         }
@@ -439,7 +437,7 @@ public class SVGInputFormat implements InputFormat {
 
         for (IXMLElement node : elem.getChildren()) {
             if (node instanceof IXMLElement) {
-                IXMLElement child = (IXMLElement) node;
+                IXMLElement child = node;
                 Figure childFigure = readElement(child);
                 // skip invisible elements
                 if (readAttribute(child, "visibility", "visible").equals("visible") &&
@@ -477,7 +475,7 @@ public class SVGInputFormat implements InputFormat {
 
         for (IXMLElement node : elem.getChildren()) {
             if (node instanceof IXMLElement) {
-                IXMLElement child = (IXMLElement) node;
+                IXMLElement child = node;
                 Figure childFigure = readElement(child);
                 // skip invisible elements
                 if (readAttribute(child, "visibility", "visible").equals("visible") &&
@@ -569,7 +567,7 @@ public class SVGInputFormat implements InputFormat {
         // Read the figures
         for (IXMLElement node : elem.getChildren()) {
             if (node instanceof IXMLElement) {
-                IXMLElement child = (IXMLElement) node;
+                IXMLElement child = node;
                 Figure childFigure = readElement(child);
                 // skip invisible elements
                 if (readAttribute(child, "visibility", "visible").equals("visible") &&
@@ -894,7 +892,7 @@ public class SVGInputFormat implements InputFormat {
                     if (node.getName() == null) {
                         doc.insertString(0, toText(elem, node.getContent()), null);
                     } else if (node.getName().equals("tspan")) {
-                        readTSpanElement((IXMLElement) node, doc);
+                        readTSpanElement(node, doc);
                     } else {
                         if (DEBUG) {
                             System.out.println("SVGInputFormat unsupported text node <" + node.getName() + ">");
@@ -903,8 +901,7 @@ public class SVGInputFormat implements InputFormat {
                 }
             }
         } catch (BadLocationException e) {
-            InternalError ex = new InternalError(e.getMessage());
-            ex.initCause(e);
+            InternalError ex = new InternalError(e.getMessage(), e);
             throw ex;
         }
         Figure figure = factory.createText(coordinates, rotate, doc, a);
@@ -944,7 +941,7 @@ public class SVGInputFormat implements InputFormat {
                     } else if (node.getName().equals("tbreak")) {
                         doc.insertString(doc.getLength(), "\n", null);
                     } else if (node.getName().equals("tspan")) {
-                        readTSpanElement((IXMLElement) node, doc);
+                        readTSpanElement(node, doc);
                     } else {
                         if (DEBUG) {
                             System.out.println("SVGInputFormat unknown  text node " + node.getName());
@@ -953,8 +950,7 @@ public class SVGInputFormat implements InputFormat {
                 }
             }
         } catch (BadLocationException e) {
-            InternalError ex = new InternalError(e.getMessage());
-            ex.initCause(e);
+            InternalError ex = new InternalError(e.getMessage(), e);
             throw ex;
         }
 
@@ -974,9 +970,9 @@ public class SVGInputFormat implements InputFormat {
             } else {
                 for (IXMLElement node : elem.getChildren()) {
                     if (node instanceof IXMLElement) {
-                        IXMLElement child = (IXMLElement) node;
+                        IXMLElement child = node;
                         if (node.getName() != null && node.getName().equals("tspan")) {
-                            readTSpanElement((IXMLElement) node, doc);
+                            readTSpanElement(node, doc);
                         } else {
                             if (DEBUG) {
                                 System.out.println("SVGInputFormat unknown text node " + node.getName());
@@ -990,49 +986,47 @@ public class SVGInputFormat implements InputFormat {
                 }
             }
         } catch (BadLocationException e) {
-            InternalError ex = new InternalError(e.getMessage());
-            ex.initCause(e);
+            InternalError ex = new InternalError(e.getMessage(), e);
             throw ex;
         }
     }
     private final static HashSet<String> supportedFeatures = new HashSet<String>(
-            Arrays.asList(new String[]{
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-static",
-                //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-static-DOM",
-                //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-animated",
-                //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-all",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#CoreAttribute",
-                //"http://www.w3.org/Graphics/SVG/feature/1.2/#NavigationAttribute",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#Structure",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#ConditionalProcessing",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#ConditionalProcessingAttribute",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#Image",
-                //"http://www.w3.org/Graphics/SVG/feature/1.2/#Prefetch",
-                //"http://www.w3.org/Graphics/SVG/feature/1.2/#Discard",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#Shape",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#Text",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#PaintAttribute",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#OpacityAttribute",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#GraphicsAttribute",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#Gradient",
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#SolidColor",//
-                "http://www.w3.org/Graphics/SVG/feature/1.2/#Hyperlinking",//
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#XlinkAttribute",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#ExternalResourcesRequired",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#Scripting",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#Handler",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#Listener",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#TimedAnimation",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#Animation",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#Audio",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#Video",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#Font",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#Extensibility",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#MediaAttribute",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#TextFlow",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#TransformedVideo",
-            //"http://www.w3.org/Graphics/SVG/feature/1.2/#ComposedVideo",
-            }));
+            Arrays.asList("http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-static",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-static-DOM",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-animated",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-all",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#CoreAttribute",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#NavigationAttribute",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Structure",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#ConditionalProcessing",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#ConditionalProcessingAttribute",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Image",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Prefetch",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Discard",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Shape",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Text",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#PaintAttribute",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#OpacityAttribute",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#GraphicsAttribute",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Gradient",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#SolidColor",//
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Hyperlinking"//
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#XlinkAttribute",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#ExternalResourcesRequired",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Scripting",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Handler",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Listener",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#TimedAnimation",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Animation",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Audio",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Video",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Font",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Extensibility",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#MediaAttribute",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#TextFlow",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#TransformedVideo",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#ComposedVideo",
+            ));
 
     /**
      * Evaluates an SVG "switch" element.
@@ -1042,7 +1036,7 @@ public class SVGInputFormat implements InputFormat {
             throws IOException {
         for (IXMLElement node : elem.getChildren()) {
             if (node instanceof IXMLElement) {
-                IXMLElement child = (IXMLElement) node;
+                IXMLElement child = node;
                 String[] requiredFeatures = toWSOrCommaSeparatedArray(readAttribute(child, "requiredFeatures", ""));
                 String[] requiredExtensions = toWSOrCommaSeparatedArray(readAttribute(child, "requiredExtensions", ""));
                 String[] systemLanguage = toWSOrCommaSeparatedArray(readAttribute(child, "systemLanguage", ""));
@@ -1183,7 +1177,7 @@ public class SVGInputFormat implements InputFormat {
         } else {
             value = defaultValue;
         }
-        if (value != null && value.toLowerCase().equals("currentcolor") && !attributeName.equals("color")) {
+        if (value != null && value.equalsIgnoreCase("currentcolor") && !attributeName.equals("color")) {
             // Lets do some magic stuff for "currentColor" attribute value
             value = readInheritColorAttribute(elem, "color", "defaultValue");
         }
@@ -3043,7 +3037,7 @@ public class SVGInputFormat implements InputFormat {
             return null;
         } else if (str.equals("currentcolor")) {
             String currentColor = readInheritAttribute(elem, "color", "black");
-            if (currentColor == null || currentColor.trim().toLowerCase().equals("currentColor")) {
+            if (currentColor == null || currentColor.trim().equalsIgnoreCase("currentColor")) {
                 return null;
             } else {
                 return toPaint(elem, currentColor);
@@ -3106,7 +3100,7 @@ public class SVGInputFormat implements InputFormat {
         str = str.trim().toLowerCase();
         if (str.equals("currentcolor")) {
             String currentColor = readInheritAttribute(elem, "color", "black");
-            if (currentColor == null || currentColor.trim().toLowerCase().equals("currentColor")) {
+            if (currentColor == null || currentColor.trim().equalsIgnoreCase("currentColor")) {
                 return null;
             } else {
                 return toColor(elem, currentColor);

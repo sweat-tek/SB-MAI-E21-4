@@ -34,11 +34,11 @@ public interface FigureListener extends EventListener {
     /**
      * Sent when the drawing area used by the figure needs to be repainted.
      */
-    public void areaInvalidated(FigureEvent e);
+    void areaInvalidated(FigureEvent e);
     /**
      * Sent when an attribute of the figure has changed.
      */
-    public void attributeChanged(FigureEvent e);
+    void attributeChanged(FigureEvent e);
     /**
      * Sent when handles of a Figure have been added, removed or replaced.
      * <p>
@@ -47,23 +47,23 @@ public interface FigureListener extends EventListener {
      * A Figure should not fire this event, if just the state or the location
      * of Handle has changed.
      */
-    public void figureHandlesChanged(FigureEvent e);
+    void figureHandlesChanged(FigureEvent e);
     /**
      * Sent when the geometry (for example the bounds) of the figure has changed.
      */
-    public void figureChanged(FigureEvent e);
+    void figureChanged(FigureEvent e);
     
     /**
      * Sent when a figure was added to a drawing.
      */
-    public void figureAdded(FigureEvent e);
+    void figureAdded(FigureEvent e);
     /**
      * Sent when a figure was removed from a drawing.
      */
-    public void figureRemoved(FigureEvent e);
+    void figureRemoved(FigureEvent e);
     /**
      * Sent when the figure requests to be removed from a drawing.
      */
-    public void figureRequestRemove(FigureEvent e);
+    void figureRequestRemove(FigureEvent e);
     
 }

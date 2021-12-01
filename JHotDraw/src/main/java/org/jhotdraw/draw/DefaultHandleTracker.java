@@ -52,7 +52,7 @@ public class DefaultHandleTracker extends AbstractTool implements HandleTracker 
      * The hover handles, are the handles of the figure over which the
      * mouse pointer is currently hovering.
      */
-    private LinkedList<Handle> hoverHandles = new LinkedList<Handle>();
+    private final LinkedList<Handle> hoverHandles = new LinkedList<Handle>();
     /**
      * The hover Figure is the figure, over which the mouse is currently
      * hovering.

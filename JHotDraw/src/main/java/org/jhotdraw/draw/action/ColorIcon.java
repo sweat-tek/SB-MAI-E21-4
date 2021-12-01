@@ -29,11 +29,11 @@ import org.jhotdraw.util.ResourceBundleUtil;
  */
 public class ColorIcon implements javax.swing.Icon {
 
-    private Color fillColor;
+    private final Color fillColor;
     private static BufferedImage noColorImage;
-    private int width;
-    private int height;
-    private String name;
+    private final int width;
+    private final int height;
+    private final String name;
 
     /** Creates a new instance. */
     public ColorIcon(int rgb) {

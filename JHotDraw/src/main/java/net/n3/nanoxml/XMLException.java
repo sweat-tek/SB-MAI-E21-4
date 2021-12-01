@@ -46,7 +46,7 @@ public class XMLException
    /**
     * The message of the exception.
     */
-   private String msg;
+   private final String msg;
 
 
    /**
@@ -58,7 +58,7 @@ public class XMLException
    /**
     * The line number in the XML data where the exception occurred.
     */
-   private int lineNr;
+   private final int lineNr;
 
 
    /**

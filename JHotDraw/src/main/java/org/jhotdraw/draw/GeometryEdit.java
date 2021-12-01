@@ -24,9 +24,9 @@ import org.jhotdraw.util.*;
  * @version 1.0 January 22, 2006 Created.
  */
 public class GeometryEdit extends AbstractUndoableEdit {
-    private Figure owner;
-    private Object oldGeometry;
-    private Object newGeometry;
+    private final Figure owner;
+    private final Object oldGeometry;
+    private final Object newGeometry;
     
     /** Creates a new instance. */
     public GeometryEdit(Figure owner, Object oldGeometry, Object newGeometry) {

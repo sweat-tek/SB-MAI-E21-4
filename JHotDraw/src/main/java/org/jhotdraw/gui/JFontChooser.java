@@ -89,12 +89,12 @@ public class JFontChooser extends JComponent {
     public static final int ERROR_OPTION = -1;
     private int returnValue = ERROR_OPTION;
     // DIALOG
-    private JDialog dialog = null;
+    private final JDialog dialog = null;
     /**
      * This future is used to load fonts lazily
      */
     private static FutureTask<Font[]> future;
-    private TreeModelListener modelHandler = new TreeModelListener() {
+    private final TreeModelListener modelHandler = new TreeModelListener() {
 
         public void treeNodesChanged(TreeModelEvent e) {
             updateSelectionPath(getSelectedFont());

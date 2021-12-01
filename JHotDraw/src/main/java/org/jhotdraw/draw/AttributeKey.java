@@ -52,15 +52,15 @@ public class AttributeKey<T> implements Serializable {
     /**
      * Holds a String representation of the attribute key.
      */
-    private String key;
+    private final String key;
     /**
      * Holds the default value.
      */
-    private T defaultValue;
+    private final T defaultValue;
     /**
      * Specifies whether null values are allowed.
      */
-    private boolean isNullValueAllowed;
+    private final boolean isNullValueAllowed;
     /**
      * Holds labels for the localization of the attribute.
      */
@@ -68,7 +68,7 @@ public class AttributeKey<T> implements Serializable {
     /** This variable is used as a "type token" so that we can check for
      * assignability of attribute values at runtime.
      */
-    private Class<T> clazz;
+    private final Class<T> clazz;
 
     /** Creates a new instance with the specified attribute key, type token class,
      * default value null, and allowing null values. */
@@ -144,8 +144,7 @@ public class AttributeKey<T> implements Serializable {
         try {
             return value == null ? null : clazz.cast(Methods.invoke(value, "clone"));
         } catch (NoSuchMethodException ex) {
-            InternalError e = new InternalError();
-            e.initCause(ex);
+            InternalError e = new InternalError(ex);
             throw e;
         }
     }
@@ -158,7 +157,7 @@ public class AttributeKey<T> implements Serializable {
      * @return The value of the attribute.
      */
     public T get(Figure f) {
-        T value = (T) f.getAttribute(this);
+        T value = f.getAttribute(this);
         return (value == null && !isNullValueAllowed) ? defaultValue : value;
     }
 
@@ -276,8 +275,7 @@ public class AttributeKey<T> implements Serializable {
             basicSet(f, value == null ? null : clazz.cast(Methods.invoke(value, "clone")));
 
         } catch (NoSuchMethodException ex) {
-            InternalError e = new InternalError();
-            e.initCause(ex);
+            InternalError e = new InternalError(ex);
             throw e;
         }
     }
@@ -317,8 +315,7 @@ public class AttributeKey<T> implements Serializable {
         try {
             set(a, value == null ? null : (T) Methods.invoke(value, "clone"));
         } catch (NoSuchMethodException ex) {
-            InternalError e = new InternalError();
-            e.initCause(ex);
+            InternalError e = new InternalError(ex);
             throw e;
         }
     }

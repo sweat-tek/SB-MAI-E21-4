@@ -24,7 +24,7 @@ import java.io.*;
  * @version 1.0 December 31, 2006 Created.
  */
 public class InputStreamTransferable extends AbstractTransferable {
-    private byte[] data;
+    private final byte[] data;
     
     /** Creates a new instance. */
     public InputStreamTransferable(DataFlavor flavor, byte[] data) {

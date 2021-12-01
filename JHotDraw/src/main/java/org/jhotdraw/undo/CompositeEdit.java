@@ -146,7 +146,7 @@ public class CompositeEdit extends CompoundEdit {
      * any model state.
      */
     public boolean isSignificant() {
-        return (isSignificant) ? super.isSignificant() : false;
+        return isSignificant && super.isSignificant();
         //return isSignificant;
     }
     public void setSignificant(boolean newValue) {

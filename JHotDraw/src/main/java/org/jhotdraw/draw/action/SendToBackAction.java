@@ -15,6 +15,7 @@
 package org.jhotdraw.draw.action;
 
 import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
+import org.jhotdraw.draw.arrange.Arrange;
 import org.jhotdraw.util.*;
 import javax.swing.*;
 import java.util.*;
@@ -42,7 +43,7 @@ public class SendToBackAction extends AbstractSelectedAction {
     @FeatureEntryPoint(JHotDrawFeatures.ARRANGE)
     public void actionPerformed(java.awt.event.ActionEvent e) {
         final DrawingView view = getView();
-        final LinkedList<Figure> figures = new LinkedList<Figure>(view.getSelectedFigures());
+        final ArrayList<Figure> figures = new ArrayList<Figure>(view.getSelectedFigures());
         sendToBack(view, figures);
         fireUndoableEditHappened(new AbstractUndoableEdit() {
             @Override
@@ -62,12 +63,14 @@ public class SendToBackAction extends AbstractSelectedAction {
         }
         );
     }
-    public static void sendToBack(DrawingView view, Collection figures) {
+    public static void sendToBack(DrawingView view, ArrayList<Figure> figures) {
         Iterator i = figures.iterator();
         Drawing drawing = view.getDrawing();
         while (i.hasNext()) {
             Figure figure = (Figure) i.next();
             drawing.sendToBack(figure);
+
         }
+
     }
 }

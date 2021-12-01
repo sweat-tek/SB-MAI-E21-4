@@ -37,15 +37,15 @@ import static org.jhotdraw.samples.svg.SVGAttributeKeys.*;
  */
 public class SVGDrawingPanel extends JPanel {
 
-    private UndoRedoManager undoManager;
+    private final UndoRedoManager undoManager;
     private DrawingEditor editor;
-    private ResourceBundleUtil labels;
+    private final ResourceBundleUtil labels;
     private Preferences prefs;
 
     private class ItemChangeHandler implements ItemListener {
 
-        private JToolBar toolbar;
-        private String prefkey;
+        private final JToolBar toolbar;
+        private final String prefkey;
 
         public ItemChangeHandler(JToolBar toolbar, String prefkey) {
             this.toolbar = toolbar;

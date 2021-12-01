@@ -24,5 +24,5 @@ import org.jhotdraw.app.*;
  * @version 1.0 July 31, 2007 Created.
  */
 public interface PrintableView extends View {
-public Pageable createPageable();   
+Pageable createPageable();
 }

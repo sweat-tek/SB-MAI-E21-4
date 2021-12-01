@@ -45,7 +45,7 @@ public interface Layouter /*extends Serializable, Storable*/ {
      * @param anchor start point for the layout
      * @param lead minimum lead point for the layout
      */
-    public Rectangle2D.Double calculateLayout(CompositeFigure compositeFigure, Point2D.Double anchor, Point2D.Double lead);
+    Rectangle2D.Double calculateLayout(CompositeFigure compositeFigure, Point2D.Double anchor, Point2D.Double lead);
     
     /**
      * Method which lays out a figure. It is called by the figure
@@ -55,5 +55,5 @@ public interface Layouter /*extends Serializable, Storable*/ {
      * @param anchor start point for the layout
      * @param lead minimum lead point for the layout
      */
-    public Rectangle2D.Double layout(CompositeFigure compositeFigure, Point2D.Double anchor, Point2D.Double lead);
+    Rectangle2D.Double layout(CompositeFigure compositeFigure, Point2D.Double anchor, Point2D.Double lead);
 }

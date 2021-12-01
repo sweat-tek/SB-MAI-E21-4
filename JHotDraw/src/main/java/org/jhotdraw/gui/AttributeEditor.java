@@ -33,22 +33,22 @@ import org.jhotdraw.draw.*;
  * <br>1.0 15. Mai 2007 Created.
  */
 public interface AttributeEditor<T> {
-    public final static String ATTRIBUTE_VALUE_PROPERTY = "attributeValue";
-    public final static String MULTIPLE_VALUES_PROPERTY = "multipleValues";
+    String ATTRIBUTE_VALUE_PROPERTY = "attributeValue";
+    String MULTIPLE_VALUES_PROPERTY = "multipleValues";
     /**
      * Returns the JComponent of the attribute field.
      */
-    public JComponent getComponent();
+    JComponent getComponent();
     /**
      * Sets the attribute value. This is a bound property.
      *
      * @param newValue
      */
-    public void setAttributeValue(T newValue);
+    void setAttributeValue(T newValue);
     /**
      * Gets the attribute value.
      */
-    public T getAttributeValue();
+    T getAttributeValue();
 
     /**
      * This method is called, if the figures of the attribute field have 
@@ -56,28 +56,28 @@ public interface AttributeEditor<T> {
      * 
      * @param newValue
      */
-    public void setMultipleValues(boolean newValue);
+    void setMultipleValues(boolean newValue);
 
     /**
      * This method returns the value of the multipleValues property.
      */
-    public boolean isMultipleValues();
+    boolean isMultipleValues();
 
     /**
      * Returns true if the field is currently adjusting the value.
      */
-    public boolean getValueIsAdjusting();
+    boolean getValueIsAdjusting();
 
     /**
      * Adds a property change listener.
      *
      * @param l
      */
-    public void addPropertyChangeListener(PropertyChangeListener l);
+    void addPropertyChangeListener(PropertyChangeListener l);
     /**
      * Removes a property change listener.
      *
      * @param l
      */
-    public void removePropertyChangeListener(PropertyChangeListener l);
+    void removePropertyChangeListener(PropertyChangeListener l);
 }

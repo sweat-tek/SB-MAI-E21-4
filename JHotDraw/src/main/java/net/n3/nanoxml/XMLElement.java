@@ -114,7 +114,7 @@ public class XMLElement implements IXMLElement, Serializable {
     /**
      * The line in the source data where this element starts.
      */
-    private int lineNr;
+    private final int lineNr;
     
     
     /**
@@ -1108,8 +1108,7 @@ public class XMLElement implements IXMLElement, Serializable {
        try {
        w.write(this);
        } catch (java.io.IOException e) {
-           InternalError error = new InternalError("toString failed");
-           error.initCause(e);
+           InternalError error = new InternalError("toString failed", e);
            throw error;
        }
        return buf.toString();

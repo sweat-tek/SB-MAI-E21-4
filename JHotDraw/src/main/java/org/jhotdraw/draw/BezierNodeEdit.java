@@ -28,9 +28,9 @@ import javax.swing.undo.UndoableEdit;
  */
 class BezierNodeEdit extends AbstractUndoableEdit {
 
-    private BezierFigure owner;
-    private int index;
-    private BezierPath.Node oldValue;
+    private final BezierFigure owner;
+    private final int index;
+    private final BezierPath.Node oldValue;
     private BezierPath.Node newValue;
 
     /** Creates a new instance. */

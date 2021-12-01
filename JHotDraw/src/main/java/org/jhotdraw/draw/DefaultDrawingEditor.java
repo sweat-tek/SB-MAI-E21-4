@@ -45,16 +45,16 @@ import static org.jhotdraw.draw.AttributeKeys.*;
  */
 public class DefaultDrawingEditor extends AbstractBean implements DrawingEditor, ToolListener {
 
-    private HashMap<AttributeKey, Object> defaultAttributes = new HashMap<AttributeKey, Object>();
-    private HashMap<AttributeKey, Object> handleAttributes = new HashMap<AttributeKey, Object>();
+    private final HashMap<AttributeKey, Object> defaultAttributes = new HashMap<AttributeKey, Object>();
+    private final HashMap<AttributeKey, Object> handleAttributes = new HashMap<AttributeKey, Object>();
     private Tool tool;
-    private HashSet<DrawingView> views;
+    private final HashSet<DrawingView> views;
     private DrawingView activeView;
     private boolean isEnabled = true;
-    private FocusListener focusHandler = new FocusListener() {
+    private final FocusListener focusHandler = new FocusListener() {
 
         public void focusGained(FocusEvent e) {
-            setActiveView((DrawingView) findView((Container) e.getSource()));
+            setActiveView(findView((Container) e.getSource()));
         }
 
         public void focusLost(FocusEvent e) {

@@ -63,23 +63,23 @@ abstract class MultipleGradientPaintContext implements PaintContext {
     protected ColorModel model;
 
     /** Color model used if gradient colors are all opaque */
-    private static ColorModel lrgbmodel_NA = new DirectColorModel
+    private static final ColorModel lrgbmodel_NA = new DirectColorModel
         (ColorSpace.getInstance(ColorSpace.CS_LINEAR_RGB),
          24, 0xff0000, 0xFF00, 0xFF, 0x0,
          false, DataBuffer.TYPE_INT);
 
-    private static ColorModel srgbmodel_NA = new DirectColorModel
+    private static final ColorModel srgbmodel_NA = new DirectColorModel
         (ColorSpace.getInstance(ColorSpace.CS_sRGB),
          24, 0xff0000, 0xFF00, 0xFF, 0x0,
          false, DataBuffer.TYPE_INT);
 
     /** Color model used if some gradient colors are transparent */
-    private static ColorModel lrgbmodel_A = new DirectColorModel
+    private static final ColorModel lrgbmodel_A = new DirectColorModel
         (ColorSpace.getInstance(ColorSpace.CS_LINEAR_RGB),
          32, 0xff0000, 0xFF00, 0xFF, 0xFF000000,
          false, DataBuffer.TYPE_INT);
 
-    private static ColorModel srgbmodel_A = new DirectColorModel
+    private static final ColorModel srgbmodel_A = new DirectColorModel
         (ColorSpace.getInstance(ColorSpace.CS_sRGB),
          32, 0xff0000, 0xFF00, 0xFF, 0xFF000000,
          false, DataBuffer.TYPE_INT);
@@ -159,8 +159,8 @@ abstract class MultipleGradientPaintContext implements PaintContext {
     private int transparencyTest;
 
     /** Colorspace conversion lookup tables */
-    private static final int SRGBtoLinearRGB[] = new int[256];
-    private static final int LinearRGBtoSRGB[] = new int[256];
+    private static final int[] SRGBtoLinearRGB = new int[256];
+    private static final int[] LinearRGBtoSRGB = new int[256];
 
     //build the tables
     static{
@@ -272,7 +272,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
         // Get all the components of the inverse transform matrix.
         AffineTransform tInv = t.createInverse();
 
-        double m[] = new double[6];
+        double[] m = new double[6];
         tInv.getMatrix(m);
         a00 = (float)m[0];
         a10 = (float)m[1];
@@ -1364,7 +1364,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
     }
 
     /** Subclasses should implement this. */
-    protected abstract void fillRaster(int pixels[], int off, int adjust,
+    protected abstract void fillRaster(int[] pixels, int off, int adjust,
                                        int x, int y, int w, int h);
 
 

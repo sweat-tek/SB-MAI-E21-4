@@ -26,32 +26,32 @@ public interface ApplicationModel {
     /**
      * Returns the name of the application.
      */
-    public String getName();
+    String getName();
     /**
      * Returns the version of the application.
      */
-    public String getVersion();
+    String getVersion();
     /**
      * Returns the copyright of the application.
      */
-    public String getCopyright();
+    String getCopyright();
     
     /**
      * Creates a new view for the application.
      */
-    public View createView();
+    View createView();
     
-    public void initView(Application a, View v);
+    void initView(Application a, View v);
     
-    public void initApplication(Application a);
+    void initApplication(Application a);
     /**
      * Puts an action with the specified id.
      */
-    public void putAction(String id, Action action);
+    void putAction(String id, Action action);
     /**
      * Returns the action with the specified id.
      */
-    public Action getAction(String id);
+    Action getAction(String id);
     /**
      * Creates tool bars.
      * <p>
@@ -62,7 +62,7 @@ public interface ApplicationModel {
      * @param v The view for which the toolbars need to be created, or null
      * if the toolbar needs to be shared with multiple views.
      */
-    public List<JToolBar> createToolBars(Application a, View v);
+    List<JToolBar> createToolBars(Application a, View v);
     
     /**
      * Creates menus.
@@ -74,5 +74,5 @@ public interface ApplicationModel {
      * @param v The view for which the toolbars need to be created, or null
      * if the toolbar needs to be shared with multiple views.
      */
-    public List<JMenu> createMenus(Application a, View v);
+    List<JMenu> createMenus(Application a, View v);
 }

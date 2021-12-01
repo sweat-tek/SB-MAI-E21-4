@@ -57,11 +57,11 @@ public class GridConstrainer extends AbstractConstrainer {
     /**
      * The color for minor grid cells.
      */
-    private static Color minorColor = new Color(0xebebeb);
+    private static final Color minorColor = new Color(0xebebeb);
     /**
      * The color for major grid cells.
      */
-    private static Color majorColor = new Color(0xcacaca);
+    private static final Color majorColor = new Color(0xcacaca);
     /**
      * The spacing factor for a major grid cell.
      */
@@ -404,8 +404,8 @@ public class GridConstrainer extends AbstractConstrainer {
 
                     point.x = width * i;
                     t.transform(point, viewPoint);
-                    g.drawLine((int) viewPoint.x, (int) viewBounds.y,
-                            (int) viewPoint.x, (int) (viewBounds.y + viewBounds.height));
+                    g.drawLine((int) viewPoint.x, viewBounds.y,
+                            (int) viewPoint.x, viewBounds.y + viewBounds.height);
                 }
             } else if (width * majorGridSpacing * view.getScaleFactor() > 2) {
                 g.setColor(majorColor);
@@ -413,8 +413,8 @@ public class GridConstrainer extends AbstractConstrainer {
                     if (i % majorGridSpacing == 0) {
                         point.x = width * i;
                         t.transform(point, viewPoint);
-                        g.drawLine((int) viewPoint.x, (int) viewBounds.y,
-                                (int) viewPoint.x, (int) (viewBounds.y + viewBounds.height));
+                        g.drawLine((int) viewPoint.x, viewBounds.y,
+                                (int) viewPoint.x, viewBounds.y + viewBounds.height);
                     }
                 }
             }
@@ -428,8 +428,8 @@ public class GridConstrainer extends AbstractConstrainer {
 
                     point.y = height * i;
                     t.transform(point, viewPoint);
-                    g.drawLine((int) viewBounds.x, (int) viewPoint.y,
-                            (int) (viewBounds.x + viewBounds.width), (int) viewPoint.y);
+                    g.drawLine(viewBounds.x, (int) viewPoint.y,
+                            viewBounds.x + viewBounds.width, (int) viewPoint.y);
                 }
             } else if (height * majorGridSpacing * view.getScaleFactor() > 2) {
                 g.setColor(majorColor);
@@ -437,8 +437,8 @@ public class GridConstrainer extends AbstractConstrainer {
                     if (i % majorGridSpacing == 0) {
                         point.y = height * i;
                         t.transform(point, viewPoint);
-                        g.drawLine((int) viewBounds.x, (int) viewPoint.y,
-                                (int) (viewBounds.x + viewBounds.width), (int) viewPoint.y);
+                        g.drawLine(viewBounds.x, (int) viewPoint.y,
+                                viewBounds.x + viewBounds.width, (int) viewPoint.y);
                     }
                 }
             }

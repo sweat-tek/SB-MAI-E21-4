@@ -39,20 +39,20 @@ public class ImageOutputFormat implements OutputFormat {
     /**
      * Format description used for the file filter.
      */
-    private String description;
+    private final String description;
     /**
      * File name extension used for the file filter.
      */
-    private String fileExtension;
+    private final String fileExtension;
     /**
      * Image IO image format name.
      */
-    private String formatName;
+    private final String formatName;
     /**
      * The image type must match the output format, for example, PNG supports
      * BufferedImage.TYPE_INT_ARGB whereas GIF needs BufferedImage.TYPE_
      */
-    private int imageType;
+    private final int imageType;
     
     /** Creates a new image output format for Portable Network Graphics PNG. */
     public ImageOutputFormat() {

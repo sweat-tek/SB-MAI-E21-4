@@ -36,9 +36,9 @@ import org.jhotdraw.app.View;
  */
 public class RedoAction extends AbstractViewAction {
     public final static String ID = "edit.redo";
-    private ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.app.Labels");
+    private final ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.app.Labels");
     
-    private PropertyChangeListener redoActionPropertyListener = new PropertyChangeListener() {
+    private final PropertyChangeListener redoActionPropertyListener = new PropertyChangeListener() {
         public void propertyChange(PropertyChangeEvent evt) {
             String name = evt.getPropertyName();
             if (name == AbstractAction.NAME) {

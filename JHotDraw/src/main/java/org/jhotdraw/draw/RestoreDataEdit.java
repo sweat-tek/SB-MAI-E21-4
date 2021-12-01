@@ -27,9 +27,9 @@ import java.util.*;
  * <br>1.0 2003-12-01 Derived from JHotDraw 5.4b1.
  */
 public class RestoreDataEdit extends AbstractUndoableEdit {
-    private Figure figure;
-    private Object oldRestoreData;
-    private Object newRestoreData;
+    private final Figure figure;
+    private final Object oldRestoreData;
+    private final Object newRestoreData;
     
     /** Creates a new instance. */
     public RestoreDataEdit(Figure figure, Object oldRestoreData) {

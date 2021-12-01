@@ -354,12 +354,10 @@ public abstract class AbstractCompositeFigure
             try {
                 p = (Point2D.Double) TRANSFORM.get(this).inverseTransform(p, new Point2D.Double());
             } catch (NoninvertibleTransformException ex) {
-                InternalError error = new InternalError(ex.getMessage());
-                error.initCause(ex);
+                InternalError error = new InternalError(ex.getMessage(), ex);
                 throw error;
             }
         }
-        ;
         if (getDrawingArea().contains(p)) {
             for (Figure child : getChildrenFrontToBack()) {
                 if (child.isVisible() && child.contains(p)) {

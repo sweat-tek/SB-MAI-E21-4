@@ -29,10 +29,10 @@ import javax.swing.undo.*;
 public class ZoomEditorAction extends AbstractDrawingEditorAction {
     public final static String ID = "zoomEditor";
     
-    private double scaleFactor;
-    private AbstractButton button;
-    private String label;
-    private boolean updateAllViews;
+    private final double scaleFactor;
+    private final AbstractButton button;
+    private final String label;
+    private final boolean updateAllViews;
     /**
      * Creates a new instance.
      */

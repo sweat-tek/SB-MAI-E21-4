@@ -269,10 +269,7 @@ public class RelativeLocator extends AbstractLocator {
         if (this.relativeX != other.relativeX) {
             return false;
         }
-        if (this.relativeY != other.relativeY) {
-            return false;
-        }
-        return true;
+        return this.relativeY == other.relativeY;
     }
 
     @Override

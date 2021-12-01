@@ -23,7 +23,7 @@ import java.util.*;
  * @version 1.0 2003-12-01 Derived from JHotDraw 5.4b1.
  */
 public class HandleEvent extends EventObject {
-    private Rectangle invalidatedArea;
+    private final Rectangle invalidatedArea;
     
     /** Creates a new instance. */
     public HandleEvent(Handle src, Rectangle invalidatedArea) {

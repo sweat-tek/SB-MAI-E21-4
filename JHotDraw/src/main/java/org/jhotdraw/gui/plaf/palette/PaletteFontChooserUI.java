@@ -37,7 +37,7 @@ public class PaletteFontChooserUI extends FontChooserUI {
 
     private FontCollectionNode familyListParent;
     private FontFamilyNode faceListParent;
-    private JFontChooser fontChooser;
+    private final JFontChooser fontChooser;
     private PaletteFontChooserSelectionPanel selectionPanel;
     private PaletteFontChooserPreviewPanel previewPanel;
     private SelectionPanelHandler selectionPanelHandler;

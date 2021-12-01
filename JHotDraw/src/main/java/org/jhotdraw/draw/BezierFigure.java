@@ -205,9 +205,7 @@ public class BezierFigure extends AbstractAttributedFigure {
                 Point2D.Double p1 = path.get(path.size()-1,0);
                 Point2D.Double p2 = cp.get(path.size()-1,0);
                 // FIXME - Check here, if caps path contains the point
-                if (Geom.lineContainsPoint(p1.x,p1.y,p2.x,p2.y, p.x, p.y, tolerance)) {
-                    return true;
-                }
+                return Geom.lineContainsPoint(p1.x, p1.y, p2.x, p2.y, p.x, p.y, tolerance);
             }
         }
         return false;
@@ -278,10 +276,10 @@ public class BezierFigure extends AbstractAttributedFigure {
      * Returns a clone of the bezier path of this figure.
      */
     public BezierPath getBezierPath() {
-        return (BezierPath) path.clone();
+        return path.clone();
     }
     public void setBezierPath(BezierPath newValue) {
-        path = (BezierPath) newValue.clone();
+        path = newValue.clone();
         this.setClosed(newValue.isClosed());
     }
     
@@ -290,7 +288,7 @@ public class BezierFigure extends AbstractAttributedFigure {
     }
     
     public boolean isClosed() {
-        return (Boolean) getAttribute(CLOSED);
+        return getAttribute(CLOSED);
     }
     public void setClosed(boolean newValue) {
         CLOSED.set(this, newValue);
@@ -335,7 +333,7 @@ public class BezierFigure extends AbstractAttributedFigure {
      */
     protected BezierPath getCappedPath() {
         if (cappedPath == null) {
-            cappedPath = (BezierPath) path.clone();
+            cappedPath = path.clone();
             if (isClosed()) {
                 cappedPath.setClosed(true);
             } else {
@@ -563,7 +561,7 @@ public class BezierFigure extends AbstractAttributedFigure {
     @Override
     public BezierFigure clone() {
         BezierFigure that = (BezierFigure) super.clone();
-        that.path = (BezierPath) this.path.clone();
+        that.path = this.path.clone();
         that.invalidate();
         return that;
     }

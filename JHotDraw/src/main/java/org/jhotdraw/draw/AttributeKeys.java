@@ -76,7 +76,7 @@ public class AttributeKeys {
      */
     public final static AttributeKey<Boolean> FILL_OPEN_PATH = new AttributeKey<Boolean>("fillOpenPath", Boolean.class, false, false, labels);
 
-    public static enum WindingRule {
+    public enum WindingRule {
 
         /**
          * If WINDING_RULE is set to this value, an even-odd winding rule
@@ -94,7 +94,7 @@ public class AttributeKeys {
      */
     public final static AttributeKey<WindingRule> WINDING_RULE = new AttributeKey<WindingRule>("windingRule", WindingRule.class, WindingRule.EVEN_ODD, false, labels);
 
-    public static enum Underfill {
+    public enum Underfill {
 
         /**
          * If FILL_UNDER_STROKE is set to this value, the area under the
@@ -171,7 +171,7 @@ public class AttributeKeys {
      */
     public final static AttributeKey<Boolean> IS_STROKE_DASH_FACTOR = new AttributeKey<Boolean>("isStrokeDashFactor", Boolean.class, true, false, labels);
 
-    public static enum StrokeType {
+    public enum StrokeType {
 
         /**
          * If STROKE_TYPE is set to this value, a BasicStroke instance is used
@@ -193,7 +193,7 @@ public class AttributeKeys {
      */
     public final static AttributeKey<StrokeType> STROKE_TYPE = new AttributeKey<StrokeType>("strokeType", StrokeType.class, StrokeType.BASIC, false, labels);
 
-    public static enum StrokePlacement {
+    public enum StrokePlacement {
 
         /**
          * If STROKE_PLACEMENT is set to this value, the stroke is centered
@@ -238,7 +238,7 @@ public class AttributeKeys {
      */
     public final static AttributeKey<Dimension2DDouble> TEXT_SHADOW_OFFSET = new AttributeKey<Dimension2DDouble>("textShadowOffset", Dimension2DDouble.class, new Dimension2DDouble(1d, 1d), false, labels);
 
-    public static enum Alignment {
+    public enum Alignment {
 
         /** align on the left or the top */
         LEADING,
@@ -319,7 +319,7 @@ public class AttributeKeys {
      */
     public final static AttributeKey<AffineTransform> TRANSFORM = new AttributeKey<AffineTransform>("transform", AffineTransform.class, null, true, labels);
 
-    public static enum Orientation {
+    public enum Orientation {
 
         NORTH,
         NORTH_EAST,
@@ -343,35 +343,34 @@ public class AttributeKeys {
 
     static {
         HashSet<AttributeKey> as = new HashSet<AttributeKey>();
-        as.addAll(Arrays.asList(new AttributeKey[]{
-                    FILL_COLOR,
-                    FILL_UNDER_STROKE,
-                    STROKE_COLOR,
-                    STROKE_WIDTH,
-                    STROKE_INNER_WIDTH_FACTOR,
-                    STROKE_JOIN,
-                    STROKE_CAP,
-                    STROKE_MITER_LIMIT,
-                    STROKE_DASHES,
-                    STROKE_DASH_PHASE,
-                    STROKE_TYPE,
-                    STROKE_PLACEMENT,
-                    TEXT,
-                    TEXT_COLOR,
-                    TEXT_SHADOW_COLOR,
-                    TEXT_SHADOW_OFFSET,
-                    TRANSFORM,
-                    FONT_FACE,
-                    FONT_SIZE,
-                    FONT_BOLD,
-                    FONT_ITALIC,
-                    FONT_UNDERLINE,
-                    BEZIER_PATH_LAYOUTER,
-                    END_DECORATION,
-                    START_DECORATION,
-                    DECORATOR_INSETS,
-                    ORIENTATION,
-                    WINDING_RULE,}));
+        as.addAll(Arrays.asList(FILL_COLOR,
+                FILL_UNDER_STROKE,
+                STROKE_COLOR,
+                STROKE_WIDTH,
+                STROKE_INNER_WIDTH_FACTOR,
+                STROKE_JOIN,
+                STROKE_CAP,
+                STROKE_MITER_LIMIT,
+                STROKE_DASHES,
+                STROKE_DASH_PHASE,
+                STROKE_TYPE,
+                STROKE_PLACEMENT,
+                TEXT,
+                TEXT_COLOR,
+                TEXT_SHADOW_COLOR,
+                TEXT_SHADOW_OFFSET,
+                TRANSFORM,
+                FONT_FACE,
+                FONT_SIZE,
+                FONT_BOLD,
+                FONT_ITALIC,
+                FONT_UNDERLINE,
+                BEZIER_PATH_LAYOUTER,
+                END_DECORATION,
+                START_DECORATION,
+                DECORATOR_INSETS,
+                ORIENTATION,
+                WINDING_RULE));
         supportedAttributes = Collections.unmodifiableSet(as);
         HashMap<String, AttributeKey> am = new HashMap<String, AttributeKey>();
         for (AttributeKey a : as) {

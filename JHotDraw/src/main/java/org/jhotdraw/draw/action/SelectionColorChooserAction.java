@@ -63,7 +63,7 @@ public class SelectionColorChooserAction extends EditorColorChooserAction {
             initialColor = key.get(f);
         }
         if (initialColor == null) {
-            initialColor = super.getInitialColor();;
+            initialColor = super.getInitialColor();
         }
         return initialColor;
     }

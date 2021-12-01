@@ -46,7 +46,7 @@ public class DrawingEditorProxy extends AbstractBean implements DrawingEditor {
               firePropertyChange(evt.getPropertyName(), evt.getOldValue(), evt.getNewValue());
           }
     }
-    private Forwarder forwarder;
+    private final Forwarder forwarder;
     
     /** Creates a new instance. */
     public DrawingEditorProxy() {

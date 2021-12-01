@@ -35,19 +35,19 @@ import org.jhotdraw.app.View;
  * @see org.jhotdraw.app.Application
  */
 public abstract class AbstractViewAction extends AbstractAction {
-    private Application app;
+    private final Application app;
     private String propertyName;
     public final static String VIEW_PROPERTY = "view";
     public final static String ENABLED_PROPERTY = "enabled";
     
-    private PropertyChangeListener applicationListener = new PropertyChangeListener() {
+    private final PropertyChangeListener applicationListener = new PropertyChangeListener() {
         public void propertyChange(PropertyChangeEvent evt) {
             if (evt.getPropertyName() == Application.ACTIVE_VIEW_PROPERTY) { // Strings get interned
                 updateView((View) evt.getOldValue(), (View) evt.getNewValue());
             }
         }
     };
-    private PropertyChangeListener viewListener = new PropertyChangeListener() {
+    private final PropertyChangeListener viewListener = new PropertyChangeListener() {
         public void propertyChange(PropertyChangeEvent evt) {
             String name = evt.getPropertyName();
             if (name == "enabled") { // Strings get interned

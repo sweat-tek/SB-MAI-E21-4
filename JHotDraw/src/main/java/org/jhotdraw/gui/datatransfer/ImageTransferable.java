@@ -29,15 +29,14 @@ import javax.imageio.ImageIO;
  * <br>1.0 January 2, 2007 Created.
  */
 public class ImageTransferable implements Transferable {
-    private Image image;
+    private final Image image;
     
     public final static DataFlavor IMAGE_PNG_FLAVOR;
     static {
         try {
             IMAGE_PNG_FLAVOR = new DataFlavor("image/png");
         } catch (Exception e) {
-            InternalError error = new InternalError("Unable to crate image/png data flavor");
-            error.initCause(e);
+            InternalError error = new InternalError("Unable to crate image/png data flavor", e);
             throw error;
         }
     }

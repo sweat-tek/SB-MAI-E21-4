@@ -44,7 +44,7 @@ import static org.jhotdraw.samples.svg.SVGAttributeKeys.*;
 public class FigureToolBar extends AbstractToolBar {
 
     private SelectionComponentDisplayer displayer;
-    private ResourceBundleUtil labels;
+    private final ResourceBundleUtil labels;
 
     /** Creates new instance. */
     public FigureToolBar() {

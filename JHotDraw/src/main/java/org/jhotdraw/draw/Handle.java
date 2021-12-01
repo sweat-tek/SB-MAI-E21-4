@@ -45,15 +45,15 @@ public interface Handle extends KeyListener {
     /**
      * Returns the owner of this handle.
      */
-    public Figure getOwner();
+    Figure getOwner();
     /**
      * Sets the view of the handle.
      */
-    public void setView(DrawingView view);
+    void setView(DrawingView view);
     /**
      * Adds a listener for this handle.
      */
-    public void addHandleListener(HandleListener l);
+    void addHandleListener(HandleListener l);
     
     /**
      * Removes a listener for this handle.
@@ -75,63 +75,63 @@ public interface Handle extends KeyListener {
     /**
      * Tests if a point is contained in the handle.
      */
-    public boolean contains(Point p);
+    boolean contains(Point p);
     
     /**
      * Draws this handle. 
      * Note: The handle is drawn with the coordinate system of
      * the DrawingView.
      */
-    public void draw(Graphics2D g);
+    void draw(Graphics2D g);
     /**
      * Invalidates the handle. This method informs its listeners
      * that its current display box is invalid and should be
      * refreshed.
      */
-    public void invalidate();
+    void invalidate();
     
     /**
      * Disposes the resources aquired by the handler.
      */
-    public void dispose();
+    void dispose();
     
     /**
      * Returns a cursor for the handle.
      */
-    public Cursor getCursor();
+    Cursor getCursor();
     
     /**
      * Returns true, if this handle is combinable with the specified handle.
      * This method is used to determine, if multiple handles need to be tracked,
      * when more than one figure is selected.
      */
-    public boolean isCombinableWith(Handle handle);
+    boolean isCombinableWith(Handle handle);
     
     /**
      * Tracks the start of the interaction. The default implementation
      * does nothing.
      *  @param anchor the position where the interaction started
      */
-    public void trackStart(Point anchor, int modifiersEx);
+    void trackStart(Point anchor, int modifiersEx);
     
     /**
      * Tracks a step of the interaction.
      *  @param anchor the position where the interaction started
      * @param lead the current position
      */
-    public void trackStep(Point anchor, Point lead, int modifiersEx);
+    void trackStep(Point anchor, Point lead, int modifiersEx);
     
     /**
      * Tracks the end of the interaction.
      *  @param anchor the position where the interaction started
      * @param lead the current position
      */
-    public void trackEnd(Point anchor, Point lead, int modifiersEx);
+    void trackEnd(Point anchor, Point lead, int modifiersEx);
     
     /**
      * Tracks a double click.
      */
-    public void trackDoubleClick(Point p, int modifiersEx);
+    void trackDoubleClick(Point p, int modifiersEx);
     
     /**
      * This method is invoked by the drawing view, when its transform
@@ -139,14 +139,14 @@ public interface Handle extends KeyListener {
      * DrawingView.drawingToView will return different values than they
      * did before.
      */
-    public void viewTransformChanged();
+    void viewTransformChanged();
     
     /**
      * Creates secondary handles.
      */
-    public Collection<Handle> createSecondaryHandles();
+    Collection<Handle> createSecondaryHandles();
     /**
      * Returns a tooltip for the specified location.
      */
-    public String getToolTipText(Point p);
+    String getToolTipText(Point p);
 }

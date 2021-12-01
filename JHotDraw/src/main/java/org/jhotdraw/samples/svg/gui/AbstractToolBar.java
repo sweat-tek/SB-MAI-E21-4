@@ -164,7 +164,7 @@ public /*abstract*/ class AbstractToolBar extends JDisclosureToolBar {
                             }
                             }
                             parent.revalidate();
-                            ((JComponent) parent.getRootPane().getContentPane()).revalidate();
+                            parent.getRootPane().getContentPane().revalidate();
 
                         }
                     }

@@ -46,7 +46,7 @@ public interface IXMLParser
     *
     * @param reader the reader.
     */
-   public void setReader(IXMLReader reader);
+   void setReader(IXMLReader reader);
 
 
    /**
@@ -54,7 +54,7 @@ public interface IXMLParser
     *
     * @return the reader.
     */
-   public IXMLReader getReader();
+   IXMLReader getReader();
 
 
    /**
@@ -62,7 +62,7 @@ public interface IXMLParser
     *
     * @param builder the builder.
     */
-   public void setBuilder(IXMLBuilder builder);
+   void setBuilder(IXMLBuilder builder);
 
 
    /**
@@ -70,7 +70,7 @@ public interface IXMLParser
     *
     * @return the builder.
     */
-   public IXMLBuilder getBuilder();
+   IXMLBuilder getBuilder();
 
 
    /**
@@ -78,7 +78,7 @@ public interface IXMLParser
     *
     * @param validator the validator.
     */
-   public void setValidator(IXMLValidator validator);
+   void setValidator(IXMLValidator validator);
 
 
    /**
@@ -86,7 +86,7 @@ public interface IXMLParser
     *
     * @return the validator.
     */
-   public IXMLValidator getValidator();
+   IXMLValidator getValidator();
 
 
    /**
@@ -94,7 +94,7 @@ public interface IXMLParser
     *
     * @param resolver the non-null resolver.
     */
-   public void setResolver(IXMLEntityResolver resolver);
+   void setResolver(IXMLEntityResolver resolver);
 
 
    /**
@@ -102,7 +102,7 @@ public interface IXMLParser
     *
     * @return the non-null resolver.
     */
-   public IXMLEntityResolver getResolver();
+   IXMLEntityResolver getResolver();
 
 
    /**
@@ -118,7 +118,7 @@ public interface IXMLParser
     * @throws net.n3.nanoxml.XMLException
     *		if an error occurred reading or parsing the data
     */
-   public Object parse()
+   Object parse()
       throws XMLException;
 
 }

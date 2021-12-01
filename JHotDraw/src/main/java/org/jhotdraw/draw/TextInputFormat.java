@@ -19,6 +19,7 @@ import java.awt.datatransfer.*;
 import java.awt.geom.*;
 import java.awt.image.*;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import javax.imageio.*;
 import javax.swing.*;
@@ -48,25 +49,25 @@ public class TextInputFormat implements InputFormat {
     /**
      * The prototype for creating a figure that holds the imported text.
      */
-    private TextHolderFigure prototype;
+    private final TextHolderFigure prototype;
     
     /**
      * Format description used for the file filter.
      */
-    private String description;
+    private final String description;
     /**
      * File name extension used for the file filter.
      */
-    private String fileExtension;
+    private final String fileExtension;
     /**
      * Image IO image format name.
      */
-    private String formatName;
+    private final String formatName;
     /**
      * This should be set to true for ImageHolderFigures that can hold multiple
      * lines of text.
      */
-    private boolean isMultiline;
+    private final boolean isMultiline;
     
     /** Creates a new image output format for text, for a figure that can not.
      * hold multiple lines of text.
@@ -124,7 +125,7 @@ public class TextInputFormat implements InputFormat {
     public LinkedList<Figure> createTextHolderFigures(InputStream in) throws IOException {
         LinkedList<Figure> list = new LinkedList<Figure>();
         
-        BufferedReader r = new BufferedReader(new InputStreamReader(in, "UTF8"));
+        BufferedReader r = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
         
         if (isMultiline) {
             TextHolderFigure figure = (TextHolderFigure) prototype.clone();

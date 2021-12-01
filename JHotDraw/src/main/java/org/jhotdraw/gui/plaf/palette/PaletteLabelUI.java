@@ -42,10 +42,10 @@ public class PaletteLabelUI extends BasicLabelUI {
      * implementation.  Re-using rectangles rather than allocating
      * them in each getPreferredSize call sped up the method substantially.
      */
-    private static Rectangle iconR = new Rectangle();
-    private static Rectangle textR = new Rectangle();
-    private static Rectangle viewR = new Rectangle();
-    private static Insets viewInsets = new Insets(0, 0, 0, 0);
+    private static final Rectangle iconR = new Rectangle();
+    private static final Rectangle textR = new Rectangle();
+    private static final Rectangle viewR = new Rectangle();
+    private static final Insets viewInsets = new Insets(0, 0, 0, 0);
 
     /**
      * Preferred spacing between labels and other components.
@@ -153,7 +153,7 @@ public class PaletteLabelUI extends BasicLabelUI {
             Rectangle iconR,
             Rectangle textR) {
         return SwingUtilities.layoutCompoundLabel(
-                (JComponent) label,
+                label,
                 fontMetrics,
                 text,
                 icon,

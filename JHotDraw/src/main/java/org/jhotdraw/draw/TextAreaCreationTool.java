@@ -224,7 +224,7 @@ public class TextAreaCreationTool extends CreationTool implements ActionListener
                 typingTarget.setText(newText);
             } else {
                 if (createdFigure != null) {
-                    getDrawing().remove((Figure) getAddedFigure());
+                    getDrawing().remove(getAddedFigure());
                 // XXX - Fire undoable edit here!!
                 } else {
                     typingTarget.setText("");

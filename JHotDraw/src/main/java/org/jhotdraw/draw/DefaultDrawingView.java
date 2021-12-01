@@ -72,35 +72,35 @@ public class DefaultDrawingView
      */
     private final static boolean DEBUG = false;
     private Drawing drawing;
-    private Set<Figure> dirtyFigures = new HashSet<Figure>();
+    private final Set<Figure> dirtyFigures = new HashSet<Figure>();
     /**
      * Holds the selected figures in an ordered set. The ordering reflects
      * the sequence that was used to select the figures.
      */
-    private Set<Figure> selectedFigures = new LinkedHashSet<Figure>();
+    private final Set<Figure> selectedFigures = new LinkedHashSet<Figure>();
     //private int rainbow = 0;
-    private LinkedList<Handle> selectionHandles = new LinkedList<Handle>();
+    private final LinkedList<Handle> selectionHandles = new LinkedList<Handle>();
     private boolean isConstrainerVisible = false;
     private Constrainer visibleConstrainer = new GridConstrainer(8, 8);
     private Constrainer invisibleConstrainer = new GridConstrainer();
     private Handle secondaryHandleOwner;
     private Handle activeHandle;
-    private LinkedList<Handle> secondaryHandles = new LinkedList<Handle>();
+    private final LinkedList<Handle> secondaryHandles = new LinkedList<Handle>();
     private boolean handlesAreValid = true;
     private transient Dimension cachedPreferredSize;
     private double scaleFactor = 1;
-    private Point2D.Double translate = new Point2D.Double(0, 0);
+    private final Point2D.Double translate = new Point2D.Double(0, 0);
     private int detailLevel;
     private DrawingEditor editor;
     private JLabel emptyDrawingLabel;
-    private FigureListener handleInvalidator = new FigureAdapter() {
+    private final FigureListener handleInvalidator = new FigureAdapter() {
 
         @Override
         public void figureHandlesChanged(FigureEvent e) {
             invalidateHandles();
         }
     };
-    private ChangeListener changeHandler = new ChangeListener() {
+    private final ChangeListener changeHandler = new ChangeListener() {
 
         public void stateChanged(ChangeEvent evt) {
             repaint();
@@ -217,7 +217,7 @@ public class DefaultDrawingView
         public void figureRequestRemove(FigureEvent e) {
         }
     }
-    private EventHandler eventHandler;
+    private final EventHandler eventHandler;
 
     /** Creates new instance. */
     public DefaultDrawingView() {

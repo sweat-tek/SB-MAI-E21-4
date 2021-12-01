@@ -64,7 +64,8 @@ public class ColorFormatter extends DefaultFormatter {
 
         RGB_HEX,
         RGB_INTEGER
-    };
+    }
+
     /**
      * Specifies the preferred output format.
      */
@@ -93,7 +94,7 @@ public class ColorFormatter extends DefaultFormatter {
     /**
      * Preferences used for storing the last used input format.
      */
-    private Preferences prefs;
+    private final Preferences prefs;
 
     public ColorFormatter() {
         this(Format.RGB_INTEGER, true, true);

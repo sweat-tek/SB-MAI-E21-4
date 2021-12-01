@@ -35,9 +35,9 @@ public interface DecoratedFigure extends Figure {
      * AttributeKeys.DECORATOR_INSETS. The decorator does not handle events.
      * The decorator is drawn when the figure is drawn.
      */
-    public void setDecorator(Figure newValue);
+    void setDecorator(Figure newValue);
     /**
      * Gets the decorator for this figure.
      */
-    public Figure getDecorator();    
+    Figure getDecorator();
 }

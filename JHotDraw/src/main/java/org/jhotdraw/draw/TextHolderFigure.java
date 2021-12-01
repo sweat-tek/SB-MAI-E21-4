@@ -33,70 +33,70 @@ public interface TextHolderFigure extends Figure {
     /**
      * Returns true if the text of the TextHolderFigure can be edited.
      */
-    public boolean isEditable();
+    boolean isEditable();
     /**
      * Returns the font to be used by a text editor for editing this Figure.
      */
-    public Font getFont();
+    Font getFont();
     /**
      * Returns the text color to be used by a text editor for editing this Figure.
      */
-    public Color getTextColor();
+    Color getTextColor();
     /**
      * Returns the fill color to be used by a text editor for editing this Figure.
      */
-    public Color getFillColor();
+    Color getFillColor();
     
     // FIMXE - Maybe we can remove method getLabelFor().
     /**
      * Sometimes we want to use a TextHolderFigure as a label for another
      * TextHolderFigure. Returns the TextHolderFigure that should be really used.
      */
-    public TextHolderFigure getLabelFor();
+    TextHolderFigure getLabelFor();
     /**
      * Gets the number of characters used to expand tabs.
      */
-    public int getTabSize();
+    int getTabSize();
     
     // FIMXE - Maybe method getText and setText should work with StyledDocument
     //    instead of with Strings.
     /**
      * Returns the text held by the Text Holder.
      */
-    public String getText();
+    String getText();
     
     /**
      * Sets the text of the Text Holder.
      * @param text
      */
-    public void setText(String text);
+    void setText(String text);
     /**
      * Gets the number of columns to be overlaid when the figure is edited.
      */
-    public int getTextColumns();
+    int getTextColumns();
     
     /**
      * Sets the font size of the text held by the TextHolderFigure.
      */
-    public void setFontSize(float size);
+    void setFontSize(float size);
     /**
      * Gets the font size of the text held by the TextHolderFigure.
      */
-    public float getFontSize();
+    float getFontSize();
     /**
      * Gets the baseline of the first line of text, relative to the
      * upper left corner of the figure bounds.
      */
-    public double getBaseline();
+    double getBaseline();
     
     /**
      * Returns Insets to be used by the text editor relative to the handle bounds
      * of the figure.
      */
-    public Insets2D.Double getInsets();
+    Insets2D.Double getInsets();
     
     /**
      * Returns true, if the text does not fit into the bounds of the Figure.
      */
-    public boolean isTextOverflow();
+    boolean isTextOverflow();
 }

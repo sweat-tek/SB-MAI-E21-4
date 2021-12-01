@@ -60,8 +60,8 @@ public interface IXMLBuilder
     * @throws java.lang.Exception
     *     If an exception occurred while processing the event.
     */
-   public void startBuilding(String systemID,
-                             int    lineNr)
+   void startBuilding(String systemID,
+                      int lineNr)
       throws Exception;
 
 
@@ -77,8 +77,8 @@ public interface IXMLBuilder
     * @throws java.lang.Exception
     *     If an exception occurred while processing the event.
     */
-   public void newProcessingInstruction(String target,
-                                        Reader reader)
+   void newProcessingInstruction(String target,
+                                 Reader reader)
       throws Exception;
 
 
@@ -99,11 +99,11 @@ public interface IXMLBuilder
     * @throws java.lang.Exception
     *     If an exception occurred while processing the event.
     */
-   public void startElement(String name,
-                            String nsPrefix,
-                            String nsURI,
-                            String systemID,
-                            int    lineNr)
+   void startElement(String name,
+                     String nsPrefix,
+                     String nsURI,
+                     String systemID,
+                     int lineNr)
       throws Exception;
 
 
@@ -124,11 +124,11 @@ public interface IXMLBuilder
     * @throws java.lang.Exception
     *     If an exception occurred while processing the event.
     */
-   public void addAttribute(String key,
-                            String nsPrefix,
-                            String nsURI,
-                            String value,
-                            String type)
+   void addAttribute(String key,
+                     String nsPrefix,
+                     String nsURI,
+                     String value,
+                     String type)
       throws Exception;
 
 
@@ -149,9 +149,9 @@ public interface IXMLBuilder
     * @throws java.lang.Exception
     *     If an exception occurred while processing the event.
     */
-   public void elementAttributesProcessed(String name,
-                                          String nsPrefix,
-                                          String nsURI)
+   void elementAttributesProcessed(String name,
+                                   String nsPrefix,
+                                   String nsURI)
       throws Exception;
 
 
@@ -170,9 +170,9 @@ public interface IXMLBuilder
     * @throws java.lang.Exception
     *     If an exception occurred while processing the event.
     */
-   public void endElement(String name,
-                          String nsPrefix,
-                          String nsURI)
+   void endElement(String name,
+                   String nsPrefix,
+                   String nsURI)
       throws Exception;
 
 
@@ -193,9 +193,9 @@ public interface IXMLBuilder
     * @throws java.lang.Exception
     *     If an exception occurred while processing the event.
     */
-   public void addPCData(Reader reader,
-                         String systemID,
-                         int    lineNr)
+   void addPCData(Reader reader,
+                  String systemID,
+                  int lineNr)
       throws Exception;
 
 
@@ -210,7 +210,7 @@ public interface IXMLBuilder
     * @throws java.lang.Exception
     *     If an exception occurred while processing the event.
     */
-   public Object getResult()
+   Object getResult()
       throws Exception;
 
 }

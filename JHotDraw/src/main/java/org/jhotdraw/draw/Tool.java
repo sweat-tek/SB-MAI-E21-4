@@ -59,13 +59,13 @@ public interface Tool extends MouseListener, MouseMotionListener, KeyListener {
      * Activates the tool for the given editor. This method is called
      * whenever the user switches to this tool.
      */
-    public void activate(DrawingEditor editor);
+    void activate(DrawingEditor editor);
     
     /**
      * Deactivates the tool. This method is called whenever the user
      * switches to another tool.
      */
-    public void deactivate(DrawingEditor editor);
+    void deactivate(DrawingEditor editor);
 
     /**
      * Adds a listener for this tool.
@@ -87,31 +87,31 @@ public interface Tool extends MouseListener, MouseMotionListener, KeyListener {
      * Depending on the tool, this could be selected figures, selected points
      * or selected text.
      */
-    public void editDelete();
+    void editDelete();
     /**
      * Cuts the selection into the clipboard.
      * Depending on the tool, this could be selected figures, selected points
      * or selected text.
      */
-    public void editCut();
+    void editCut();
     /**
      * Copies the selection into the clipboard.
      * Depending on the tool, this could be selected figures, selected points
      * or selected text.
      */
-    public void editCopy();
+    void editCopy();
     /**
      * Duplicates the selection.
      * Depending on the tool, this could be selected figures, selected points
      * or selected text.
      */
-    public void editDuplicate();
+    void editDuplicate();
     /**
      * Pastes the contents of the clipboard.
      * Depending on the tool, this could be selected figures, selected points
      * or selected text.
      */
-    public void editPaste();
+    void editPaste();
     
     /**
      * Returns the tooltip text for a mouse event on a drawing view.
@@ -120,7 +120,7 @@ public interface Tool extends MouseListener, MouseMotionListener, KeyListener {
      * @param evt A mouse event.
      * @return A tooltip text or null.
      */
-    public String getToolTipText(DrawingView view, MouseEvent evt);
+    String getToolTipText(DrawingView view, MouseEvent evt);
     
     /**
      * Returns true, if this tool lets the user interact with handles.
@@ -129,5 +129,5 @@ public interface Tool extends MouseListener, MouseMotionListener, KeyListener {
      * 
      * @return True, if this tool supports interaction with the handles.
      */
-    public boolean supportsHandleInteraction();
+    boolean supportsHandleInteraction();
 }

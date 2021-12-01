@@ -136,7 +136,7 @@ public class SVGBezierFigure extends BezierFigure {
             if (TRANSFORM.get(this) == null) {
                 cachedDrawingArea = path.getBounds2D();
             } else {
-                BezierPath p2 = (BezierPath) path.clone();
+                BezierPath p2 = path.clone();
                 p2.transform(TRANSFORM.get(this));
                 cachedDrawingArea = p2.getBounds2D();
             }

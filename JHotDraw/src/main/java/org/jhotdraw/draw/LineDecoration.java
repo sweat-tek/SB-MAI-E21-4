@@ -34,17 +34,17 @@ extends Cloneable, Serializable {
     /**
      * Draws the decoration in the direction specified by the two Points.
      */
-    public void draw(Graphics2D g, Figure f, Point2D.Double p1, Point2D.Double p2);
+    void draw(Graphics2D g, Figure f, Point2D.Double p1, Point2D.Double p2);
     
     /**
      * Returns the radius of the decorator.
      * This is used to crop the end of the line, to prevent it from being
      * drawn it over the decorator.
      */
-    public abstract double getDecorationRadius(Figure f);
+    double getDecorationRadius(Figure f);
     
     /**
      * Returns the drawing bounds of the decorator.
      */
-    public Rectangle2D.Double getDrawingArea(Figure f, Point2D.Double p1, Point2D.Double p2);
+    Rectangle2D.Double getDrawingArea(Figure f, Point2D.Double p1, Point2D.Double p2);
 }

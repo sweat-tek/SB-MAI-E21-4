@@ -32,17 +32,17 @@ public interface EditableComponent {
 	/**
 	 * Deletes the component at (or after) the caret position.
 	 */
-	public void delete();
+    void delete();
 	/**
 	 * Duplicates the selected region.
 	 */
-	public void duplicate();
+    void duplicate();
 	/**
 	 * Selects all.
 	 */
-	public void selectAll();
+    void selectAll();
 	/**
 	 * Selects nothing.
 	 */
-	public void clearSelection();
+    void clearSelection();
 }

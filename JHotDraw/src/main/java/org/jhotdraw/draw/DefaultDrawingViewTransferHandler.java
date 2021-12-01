@@ -463,8 +463,8 @@ public class DefaultDrawingViewTransferHandler extends TransferHandler {
     private static class DragHandler implements DragGestureListener, DragSourceListener {
 
         private boolean scrolls;
-        private Transferable transferable;
-        private Point imageOffset;
+        private final Transferable transferable;
+        private final Point imageOffset;
 
         public DragHandler(Transferable t, Point imageOffset) {
             transferable = t;

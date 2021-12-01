@@ -25,8 +25,8 @@ import javax.swing.Icon;
  * @version 1.0 Apr 12, 2008 Created.
  */
 public class EmptyIcon implements Icon {
-    private int width;
-    private int height;
+    private final int width;
+    private final int height;
     
     public EmptyIcon(int width, int height) {
         this.width = width;

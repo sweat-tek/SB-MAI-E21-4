@@ -41,24 +41,24 @@ public class PictImageInputFormat implements InputFormat {
     /**
      * The prototype for creating a figure that holds the imported image.
      */
-    private ImageHolderFigure prototype;
+    private final ImageHolderFigure prototype;
     /**
      * Format description used for the file filter.
      */
-    private String description;
+    private final String description;
     /**
      * File name extension used for the file filter.
      */
-    private String fileExtension;
+    private final String fileExtension;
     /**
      * Image IO image format name.
      */
-    private String formatName;
+    private final String formatName;
     /**
      * The image type must match the output format, for example, PNG supports
      * BufferedImage.TYPE_INT_ARGB whereas GIF needs BufferedImage.TYPE_
      */
-    private int imageType;
+    private final int imageType;
     /**
      * The image/x-pict data flavor is used by the Mac OS X clipboard. 
      */
@@ -260,37 +260,36 @@ public class PictImageInputFormat implements InputFormat {
                 m.invoke(null);
             }
             c = Class.forName("quicktime.util.QTHandle");
-            Constructor con = c.getConstructor(new Class[]{imgBytes.getClass()});
+            Constructor con = c.getConstructor(imgBytes.getClass());
             Object handle = con.newInstance(new Object[]{imgBytes});
-            String s = new String("PICT");
+            String s = "PICT";
             c = Class.forName("quicktime.util.QTUtils");
-            m = c.getMethod("toOSType", new Class[]{s.getClass()});
+            m = c.getMethod("toOSType", s.getClass());
             Integer type = (Integer) m.invoke(null, new Object[]{s});
             c = Class.forName("quicktime.std.image.GraphicsImporter");
-            con = c.getConstructor(new Class[]{type.TYPE});
-            Object importer = con.newInstance(new Object[]{type});
+            con = c.getConstructor(Integer.TYPE);
+            Object importer = con.newInstance(type);
             m = c.getMethod("setDataHandle",
-                    new Class[]{Class.forName("quicktime.util." + "QTHandleRef")});
-            m.invoke(importer, new Object[]{handle});
+                    Class.forName("quicktime.util." + "QTHandleRef"));
+            m.invoke(importer, handle);
             m = c.getMethod("getNaturalBounds");
             Object rect = m.invoke(importer);
             c = Class.forName("quicktime.app.view.GraphicsImporterDrawer");
-            con = c.getConstructor(new Class[]{importer.getClass()});
-            Object iDrawer = con.newInstance(new Object[]{importer});
+            con = c.getConstructor(importer.getClass());
+            Object iDrawer = con.newInstance(importer);
             m = rect.getClass().getMethod("getWidth");
             Integer width = (Integer) m.invoke(rect);
             m = rect.getClass().getMethod("getHeight");
             Integer height = (Integer) m.invoke(rect);
             Dimension d = new Dimension(width.intValue(), height.intValue());
             c = Class.forName("quicktime.app.view.QTImageProducer");
-            con = c.getConstructor(new Class[]{iDrawer.getClass(), d.getClass()});
-            Object producer = con.newInstance(new Object[]{iDrawer, d});
+            con = c.getConstructor(iDrawer.getClass(), d.getClass());
+            Object producer = con.newInstance(iDrawer, d);
             if (producer instanceof ImageProducer) {
                 return (Toolkit.getDefaultToolkit().createImage((ImageProducer) producer));
             }
         } catch (Exception e) {
-            IOException error = new IOException("Couldn't read PICT image");
-            error.initCause(e);
+            IOException error = new IOException("Couldn't read PICT image", e);
             throw error;
         }
         IOException error = new IOException("Couldn't read PICT image");

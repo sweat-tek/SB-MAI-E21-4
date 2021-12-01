@@ -65,11 +65,11 @@ public interface DrawingEditor {
     /**
      * The property name for the active view property.
      */
-    public final static String ACTIVE_VIEW_PROPERTY = "activeView";   
+    String ACTIVE_VIEW_PROPERTY = "activeView";
     /**
      * The property name for the active tool property.
      */
-    public final static String TOOL_PROPERTY = "tool";   
+    String TOOL_PROPERTY = "tool";
     
     /**
      * Gets the editor's current drawing.
@@ -141,28 +141,28 @@ public interface DrawingEditor {
      * This is used by Tool to identify the view of which it has received
      * an event.
      */
-    public DrawingView findView(Container c);
+    DrawingView findView(Container c);
     
     /**
      * Sets a default attribute of the editor.
      * The default attribute will be used by creation tools, to create a new
      * figure.
      */
-    public <T> void setDefaultAttribute(AttributeKey<T> key, T value);
+    <T> void setDefaultAttribute(AttributeKey<T> key, T value);
     /**
      * Gets a default attribute from the editor.
      * The default attribute will be used by creation tools, to create a new
      * figure.
      */
-    public <T> T getDefaultAttribute(AttributeKey<T> key);
+    <T> T getDefaultAttribute(AttributeKey<T> key);
     /**
      * Applies the default attributes to the specified figure.
      */
-     public void applyDefaultAttributesTo(Figure f);
+    void applyDefaultAttributesTo(Figure f);
     /**
      * Returns an immutable Map with the default attributes of this editor.
      */
-    public Map<AttributeKey,Object> getDefaultAttributes();
+    Map<AttributeKey,Object> getDefaultAttributes();
      
     /**
      * Sets a handle attribute of the editor.
@@ -172,7 +172,7 @@ public interface DrawingEditor {
      * @param key AttributeKey. 
      * @param value Attribute value. 
      */
-    public <T> void setHandleAttribute(AttributeKey<T> key, T value);
+    <T> void setHandleAttribute(AttributeKey<T> key, T value);
     /**
      * Gets a handle attribute from the editor.
      * The default attribute will be used by creation tools, to create a new
@@ -183,18 +183,18 @@ public interface DrawingEditor {
      * @return If the handle attribute has been set, returns the previously
      * set value. If the handle attribute has not been set, returns key.getDefaultValue().
      */
-    public <T> T getHandleAttribute(AttributeKey<T> key);
+    <T> T getHandleAttribute(AttributeKey<T> key);
     
      /**
       * Sets the enabled state of the drawing editor.
       * This is a bound property.
       */
-     public void setEnabled(boolean newValue);
+     void setEnabled(boolean newValue);
      /**
       * Gets the enabled state of the drawing editor.
       */
-     public boolean isEnabled();
+     boolean isEnabled();
      
-     public void addPropertyChangeListener(PropertyChangeListener listener);
-     public void removePropertyChangeListener(PropertyChangeListener listener);
+     void addPropertyChangeListener(PropertyChangeListener listener);
+     void removePropertyChangeListener(PropertyChangeListener listener);
 }

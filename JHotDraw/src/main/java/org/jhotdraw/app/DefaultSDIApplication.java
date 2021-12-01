@@ -377,7 +377,7 @@ public class DefaultSDIApplication extends AbstractApplication {
      */
     protected void updateOpenRecentMenu(JMenu openRecentMenu) {
         if (openRecentMenu.getItemCount() > 0) {
-            JMenuItem clearRecentFilesItem = (JMenuItem) openRecentMenu.getItem(
+            JMenuItem clearRecentFilesItem = openRecentMenu.getItem(
                     openRecentMenu.getItemCount() - 1);
             openRecentMenu.removeAll();
             for (File f : recentFiles()) {

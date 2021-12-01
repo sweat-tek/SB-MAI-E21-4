@@ -24,8 +24,8 @@ import java.util.*;
  * <br>1.0 2003-12-01 Derived from JHotDraw 5.4b1.
  */
 public class FigureSelectionEvent extends java.util.EventObject {
-private Set<Figure> oldValue;
-private Set<Figure> newValue;
+private final Set<Figure> oldValue;
+private final Set<Figure> newValue;
 
     /** Creates a new instance. */
     public FigureSelectionEvent(DrawingView source, Set<Figure> oldValue, Set<Figure> newValue) {

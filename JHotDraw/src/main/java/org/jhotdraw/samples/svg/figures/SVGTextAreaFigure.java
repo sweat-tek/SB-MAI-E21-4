@@ -368,7 +368,7 @@ public class SVGTextAreaFigure extends SVGAttributedFigure
 // ATTRIBUTES
 
     public String getText() {
-        return (String) getAttribute(TEXT);
+        return getAttribute(TEXT);
     }
 
     public int getTextColumns() {

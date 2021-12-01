@@ -35,9 +35,9 @@ import org.jhotdraw.geom.*;
  * <br>1.0 25. November 2003  Created.
  */
 public class EditorColorIcon extends javax.swing.ImageIcon {
-    private DrawingEditor editor;
-    private AttributeKey<Color> key;
-    private Shape colorShape;
+    private final DrawingEditor editor;
+    private final AttributeKey<Color> key;
+    private final Shape colorShape;
     
     /** Creates a new instance. 
      * @param editor The drawing editor.
@@ -70,7 +70,7 @@ public class EditorColorIcon extends javax.swing.ImageIcon {
     public void paintIcon(java.awt.Component c, java.awt.Graphics gr, int x, int y) {
         Graphics2D g = (Graphics2D) gr;
         super.paintIcon(c, g, x, y);
-        Color color = (Color) editor.getDefaultAttribute(key);
+        Color color = editor.getDefaultAttribute(key);
         if (color != null) {
             g.setColor(color);
             g.translate(x, y);

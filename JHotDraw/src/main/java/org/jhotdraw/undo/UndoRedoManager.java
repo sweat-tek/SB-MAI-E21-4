@@ -125,9 +125,9 @@ public class UndoRedoManager extends UndoManager {//javax.swing.undo.UndoManager
     }
     
     /** The undo action instance. */
-    private UndoAction undoAction;
+    private final UndoAction undoAction;
     /** The redo action instance. */
-    private RedoAction redoAction;
+    private final RedoAction redoAction;
     
     public static ResourceBundleUtil getLabels() {
         if (labels == null) {

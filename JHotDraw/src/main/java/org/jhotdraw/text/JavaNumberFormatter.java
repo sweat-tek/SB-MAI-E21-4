@@ -246,7 +246,7 @@ public class JavaNumberFormatter extends DefaultFormatter {
                     value = new Float(v);
                 } else if (valueClass == Double.class) {
                     double v = Double.parseDouble(text);
-                    v = (double) (v / scaleFactor);
+                    v = v / scaleFactor;
                     value = new Double(v);
                 } else if (valueClass == Byte.class) {
                     byte v = Byte.parseByte(text);

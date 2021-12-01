@@ -46,8 +46,9 @@ public class JPopupButton extends javax.swing.JButton {
                 repaint();
             }
         }
-    };
-    private ActionPropertyHandler actionPropertyHandler = new ActionPropertyHandler();
+    }
+
+    private final ActionPropertyHandler actionPropertyHandler = new ActionPropertyHandler();
 
     /** Creates new form JToolBarMenu */
     public JPopupButton() {
@@ -175,7 +176,6 @@ public class JPopupButton extends javax.swing.JButton {
             switch (popupAnchor) {
                 case SOUTH_EAST:
                     x = getWidth() - popupMenu.getPreferredSize().width;
-                    ;
                     y = getHeight();
                     break;
                 case SOUTH_WEST:

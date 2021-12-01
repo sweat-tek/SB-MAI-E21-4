@@ -31,7 +31,7 @@ import org.w3c.dom.Element;
  * <br>1.0 6. Juni 2006 Created.
  */
 public class StyleManager {
-    private java.util.List<CSSRule> rules;
+    private final java.util.List<CSSRule> rules;
     
     public StyleManager() {
         rules = new ArrayList<CSSRule>();

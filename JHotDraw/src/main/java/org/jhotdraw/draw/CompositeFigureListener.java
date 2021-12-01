@@ -27,10 +27,10 @@ public interface CompositeFigureListener extends EventListener {
     /**
      * Sent when a figure was added.
      */
-    public void figureAdded(CompositeFigureEvent e);
+    void figureAdded(CompositeFigureEvent e);
     
     /**
      * Sent when a figure was removed.
      */
-    public void figureRemoved(CompositeFigureEvent e);
+    void figureRemoved(CompositeFigureEvent e);
 }

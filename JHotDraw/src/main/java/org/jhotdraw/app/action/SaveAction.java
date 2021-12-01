@@ -39,7 +39,7 @@ import org.jhotdraw.gui.event.*;
  */
 public class SaveAction extends AbstractViewAction {
     public final static String ID = "file.save";
-    private boolean saveAs;
+    private final boolean saveAs;
     private Component oldFocusOwner;
     
     /** Creates a new instance. */

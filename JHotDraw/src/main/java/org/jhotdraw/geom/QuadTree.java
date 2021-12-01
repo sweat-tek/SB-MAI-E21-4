@@ -32,11 +32,11 @@ import java.awt.*;
  * <br>1.0 2006-01-14 Derived from class QuadTree.
  */
 public class QuadTree<T> {
-    private HashMap<T,Rectangle2D.Double> outside = new HashMap<T,Rectangle2D.Double>();
-    private QuadNode root;
-    private int maxCapacity = 32;
-    private int minSize = 32;
-    private int maxOutside = 32;
+    private final HashMap<T,Rectangle2D.Double> outside = new HashMap<T,Rectangle2D.Double>();
+    private final QuadNode root;
+    private final int maxCapacity = 32;
+    private final int minSize = 32;
+    private final int maxOutside = 32;
     
     /** Creates a new instance. */
     public QuadTree() {

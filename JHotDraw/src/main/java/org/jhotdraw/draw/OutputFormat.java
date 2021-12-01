@@ -46,14 +46,14 @@ public interface OutputFormat {
      *
      * @return FileFilter to be used with a javax.swing.JFileChooser
      */
-    public javax.swing.filechooser.FileFilter getFileFilter();
+    javax.swing.filechooser.FileFilter getFileFilter();
 
     /**
      * Returns the file extension for the output format.
      * The file extension should be appended to a file name when storing a
      * Drawing with the specified file format.
      */
-    public String getFileExtension();
+    String getFileExtension();
     
     /**
      * Return a JFileChooser accessory that can be used to customize the output
@@ -62,7 +62,7 @@ public interface OutputFormat {
      * @return A JFileChooser accessory to be used with a javax.swing.JFileChooser
      * Returns null, if no accessory is provided for this format.
      */
-    public JComponent getOutputFormatAccessory();
+    JComponent getOutputFormatAccessory();
     
     /**
      * Writes a Drawing into a file.
@@ -70,7 +70,7 @@ public interface OutputFormat {
      * @param file The file.
      * @param drawing The drawing.
      */
-    public void write(File file, Drawing drawing) throws IOException;
+    void write(File file, Drawing drawing) throws IOException;
 
     /**
      * Writes a Drawing into an output stream.
@@ -78,7 +78,7 @@ public interface OutputFormat {
      * @param out The output stream.
      * @param drawing The drawing.
      */
-    public void write(OutputStream out, Drawing drawing) throws IOException;
+    void write(OutputStream out, Drawing drawing) throws IOException;
     
     /**
      * Creates a Transferable for the specified list of Figures.
@@ -89,5 +89,5 @@ public interface OutputFormat {
      * an image with a fixed size from the figures.
      * @return The Transferable.
      */
-    public Transferable createTransferable(Drawing drawing, List<Figure> figures, double scaleFactor) throws IOException;
+    Transferable createTransferable(Drawing drawing, List<Figure> figures, double scaleFactor) throws IOException;
 }

@@ -75,11 +75,11 @@ public class BezierNodeHandle extends AbstractHandle {
         Color fillColor;
         Color strokeColor;
         if (getEditor().getTool().supportsHandleInteraction()) {
-            fillColor = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_NODE_HANDLE_FILL_COLOR);
-            strokeColor = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_NODE_HANDLE_STROKE_COLOR);
+            fillColor = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_NODE_HANDLE_FILL_COLOR);
+            strokeColor = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_NODE_HANDLE_STROKE_COLOR);
         } else {
-            fillColor = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_NODE_HANDLE_FILL_COLOR_DISABLED);
-            strokeColor = (Color) getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_NODE_HANDLE_STROKE_COLOR_DISABLED);
+            fillColor = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_NODE_HANDLE_FILL_COLOR_DISABLED);
+            strokeColor = getEditor().getHandleAttribute(HandleAttributeKeys.BEZIER_NODE_HANDLE_STROKE_COLOR_DISABLED);
         }
         if (size > index) {
             BezierPath.Node v = f.getNode(index);
@@ -174,8 +174,8 @@ public class BezierNodeHandle extends AbstractHandle {
 
     public void trackEnd(Point anchor, Point lead, int modifiersEx) {
         final BezierFigure f = getOwner();
-             BezierPath.Node oldValue = (BezierPath.Node) oldNode.clone();;
-             BezierPath.Node newValue = f.getNode(index);
+             BezierPath.Node oldValue = (BezierPath.Node) oldNode.clone();
+        BezierPath.Node newValue = f.getNode(index);
 
         // Change node type
         if ((modifiersEx & (InputEvent.META_DOWN_MASK | InputEvent.CTRL_DOWN_MASK | InputEvent.ALT_DOWN_MASK | InputEvent.SHIFT_DOWN_MASK)) != 0 &&

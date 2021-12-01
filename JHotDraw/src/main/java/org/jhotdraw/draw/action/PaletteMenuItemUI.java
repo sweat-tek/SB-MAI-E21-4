@@ -47,7 +47,7 @@ public class PaletteMenuItemUI extends javax.swing.plaf.basic.BasicMenuItemUI {
                                                      Icon arrowIcon,
                                                      int defaultTextIconGap) {
         JMenuItem b = (JMenuItem) c;
-        Icon icon = (Icon) b.getIcon(); 
+        Icon icon = b.getIcon();
         if (icon == null) {
             return new Dimension(22, 22);
         }
@@ -61,7 +61,7 @@ public class PaletteMenuItemUI extends javax.swing.plaf.basic.BasicMenuItemUI {
 
         // Paint the icon
         //((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        Icon icon = (Icon) b.getIcon(); 
+        Icon icon = b.getIcon();
         if (icon != null) {
         icon.paintIcon(b, g, 1, 1);
         }

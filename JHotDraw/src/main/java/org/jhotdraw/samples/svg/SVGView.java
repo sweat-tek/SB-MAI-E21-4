@@ -213,8 +213,7 @@ public class SVGView extends AbstractView implements ExportableView {
             e.initCause(e);
             throw error;
         } catch (InvocationTargetException e) {
-            InternalError error = new InternalError();
-            error.initCause(e);
+            InternalError error = new InternalError(e);
             throw error;
         }
     }

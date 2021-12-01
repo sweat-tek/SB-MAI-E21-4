@@ -36,9 +36,9 @@ import org.jhotdraw.geom.*;
  * <br>1.0 25. November 2003  Created.
  */
 public class SelectionColorIcon extends javax.swing.ImageIcon {
-    private DrawingEditor editor;
-    private AttributeKey<Color> key;
-    private Shape colorShape;
+    private final DrawingEditor editor;
+    private final AttributeKey<Color> key;
+    private final Shape colorShape;
     
     /** Creates a new instance.
      * @param editor The drawing editor.

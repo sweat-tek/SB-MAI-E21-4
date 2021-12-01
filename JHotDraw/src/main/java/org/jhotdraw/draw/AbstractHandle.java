@@ -49,7 +49,7 @@ public abstract class AbstractHandle implements Handle, FigureListener {
     }
 
     protected int getHandlesize() {
-        return (Integer) getEditor().getHandleAttribute(HandleAttributeKeys.HANDLE_SIZE);
+        return getEditor().getHandleAttribute(HandleAttributeKeys.HANDLE_SIZE);
     }
 
     /**
@@ -161,8 +161,8 @@ public abstract class AbstractHandle implements Handle, FigureListener {
      */
     public void draw(Graphics2D g) {
         drawCircle(g,
-                (Color) getEditor().getHandleAttribute(HandleAttributeKeys.HANDLE_FILL_COLOR),
-                (Color) getEditor().getHandleAttribute(HandleAttributeKeys.HANDLE_STROKE_COLOR));
+                getEditor().getHandleAttribute(HandleAttributeKeys.HANDLE_FILL_COLOR),
+                getEditor().getHandleAttribute(HandleAttributeKeys.HANDLE_STROKE_COLOR));
     }
 
     protected void drawCircle(Graphics2D g, Color fill, Color stroke) {

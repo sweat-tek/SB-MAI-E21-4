@@ -30,21 +30,21 @@ public interface ImageHolderFigure extends Figure {
      * By convention this method is never invoked on the AWT Event Dispatcher 
      * Thread.
      */
-    public void loadImage(File f) throws IOException;
+    void loadImage(File f) throws IOException;
     /**
      * Loads an image from an Input Stream.
      * By convention this method is never invoked on the AWT Event Dispatcher 
      * Thread.
      */
-    public void loadImage(InputStream in) throws IOException;
+    void loadImage(InputStream in) throws IOException;
     /**
      * Gets the buffered image from the figure.
      */
-    public BufferedImage getBufferedImage();
+    BufferedImage getBufferedImage();
     /**
      * Sets the buffered image for the figure.
      */
-    public void setBufferedImage(BufferedImage image);
+    void setBufferedImage(BufferedImage image);
     
     /**
      * Sets the image.
@@ -54,13 +54,13 @@ public interface ImageHolderFigure extends Figure {
      * @param bufferedImage An image constructed from the imageData. If this
      * is null, imageData must be provided.
      */
-    public void setImage(byte[] imageData, BufferedImage bufferedImage) throws IOException;
+    void setImage(byte[] imageData, BufferedImage bufferedImage) throws IOException;
     /**
      * Gets the image data.
      *
      * @return imageData The image data, or null, if the ImageHolderFigure does
      * not have an image.
      */
-    public byte[] getImageData();
+    byte[] getImageData();
 
 }

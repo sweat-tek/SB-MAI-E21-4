@@ -98,13 +98,13 @@ public abstract class AbstractAttributeEditorHandler<T> {
             }
         }
     }
-    private EventHandler eventHandler;
+    private final EventHandler eventHandler;
 
     private static class UndoableAttributeEdit<T> extends AbstractUndoableEdit {
 
-        private Set<Figure> editedFigures;
-        private AttributeKey<T> attributeKey;
-        private T editRedoValue;
+        private final Set<Figure> editedFigures;
+        private final AttributeKey<T> attributeKey;
+        private final T editRedoValue;
         protected LinkedList<Object> editUndoData;
 
         public UndoableAttributeEdit(Set<Figure> editedFigures, AttributeKey<T> attributeKey, T editRedoValue, LinkedList<Object> editUndoData) {
@@ -158,7 +158,7 @@ public abstract class AbstractAttributeEditorHandler<T> {
     @SuppressWarnings("unchecked")
     public AbstractAttributeEditorHandler(AttributeKey<T> key, Map<AttributeKey, Object> defaultAttributes, AttributeEditor<T> attributeEditor, DrawingEditor drawingEditor, boolean updateDrawingEditorDefaults) {
         eventHandler = new EventHandler();
-        this.defaultAttributes = (Map<AttributeKey, Object>) ((defaultAttributes == null) ? Collections.emptyMap() : defaultAttributes);
+        this.defaultAttributes = (defaultAttributes == null) ? Collections.emptyMap() : defaultAttributes;
         attributeEditor.setAttributeValue(key.getDefaultValue());
         setAttributeKey(key);
         setAttributeEditor(attributeEditor);
