@@ -89,8 +89,16 @@ public class SVGView extends AbstractView implements ExportableView {
     /**
      * Creates a new Drawing for this View.
      */
+    @FeatureEntryPoint(JHotDrawFeatures.OPEN_VARIOUS_FORMATS)
     protected Drawing createDrawing() {
         Drawing drawing = new QuadTreeDrawing();
+        drawing.setInputFormats(loadInputFormats());
+        drawing.setOutputFormats(loadOutputFormats());
+        
+        return drawing;
+    }
+    
+    private LinkedList<InputFormat> loadInputFormats() {
         LinkedList<InputFormat> inputFormats = new LinkedList<InputFormat>();
         inputFormats.add(new SVGZInputFormat());
         inputFormats.add(new ImageInputFormat(new SVGImageFigure()));
@@ -99,7 +107,11 @@ public class SVGView extends AbstractView implements ExportableView {
         inputFormats.add(new ImageInputFormat(new SVGImageFigure(), "PNG", "Portable Network Graphics (PNG)", "png", BufferedImage.TYPE_INT_ARGB));
         inputFormats.add(new PictImageInputFormat(new SVGImageFigure()));
         inputFormats.add(new TextInputFormat(new SVGTextFigure()));
-        drawing.setInputFormats(inputFormats);
+        
+        return inputFormats;
+    }
+    
+    private LinkedList<OutputFormat> loadOutputFormats() {
         LinkedList<OutputFormat> outputFormats = new LinkedList<OutputFormat>();
         outputFormats.add(new SVGOutputFormat());
         outputFormats.add(new SVGZOutputFormat());
@@ -107,11 +119,10 @@ public class SVGView extends AbstractView implements ExportableView {
         outputFormats.add(new ImageOutputFormat("JPG", "Joint Photographics Experts Group (JPEG)", "jpg", BufferedImage.TYPE_INT_RGB));
         outputFormats.add(new ImageOutputFormat("BMP", "Windows Bitmap (BMP)", "bmp", BufferedImage.TYPE_BYTE_INDEXED));
         outputFormats.add(new ImageMapOutputFormat());
-        drawing.setOutputFormats(outputFormats);
-
-        return drawing;
+        
+        return outputFormats;
     }
-
+    
     /**
      * Creates a Pageable object for printing the View.
      */

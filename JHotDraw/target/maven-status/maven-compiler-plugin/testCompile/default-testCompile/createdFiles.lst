@@ -1,0 +1,4 @@
+org\jhotdraw\draw\action\GivenFiguresToGroup.class
+org\jhotdraw\draw\action\WhenGrouping.class
+org\jhotdraw\draw\action\ThenFiguresGrouped.class
+org\jhotdraw\draw\action\GroupingBehaviorTest.class
