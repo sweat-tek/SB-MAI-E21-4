@@ -14,6 +14,7 @@
 package org.jhotdraw.draw;
 
 import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
+import org.jhotdraw.draw.arrange.Arrange;
 import org.jhotdraw.geom.Dimension2DDouble;
 import org.jhotdraw.geom.QuadTree;
 import java.awt.*;
@@ -80,6 +81,7 @@ public class QuadTreeDrawing extends AbstractDrawing {
      * Implementation note: Sorting can not be done for orphaned children.
      */
     public java.util.List<Figure> sort(Collection<? extends Figure> c) {
+
         ensureSorted();
         ArrayList<Figure> sorted = new ArrayList<Figure>(c.size());
         for (Figure f : children) {
@@ -246,25 +248,26 @@ public class QuadTreeDrawing extends AbstractDrawing {
         }
         return contained;
     }
-
-    @Override
-    @FeatureEntryPoint(JHotDrawFeatures.ARRANGE)
-    public void bringToFront(Figure figure) {
-        if (children.remove(figure)) {
-            children.add(figure);
-            needsSorting = true;
-            fireAreaInvalidated(figure.getDrawingArea());
-        }
+    /**
+     *  Notify all listenerList that have registered interest for
+     * notification on this event type.
+     * And creating an starting point for sorting the Chiledren
+     */
+    private void figureInvalidate_setNeedSorting(boolean needsSorting, Figure figure){
+        fireAreaInvalidated(figure.getDrawingArea());
+        this.needsSorting=needsSorting;
     }
 
     @Override
     @FeatureEntryPoint(JHotDrawFeatures.ARRANGE)
     public void sendToBack(Figure figure) {
-        if (children.remove(figure)) {
-            children.add(0, figure);
-            needsSorting = true;
-            fireAreaInvalidated(figure.getDrawingArea());
-        }
+        figureInvalidate_setNeedSorting(Arrange.ToBack(figure, children), figure);
+    }
+
+    @Override
+    @FeatureEntryPoint(JHotDrawFeatures.ARRANGE)
+    public void sendToFront(Figure figure) {
+        figureInvalidate_setNeedSorting(Arrange.ToFront(figure, children), figure);
     }
 
     @Override
@@ -310,6 +313,9 @@ public class QuadTreeDrawing extends AbstractDrawing {
     protected EventHandler createEventHandler() {
         return new QuadTreeEventHandler();
     }
+
+
+
 
     /**
      * Handles all figure events fired by Figures contained in the Drawing.

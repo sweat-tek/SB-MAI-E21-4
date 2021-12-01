@@ -15,6 +15,7 @@
 
 package org.jhotdraw.draw;
 
+import org.jhotdraw.draw.arrange.ArrangeService;
 import org.jhotdraw.xml.*;
 
 import java.awt.Graphics2D;
@@ -53,7 +54,7 @@ import java.io.*;
  * <br>2.0 2006-01-14 Changed to support double precision coordinates.
  * <br>1.0 2003-12-01 Derived from JHotDraw 5.4b1.
  */
-public interface Drawing extends CompositeFigure, Serializable, DOMStorable {
+public interface Drawing extends CompositeFigure, Serializable, DOMStorable, ArrangeService {
     public final static String CANVAS_SIZE_PROPERTY="canvasSize";
     /**
      * Adds a figure to the drawing.
@@ -244,20 +245,7 @@ public interface Drawing extends CompositeFigure, Serializable, DOMStorable {
      */
     Figure findFigureInside(Point2D.Double p);
     
-    /**
-     * Sends a figure to the back of the drawing.
-     *
-     * @param figure that is part of the drawing
-     */
-    void sendToBack(Figure figure);
-    
-    /**
-     * Brings a figure to the front.
-     *
-     * @param figure that is part of the drawing
-     */
-    void bringToFront(Figure figure);
-    
+
     /**
      * Returns a copy of the provided collection which is sorted
      * in z order from back to front.
