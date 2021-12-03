@@ -12,6 +12,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.util.Map;
+import org.checkerframework.checker.units.qual.A;
 import org.jhotdraw.draw.AttributeKey;
 import org.jhotdraw.draw.BezierFigure;
 import org.jhotdraw.draw.Figure;
@@ -48,6 +49,7 @@ public class WhenLineDrawn extends Stage<WhenLineDrawn> {
     Point2D.Double point2 = new Point2D.Double(x2, y2);
     
     public WhenLineDrawn line_drawn() {
+        figure = new LineFigure();
         figure.setStartPoint(point1);
         figure.setEndPoint(point2);
         //figure = new SVGPathFigure();

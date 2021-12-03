@@ -7,6 +7,7 @@ package org.jhotdraw.samples.svg.figures;
 
 import com.tngtech.jgiven.Stage;
 import com.tngtech.jgiven.annotation.ProvidedScenarioState;
+import java.awt.geom.Point2D;
 import org.jhotdraw.draw.Figure;
 import org.jhotdraw.draw.LineFigure;
 
@@ -48,9 +49,12 @@ public class GivenLine extends Stage<GivenLine> {
         return this;
     }
     
-    public GivenLine a_line_parameters() {
-        Figure f = new LineFigure();
-        return self();
-    }
+//    public GivenLine a_line_parameters() {
+//        LineFigure figure = new LineFigure();
+//        figure.setStartPoint(new Point2D.Double(x1, y1));
+//        figure.setEndPoint(new Point2D.Double(x2, y2));
+//        System.out.println(figure);
+//        return this;
+//    }
     
 }
