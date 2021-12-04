@@ -25,5 +25,5 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Run the Maven verify phase
-        run: mvn -B package --file ./JHotDraw/pom.xml
+        run: mvn --batch-mode --update-snapshots verify
 
