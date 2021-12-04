@@ -15,9 +15,8 @@
 
 package org.jhotdraw.draw;
 
-import org.jhotdraw.draw.arrange.ArrangeService;
+import org.jhotdraw.draw.ArrangeService;
 import org.jhotdraw.xml.*;
-
 import java.awt.Graphics2D;
 import java.awt.font.*;
 import java.awt.geom.*;

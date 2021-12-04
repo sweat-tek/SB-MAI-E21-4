@@ -14,7 +14,7 @@
 package org.jhotdraw.draw;
 
 import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
-import org.jhotdraw.draw.arrange.Arrange;
+import org.jhotdraw.draw.Arrange;
 import org.jhotdraw.geom.Dimension2DDouble;
 import java.awt.*;
 import java.awt.geom.*;

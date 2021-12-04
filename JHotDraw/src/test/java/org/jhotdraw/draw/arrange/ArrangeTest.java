@@ -1,15 +1,12 @@
 package org.jhotdraw.draw.arrange;
 
 import junit.framework.TestCase;
-<<<<<<< HEAD
+
 import org.jhotdraw.draw.Arrange;
 import org.jhotdraw.draw.Figure;
 import org.jhotdraw.samples.svg.figures.SVGImageFigure;
-=======
-import org.jhotdraw.draw.Figure;
-import org.jhotdraw.samples.svg.figures.SVGImageFigure;
-import org.jhotdraw.samples.svg.figures.SVGPathFigure;
->>>>>>> parent of 0a4c9d7... Merge pull request #22 from sweat-tek/revert-19-Arrange
+
+
 
 import java.util.ArrayList;
 
