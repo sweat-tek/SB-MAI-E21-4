@@ -2,9 +2,9 @@ name: Java CI with Maven Arrange
 
 on:
   push:
-    branches: [Arranege]
+    branches: [ Arrange ]
   pull_request:
-    branches: [Arrange]
+    branches: [ Arrange ]
 
 jobs:
   build:
