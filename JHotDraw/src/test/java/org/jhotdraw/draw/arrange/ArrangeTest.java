@@ -1,9 +1,9 @@
 package org.jhotdraw.draw.arrange;
 
 import junit.framework.TestCase;
+import org.jhotdraw.draw.Arrange;
 import org.jhotdraw.draw.Figure;
 import org.jhotdraw.samples.svg.figures.SVGImageFigure;
-import org.jhotdraw.samples.svg.figures.SVGPathFigure;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package org.jhotdraw.draw.arrange;
+package org.jhotdraw.draw;
 
 
 import org.jhotdraw.draw.Figure;
