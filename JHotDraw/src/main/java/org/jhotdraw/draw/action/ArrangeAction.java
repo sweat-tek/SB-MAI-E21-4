@@ -59,8 +59,8 @@ public class ArrangeAction extends AbstractSelectedAction {
 
         );
     }
-
-    public static void bringToFront(DrawingView view, Collection<Figure> figures) {
+    @FeatureEntryPoint(JHotDrawFeatures.ARRANGE)
+    public static void bringToFront(DrawingView view, Collection figures) {
         Drawing drawing = view.getDrawing();
         Iterator i = drawing.sort(figures).iterator();
         while (i.hasNext()) {
@@ -68,7 +68,7 @@ public class ArrangeAction extends AbstractSelectedAction {
             drawing.sendToFront(figure);
         }
     }
-
+    @FeatureEntryPoint(JHotDrawFeatures.ARRANGE)
     public static void sendToBack(DrawingView view, Collection figures) {
         Iterator i = figures.iterator();
         Drawing drawing = view.getDrawing();
@@ -77,6 +77,7 @@ public class ArrangeAction extends AbstractSelectedAction {
             drawing.sendToBack(figure);
         }
     }
+
 
 }
 
