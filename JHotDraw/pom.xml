@@ -83,6 +83,7 @@
                 <skipTests>false</skipTests>
                 <includes>
                   <include>InputFormatCreatorTest.java</include>
+                  <include>SVGViewTest.java</include>
                   <include></include>
                 </includes>
               </configuration>
