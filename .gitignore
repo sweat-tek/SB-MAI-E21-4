@@ -1,3 +1,7 @@
+
+/JHotDraw/target/
+/JHotDraw/nbproject/
+
 .idea/compiler.xml
 .idea/encodings.xml
 .idea/jarRepositories.xml
