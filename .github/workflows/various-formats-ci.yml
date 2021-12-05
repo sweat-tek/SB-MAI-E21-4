@@ -2,9 +2,9 @@ name: Java CI
 
 on: 
   push:
-    branches: [ ft-open-various-formats ]
+    branches: [ Arrange ]
   pull_request:
-    branches: [ ft-open-various-formats ]
+    branches: [ Arrange ]
 
 jobs:
   build:

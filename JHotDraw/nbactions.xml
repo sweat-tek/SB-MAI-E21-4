@@ -7,25 +7,14 @@
             </packagings>
             <goals>
                 <goal>process-classes</goal>
-
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>-javaagent:/home/ahmad/.m2/repository/org/aspectj/aspectjweaver/1.8.6/aspectjweaver-1.8.6.jar</exec.vmArgs>
+                <exec.vmArgs>-javaagent:C:\Users\steff\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
-                <exec.mainClass>${packageClassName}</exec.mainClass>
-                <exec.executable>java</exec.executable>
-
-                <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
-            </goals>
-            <properties>
-                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.executable>java</exec.executable>
                 <exec.mainClass>org.jhotdraw.samples.svg.Main</exec.mainClass>
-                <exec.vmArgs>-javaagent:C:\Users\asbjo\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar  -javaagent:C:\Users\asbjo\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar</exec.vmArgs>
-                <exec.appArgs></exec.appArgs>
-
+                <exec.executable>java</exec.executable>
             </properties>
         </action>
         <action>
@@ -35,27 +24,15 @@
             </packagings>
             <goals>
                 <goal>process-classes</goal>
-
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>-javaagent:/home/ahmad/.m2/repository/org/aspectj/aspectjweaver/1.8.6/aspectjweaver-1.8.6.jar -agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
+                <exec.vmArgs>-javaagent:C:\Users\steff\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar -agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
-                <exec.mainClass>${packageClassName}</exec.mainClass>
-                <exec.executable>java</exec.executable>
-                <jpda.listen>true</jpda.listen>
-
-                <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
-            </goals>
-            <properties>
-                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.executable>java</exec.executable>
-                <jpda.listen>true</jpda.listen>
                 <exec.mainClass>org.jhotdraw.samples.svg.Main</exec.mainClass>
-                <exec.vmArgs>-javaagent:C:\Users\asbjo\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar  -javaagent:C:\Users\asbjo\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar -agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
-                <exec.appArgs></exec.appArgs>
-
+                <exec.executable>java</exec.executable>
+                <jpda.listen>true</jpda.listen>
             </properties>
         </action>
         <action>
@@ -65,23 +42,13 @@
             </packagings>
             <goals>
                 <goal>process-classes</goal>
-
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>-javaagent:/home/ahmad/.m2/repository/org/aspectj/aspectjweaver/1.8.6/aspectjweaver-1.8.6.jar</exec.vmArgs>
+                <exec.vmArgs>-javaagent:C:\Users\steff\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.mainClass>${packageClassName}</exec.mainClass>
-                <exec.executable>java</exec.executable>
-
-                <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
-            </goals>
-            <properties>
-                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.executable>java</exec.executable>
                 <exec.mainClass>org.jhotdraw.samples.svg.Main</exec.mainClass>
-                <exec.vmArgs>-javaagent:C:\Users\asbjo\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar  -javaagent:C:\Users\asbjo\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar</exec.vmArgs>
-
+                <exec.executable>java</exec.executable>
                 <exec.appArgs></exec.appArgs>
             </properties>
         </action>

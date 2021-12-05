@@ -14,6 +14,7 @@
 package org.jhotdraw.draw;
 
 import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
+import org.jhotdraw.draw.Arrange;
 import org.jhotdraw.geom.Dimension2DDouble;
 import java.awt.*;
 import java.awt.geom.*;
@@ -258,5 +259,20 @@ public class DefaultDrawing
     @Override
     protected void drawStroke(Graphics2D g) {
         //  throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    private void figureInvalidate_setNeedSorting(boolean needsSorting, Figure figure){
+        fireAreaInvalidated(figure.getDrawingArea());
+        this.needsSorting=needsSorting;
+    }
+
+    @Override
+    public void sendToBack(Figure figure) {
+        figureInvalidate_setNeedSorting(Arrange.ToBack(figure, children), figure);
+    }
+
+    @Override
+    public void sendToFront(Figure figure) {
+        figureInvalidate_setNeedSorting(Arrange.ToFront(figure, children), figure);
     }
 }
