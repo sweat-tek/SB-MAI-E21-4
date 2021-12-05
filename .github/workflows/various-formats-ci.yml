@@ -26,5 +26,3 @@ jobs:
         cache: maven
     - name: Run the Maven verify phase
       run: mvn -B package --file ./JHotDraw/pom.xml
-    - name: Build with Maven
-      run: mvn --batch-mode --update-snapshots verify
