@@ -1,0 +1,679 @@
+@startuml
+abstract class org.jhotdraw.draw.AbstractAttributedCompositeFigure
+abstract class org.jhotdraw.draw.AbstractAttributedFigure
+abstract class org.jhotdraw.draw.AbstractCompositeFigure
+abstract class org.jhotdraw.draw.AbstractConstrainer
+abstract class org.jhotdraw.draw.AbstractDrawing
+abstract class org.jhotdraw.draw.AbstractFigure
+abstract class org.jhotdraw.draw.AbstractHandle
+abstract class org.jhotdraw.draw.AbstractLineDecoration
+abstract class org.jhotdraw.draw.AbstractLocator
+abstract class org.jhotdraw.draw.AbstractRotateHandle
+abstract class org.jhotdraw.draw.AbstractTool
+abstract class org.jhotdraw.draw.LocatorHandle
+abstract class org.jhotdraw.draw.action.AbstractDrawingEditorAction
+abstract class org.jhotdraw.draw.action.AbstractDrawingViewAction
+abstract class org.jhotdraw.draw.action.AbstractGroupAction
+abstract class org.jhotdraw.draw.action.AbstractSelectedAction
+abstract class org.jhotdraw.draw.action.AlignAction
+abstract class org.jhotdraw.draw.action.MoveAction
+abstract class org.jhotdraw.draw.action.MoveConstrainedAction
+annotation dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+annotation java.lang.Override
+annotation java.lang.SuppressWarnings
+class java.awt.Container
+class java.awt.Cursor
+class java.awt.Dimension
+class java.awt.Graphics2D
+class java.awt.Point
+class java.awt.Rectangle
+class java.awt.dnd.DragGestureEvent
+class java.awt.dnd.DragGestureListener
+class java.awt.dnd.DragGestureRecognizer
+class java.awt.dnd.DragSource
+class java.awt.dnd.DragSourceContext
+class java.awt.dnd.DragSourceDragEvent
+class java.awt.dnd.DragSourceDropEvent
+class java.awt.dnd.DragSourceEvent
+class java.awt.dnd.DragSourceListener
+class java.awt.event.ActionEvent
+class java.awt.event.FocusEvent
+class java.awt.event.FocusListener
+class java.awt.event.KeyEvent
+class java.awt.geom.AffineTransform
+class java.awt.geom.Point2D
+class java.awt.geom.Rectangle2D
+class java.awt.image.BufferedImage
+class java.beans.PropertyChangeEvent
+class java.beans.PropertyChangeListener
+class java.io.IOException
+class java.util.Collection
+class java.util.EventObject
+class java.util.HashSet
+class java.util.LinkedList
+class java.util.Locale
+class java.util.Map
+class javax.swing.BorderFactory
+class javax.swing.ImageIcon
+class javax.swing.JComponent
+class javax.swing.JScrollPane
+class javax.swing.JTextArea
+class javax.swing.border.EmptyBorder
+class javax.swing.event.ChangeListener
+class javax.swing.plaf.basic.BasicMenuItemUI
+class javax.swing.undo.AbstractUndoableEdit
+class javax.swing.undo.CannotRedoException
+class javax.swing.undo.CannotUndoException
+class javax.swing.undo.UndoableEdit
+class org.jhotdraw.app.JHotDrawFeatures
+class org.jhotdraw.app.action.Actions
+class org.jhotdraw.beans.AbstractBean
+class org.jhotdraw.draw.AbstractBean
+class org.jhotdraw.draw.AbstractConnector
+class org.jhotdraw.draw.AbstractUndoableEdit
+class org.jhotdraw.draw.ArrowTip
+class org.jhotdraw.draw.AttributeKey
+class org.jhotdraw.draw.AttributeKeys
+class org.jhotdraw.draw.BezierControlPointHandle
+class org.jhotdraw.draw.BezierFigure
+class org.jhotdraw.draw.BezierNodeEdit
+class org.jhotdraw.draw.BezierNodeHandle
+class org.jhotdraw.draw.BezierOutlineHandle
+class org.jhotdraw.draw.BezierScaleHandle
+class org.jhotdraw.draw.BezierTool
+class org.jhotdraw.draw.BoundsOutlineHandle
+class org.jhotdraw.draw.ChopBezierConnector
+class org.jhotdraw.draw.ChopRectangleConnector
+class org.jhotdraw.draw.CompositeFigureEvent
+class org.jhotdraw.draw.CreationTool
+class org.jhotdraw.draw.DefaultDragTracker
+class org.jhotdraw.draw.DefaultDrawing
+class org.jhotdraw.draw.DefaultDrawingEditor
+class org.jhotdraw.draw.DefaultDrawingView
+class org.jhotdraw.draw.DefaultDrawingViewTransferHandler
+class org.jhotdraw.draw.DefaultHandleTracker
+class org.jhotdraw.draw.DefaultSelectAreaTracker
+class org.jhotdraw.draw.DelegationSelectionTool
+class org.jhotdraw.draw.DrawingPageable
+class org.jhotdraw.draw.EventObject
+class org.jhotdraw.draw.FigureAdapter
+class org.jhotdraw.draw.FigureEvent
+class org.jhotdraw.draw.FigureLayerComparator
+class org.jhotdraw.draw.FigureSelectionEvent
+class org.jhotdraw.draw.FloatingTextArea
+class org.jhotdraw.draw.FloatingTextField
+class org.jhotdraw.draw.FontSizeHandle
+class org.jhotdraw.draw.FontSizeLocator
+class org.jhotdraw.draw.GeometryEdit
+class org.jhotdraw.draw.GridConstrainer
+class org.jhotdraw.draw.GroupFigure
+class org.jhotdraw.draw.HandleAttributeKeys
+class org.jhotdraw.draw.HandleEvent
+class org.jhotdraw.draw.HandleMulticaster
+class org.jhotdraw.draw.ImageInputFormat
+class org.jhotdraw.draw.ImageOutputFormat
+class org.jhotdraw.draw.JComponent
+class org.jhotdraw.draw.LineFigure
+class org.jhotdraw.draw.MoveHandle
+class org.jhotdraw.draw.Options
+class org.jhotdraw.draw.PictImageInputFormat
+class org.jhotdraw.draw.QuadTreeDrawing
+class org.jhotdraw.draw.RelativeLocator
+class org.jhotdraw.draw.ResizeHandleKit
+class org.jhotdraw.draw.RestoreDataEdit
+class org.jhotdraw.draw.RotateHandle
+class org.jhotdraw.draw.SelectionTool
+class org.jhotdraw.draw.SetBoundsEdit
+class org.jhotdraw.draw.TextAreaCreationTool
+class org.jhotdraw.draw.TextAreaEditingTool
+class org.jhotdraw.draw.TextCreationTool
+class org.jhotdraw.draw.TextEditingTool
+class org.jhotdraw.draw.TextInputFormat
+class org.jhotdraw.draw.TextOverflowHandle
+class org.jhotdraw.draw.ToolEvent
+class org.jhotdraw.draw.TransferHandler
+class org.jhotdraw.draw.TransformEdit
+class org.jhotdraw.draw.TransformHandleKit
+class org.jhotdraw.draw.action.AbstractAction
+class org.jhotdraw.draw.action.ApplyAttributesAction
+class org.jhotdraw.draw.action.AttributeAction
+class org.jhotdraw.draw.action.AttributeToggler
+class org.jhotdraw.draw.action.BringToFrontAction
+class org.jhotdraw.draw.action.ButtonFactory
+class org.jhotdraw.draw.action.ColorIcon
+class org.jhotdraw.draw.action.DefaultAttributeAction
+class org.jhotdraw.draw.action.DrawingAttributeAction
+class org.jhotdraw.draw.action.DrawingColorChooserAction
+class org.jhotdraw.draw.action.DrawingColorIcon
+class org.jhotdraw.draw.action.DrawingEditorProxy
+class org.jhotdraw.draw.action.EditorColorChooserAction
+class org.jhotdraw.draw.action.EditorColorIcon
+class org.jhotdraw.draw.action.FigureAdapter
+class org.jhotdraw.draw.action.FontChooserHandler
+class org.jhotdraw.draw.action.GroupAction
+class org.jhotdraw.draw.action.IncreaseHandleDetailLevelAction
+class org.jhotdraw.draw.action.LineDecorationIcon
+class org.jhotdraw.draw.action.PaletteMenuItemUI
+class org.jhotdraw.draw.action.PickAttributesAction
+class org.jhotdraw.draw.action.SelectSameAction
+class org.jhotdraw.draw.action.SelectionColorChooserAction
+class org.jhotdraw.draw.action.SelectionColorIcon
+class org.jhotdraw.draw.action.SelectionComponentRepainter
+class org.jhotdraw.draw.action.SendToBackAction
+class org.jhotdraw.draw.action.StrokeIcon
+class org.jhotdraw.draw.action.ToggleGridAction
+class org.jhotdraw.draw.action.UngroupAction
+class org.jhotdraw.draw.action.VerticalGridLayout
+class org.jhotdraw.draw.action.ZoomAction
+class org.jhotdraw.draw.action.ZoomEditorAction
+class org.jhotdraw.geom.BezierPath
+class org.jhotdraw.geom.BezierPath.Node
+class org.jhotdraw.geom.Dimension2DDouble
+class org.jhotdraw.geom.Geom
+class org.jhotdraw.geom.QuadTree
+class org.jhotdraw.gui.JFontChooser
+class org.jhotdraw.gui.JPopupButton
+class org.jhotdraw.gui.Worker
+class org.jhotdraw.samples.svg.SVGAttributeKeys
+class org.jhotdraw.samples.svg.figures.SVGGroupFigure
+class org.jhotdraw.undo.CompositeEdit
+class org.jhotdraw.util.Images
+class org.jhotdraw.util.ResourceBundleUtil
+class org.jhotdraw.util.ReversedList
+class org.jhotdraw.xml.DOMInput
+class org.jhotdraw.xml.DOMOutput
+enum org.jhotdraw.draw.RotationDirection
+enum org.jhotdraw.draw.TranslationDirection
+interface java.io.Serializable
+interface java.lang.Cloneable
+interface java.util.EventListener
+interface javax.swing.Icon
+interface org.jhotdraw.app.EditableComponent
+interface org.jhotdraw.draw.ActionListener
+interface org.jhotdraw.draw.Comparator
+interface org.jhotdraw.draw.CompositeFigure
+interface org.jhotdraw.draw.CompositeFigureListener
+interface org.jhotdraw.draw.ConnectionFigure
+interface org.jhotdraw.draw.Connector
+interface org.jhotdraw.draw.Constrainer
+interface org.jhotdraw.draw.DOMStorable
+interface org.jhotdraw.draw.DecoratedFigure
+interface org.jhotdraw.draw.DragTracker
+interface org.jhotdraw.draw.Drawing
+interface org.jhotdraw.draw.DrawingEditor
+interface org.jhotdraw.draw.DrawingView
+interface org.jhotdraw.draw.EventListener
+interface org.jhotdraw.draw.Figure
+interface org.jhotdraw.draw.FigureListener
+interface org.jhotdraw.draw.FigureSelectionListener
+interface org.jhotdraw.draw.Handle
+interface org.jhotdraw.draw.HandleListener
+interface org.jhotdraw.draw.HandleTracker
+interface org.jhotdraw.draw.ImageHolderFigure
+interface org.jhotdraw.draw.InputFormat
+interface org.jhotdraw.draw.KeyListener
+interface org.jhotdraw.draw.Layouter
+interface org.jhotdraw.draw.LineDecoration
+interface org.jhotdraw.draw.Liner
+interface org.jhotdraw.draw.Locator
+interface org.jhotdraw.draw.MouseListener
+interface org.jhotdraw.draw.MouseMotionListener
+interface org.jhotdraw.draw.OutputFormat
+interface org.jhotdraw.draw.Pageable
+interface org.jhotdraw.draw.SelectAreaTracker
+interface org.jhotdraw.draw.Serializable
+interface org.jhotdraw.draw.TextHolderFigure
+interface org.jhotdraw.draw.Tool
+interface org.jhotdraw.draw.ToolListener
+interface org.jhotdraw.draw.action.FigureSelectionListener
+interface org.jhotdraw.draw.action.Icon
+interface org.jhotdraw.draw.action.LayoutManager
+interface org.jhotdraw.draw.action.PropertyChangeListener
+interface org.jhotdraw.xml.DOMStorable
+org.jhotdraw.draw.AbstractAttributedCompositeFigure --|> org.jhotdraw.draw.AbstractCompositeFigure
+org.jhotdraw.draw.AbstractAttributedCompositeFigure ..> java.lang.Override
+org.jhotdraw.draw.AbstractAttributedCompositeFigure ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.AbstractAttributedCompositeFigure ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.AbstractAttributedCompositeFigure ..> org.jhotdraw.xml.DOMInput
+org.jhotdraw.draw.AbstractAttributedCompositeFigure ..> org.jhotdraw.xml.DOMOutput
+org.jhotdraw.draw.AbstractAttributedFigure --|> org.jhotdraw.draw.AbstractFigure
+org.jhotdraw.draw.AbstractAttributedFigure ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.AbstractAttributedFigure ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.AbstractAttributedFigure ..> org.jhotdraw.xml.DOMInput
+org.jhotdraw.draw.AbstractAttributedFigure ..> org.jhotdraw.xml.DOMOutput
+org.jhotdraw.draw.AbstractCompositeFigure --|> org.jhotdraw.draw.AbstractFigure
+org.jhotdraw.draw.AbstractCompositeFigure ..> java.lang.Override
+org.jhotdraw.draw.AbstractCompositeFigure ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.AbstractCompositeFigure ..> java.io.IOException
+org.jhotdraw.draw.AbstractCompositeFigure ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.AbstractCompositeFigure ..> org.jhotdraw.xml.DOMInput
+org.jhotdraw.draw.AbstractCompositeFigure ..> org.jhotdraw.xml.DOMOutput
+org.jhotdraw.draw.AbstractCompositeFigure ..> java.io.Serializable
+org.jhotdraw.draw.AbstractCompositeFigure --|> org.jhotdraw.draw.CompositeFigure
+org.jhotdraw.draw.AbstractConstrainer --|> org.jhotdraw.draw.AbstractBean
+org.jhotdraw.draw.AbstractConstrainer --|> org.jhotdraw.draw.Constrainer
+org.jhotdraw.draw.AbstractDrawing --|> org.jhotdraw.draw.AbstractAttributedCompositeFigure
+org.jhotdraw.draw.AbstractDrawing ..> java.lang.Override
+org.jhotdraw.draw.AbstractDrawing --|> org.jhotdraw.draw.Drawing
+org.jhotdraw.draw.AbstractFigure ..> java.lang.Override
+org.jhotdraw.draw.AbstractFigure --|> org.jhotdraw.beans.AbstractBean
+org.jhotdraw.draw.AbstractFigure --|> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.AbstractHandle ..> java.util.Collection
+org.jhotdraw.draw.AbstractHandle --|> org.jhotdraw.draw.FigureListener
+org.jhotdraw.draw.AbstractHandle --|> org.jhotdraw.draw.Handle
+org.jhotdraw.draw.AbstractLineDecoration ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.AbstractLineDecoration ..> org.jhotdraw.geom.Geom
+org.jhotdraw.draw.AbstractLineDecoration --|> org.jhotdraw.draw.LineDecoration
+org.jhotdraw.draw.AbstractLocator --|> java.io.Serializable
+org.jhotdraw.draw.AbstractLocator --|> org.jhotdraw.draw.DOMStorable
+org.jhotdraw.draw.AbstractLocator --|> org.jhotdraw.draw.Locator
+org.jhotdraw.draw.AbstractRotateHandle --|> org.jhotdraw.draw.AbstractHandle
+org.jhotdraw.draw.AbstractRotateHandle ..> java.lang.Override
+org.jhotdraw.draw.AbstractRotateHandle ..> java.awt.event.KeyEvent
+org.jhotdraw.draw.AbstractTool --|> org.jhotdraw.beans.AbstractBean
+org.jhotdraw.draw.AbstractTool --|> org.jhotdraw.draw.Tool
+org.jhotdraw.draw.LocatorHandle --|> org.jhotdraw.draw.AbstractHandle
+org.jhotdraw.draw.action.AbstractDrawingEditorAction --|> org.jhotdraw.draw.action.AbstractAction
+org.jhotdraw.draw.action.AbstractDrawingEditorAction ..> org.jhotdraw.draw.Drawing
+org.jhotdraw.draw.action.AbstractDrawingEditorAction ..> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.action.AbstractDrawingEditorAction ..> org.jhotdraw.draw.DrawingView
+org.jhotdraw.draw.action.AbstractDrawingViewAction --|> org.jhotdraw.draw.action.AbstractAction
+org.jhotdraw.draw.action.AbstractDrawingViewAction ..> org.jhotdraw.draw.Drawing
+org.jhotdraw.draw.action.AbstractDrawingViewAction ..> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.action.AbstractDrawingViewAction ..> org.jhotdraw.draw.DrawingView
+org.jhotdraw.draw.action.AbstractGroupAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.AbstractGroupAction ..> java.lang.Override
+org.jhotdraw.draw.action.AbstractGroupAction ..> java.awt.event.ActionEvent
+org.jhotdraw.draw.action.AbstractGroupAction ..> org.jhotdraw.draw.CompositeFigure
+org.jhotdraw.draw.action.AbstractGroupAction ..> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.action.AbstractSelectedAction ..> org.jhotdraw.draw.FigureSelectionEvent
+org.jhotdraw.draw.action.AbstractSelectedAction --|> org.jhotdraw.draw.action.AbstractAction
+org.jhotdraw.draw.action.AbstractSelectedAction ..> java.io.Serializable
+org.jhotdraw.draw.action.AbstractSelectedAction ..> org.jhotdraw.draw.Drawing
+org.jhotdraw.draw.action.AbstractSelectedAction ..> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.action.AbstractSelectedAction ..> org.jhotdraw.draw.DrawingView
+org.jhotdraw.draw.action.AbstractSelectedAction ..> org.jhotdraw.draw.FigureSelectionListener
+org.jhotdraw.draw.action.AlignAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.AlignAction ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.action.AlignAction ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.action.AlignAction ..> org.jhotdraw.draw.TransformEdit
+org.jhotdraw.draw.action.AlignAction ..> org.jhotdraw.undo.CompositeEdit
+org.jhotdraw.draw.action.AlignAction ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.action.AlignAction ..> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.action.AlignAction ..> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.action.MoveAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.MoveAction ..> org.jhotdraw.draw.TransformEdit
+org.jhotdraw.draw.action.MoveAction ..> org.jhotdraw.undo.CompositeEdit
+org.jhotdraw.draw.action.MoveAction ..> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.action.MoveAction ..> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.action.MoveConstrainedAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.MoveConstrainedAction ..> org.jhotdraw.undo.CompositeEdit
+org.jhotdraw.draw.AbstractConnector ..> java.io.IOException
+org.jhotdraw.draw.AbstractConnector ..> org.jhotdraw.xml.DOMInput
+org.jhotdraw.draw.AbstractConnector ..> org.jhotdraw.xml.DOMOutput
+org.jhotdraw.draw.AbstractConnector --|> org.jhotdraw.draw.Connector
+org.jhotdraw.draw.ArrowTip --|> org.jhotdraw.draw.AbstractLineDecoration
+org.jhotdraw.draw.ArrowTip ..> org.jhotdraw.xml.DOMInput
+org.jhotdraw.draw.ArrowTip ..> org.jhotdraw.xml.DOMOutput
+org.jhotdraw.draw.ArrowTip --|> org.jhotdraw.xml.DOMStorable
+org.jhotdraw.draw.AttributeKey ..> java.lang.Override
+org.jhotdraw.draw.AttributeKey ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.AttributeKey --|> java.io.Serializable
+org.jhotdraw.draw.AttributeKeys ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.BezierControlPointHandle --|> org.jhotdraw.draw.AbstractHandle
+org.jhotdraw.draw.BezierControlPointHandle ..> java.lang.Override
+org.jhotdraw.draw.BezierControlPointHandle ..> javax.swing.undo.CannotRedoException
+org.jhotdraw.draw.BezierControlPointHandle ..> javax.swing.undo.CannotUndoException
+org.jhotdraw.draw.BezierControlPointHandle ..> org.jhotdraw.samples.svg.SVGAttributeKeys
+org.jhotdraw.draw.BezierFigure --|> org.jhotdraw.draw.AbstractAttributedFigure
+org.jhotdraw.draw.BezierFigure ..> java.lang.Override
+org.jhotdraw.draw.BezierFigure ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.BezierFigure ..> org.jhotdraw.xml.DOMInput
+org.jhotdraw.draw.BezierFigure ..> org.jhotdraw.xml.DOMOutput
+org.jhotdraw.draw.BezierNodeEdit ..> java.lang.Override
+org.jhotdraw.draw.BezierNodeEdit --|> javax.swing.undo.AbstractUndoableEdit
+org.jhotdraw.draw.BezierNodeEdit ..> javax.swing.undo.CannotRedoException
+org.jhotdraw.draw.BezierNodeEdit ..> javax.swing.undo.CannotUndoException
+org.jhotdraw.draw.BezierNodeEdit ..> javax.swing.undo.UndoableEdit
+org.jhotdraw.draw.BezierNodeEdit ..> org.jhotdraw.geom.BezierPath
+org.jhotdraw.draw.BezierNodeEdit ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.BezierNodeHandle --|> org.jhotdraw.draw.AbstractHandle
+org.jhotdraw.draw.BezierNodeHandle ..> java.lang.Override
+org.jhotdraw.draw.BezierNodeHandle ..> javax.swing.undo.AbstractUndoableEdit
+org.jhotdraw.draw.BezierNodeHandle ..> javax.swing.undo.CannotRedoException
+org.jhotdraw.draw.BezierNodeHandle ..> javax.swing.undo.CannotUndoException
+org.jhotdraw.draw.BezierNodeHandle ..> org.jhotdraw.geom.BezierPath.Node
+org.jhotdraw.draw.BezierNodeHandle ..> org.jhotdraw.samples.svg.SVGAttributeKeys
+org.jhotdraw.draw.BezierOutlineHandle --|> org.jhotdraw.draw.AbstractHandle
+org.jhotdraw.draw.BezierOutlineHandle ..> java.lang.Override
+org.jhotdraw.draw.BezierScaleHandle --|> org.jhotdraw.draw.AbstractHandle
+org.jhotdraw.draw.BezierTool --|> org.jhotdraw.draw.AbstractTool
+org.jhotdraw.draw.BezierTool ..> java.lang.Override
+org.jhotdraw.draw.BezierTool ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.BoundsOutlineHandle --|> org.jhotdraw.draw.AbstractHandle
+org.jhotdraw.draw.BoundsOutlineHandle ..> java.lang.Override
+org.jhotdraw.draw.ChopBezierConnector --|> org.jhotdraw.draw.ChopRectangleConnector
+org.jhotdraw.draw.ChopRectangleConnector ..> java.lang.Override
+org.jhotdraw.draw.ChopRectangleConnector --|> org.jhotdraw.draw.AbstractConnector
+org.jhotdraw.draw.ChopRectangleConnector ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.CompositeFigureEvent --|> org.jhotdraw.draw.EventObject
+org.jhotdraw.draw.CreationTool --|> org.jhotdraw.draw.AbstractTool
+org.jhotdraw.draw.CreationTool ..> java.lang.Override
+org.jhotdraw.draw.CreationTool ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.DefaultDragTracker --|> org.jhotdraw.draw.AbstractTool
+org.jhotdraw.draw.DefaultDragTracker ..> java.lang.Override
+org.jhotdraw.draw.DefaultDragTracker --|> org.jhotdraw.draw.DragTracker
+org.jhotdraw.draw.DefaultDrawing --|> org.jhotdraw.draw.AbstractDrawing
+org.jhotdraw.draw.DefaultDrawing ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.DefaultDrawing ..> java.lang.Override
+org.jhotdraw.draw.DefaultDrawing ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.DefaultDrawing ..> org.jhotdraw.geom.Dimension2DDouble
+org.jhotdraw.draw.DefaultDrawing ..> org.jhotdraw.geom.Geom
+org.jhotdraw.draw.DefaultDrawingEditor ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.DefaultDrawingEditor ..> java.awt.event.FocusEvent
+org.jhotdraw.draw.DefaultDrawingEditor ..> java.awt.event.FocusListener
+org.jhotdraw.draw.DefaultDrawingEditor ..> javax.swing.JComponent
+org.jhotdraw.draw.DefaultDrawingEditor --|> org.jhotdraw.draw.AbstractBean
+org.jhotdraw.draw.DefaultDrawingEditor ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.DefaultDrawingEditor --|> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.DefaultDrawingEditor --|> org.jhotdraw.draw.ToolListener
+org.jhotdraw.draw.DefaultDrawingView ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.DefaultDrawingView ..> java.lang.Override
+org.jhotdraw.draw.DefaultDrawingView ..> java.awt.image.BufferedImage
+org.jhotdraw.draw.DefaultDrawingView ..> javax.swing.border.EmptyBorder
+org.jhotdraw.draw.DefaultDrawingView ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.DefaultDrawingView ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.DefaultDrawingView --|> org.jhotdraw.draw.JComponent
+org.jhotdraw.draw.DefaultDrawingView --|> org.jhotdraw.app.EditableComponent
+org.jhotdraw.draw.DefaultDrawingView --|> org.jhotdraw.draw.DrawingView
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.lang.Override
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.dnd.DragGestureEvent
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.dnd.DragGestureListener
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.dnd.DragGestureRecognizer
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.dnd.DragSource
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.dnd.DragSourceContext
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.dnd.DragSourceDragEvent
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.dnd.DragSourceDropEvent
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.dnd.DragSourceEvent
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.dnd.DragSourceListener
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.geom.AffineTransform
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.geom.Point2D
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.geom.Rectangle2D
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> java.awt.image.BufferedImage
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler --|> org.jhotdraw.draw.TransferHandler
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> org.jhotdraw.gui.Worker
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.DefaultDrawingViewTransferHandler ..> org.jhotdraw.util.ReversedList
+org.jhotdraw.draw.DefaultHandleTracker --|> org.jhotdraw.draw.AbstractTool
+org.jhotdraw.draw.DefaultHandleTracker ..> java.lang.Override
+org.jhotdraw.draw.DefaultHandleTracker ..> java.awt.geom.Point2D
+org.jhotdraw.draw.DefaultHandleTracker --|> org.jhotdraw.draw.HandleTracker
+org.jhotdraw.draw.DefaultSelectAreaTracker --|> org.jhotdraw.draw.AbstractTool
+org.jhotdraw.draw.DefaultSelectAreaTracker ..> java.lang.Override
+org.jhotdraw.draw.DefaultSelectAreaTracker ..> java.awt.geom.Point2D
+org.jhotdraw.draw.DefaultSelectAreaTracker --|> org.jhotdraw.draw.SelectAreaTracker
+org.jhotdraw.draw.DelegationSelectionTool ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.DelegationSelectionTool ..> java.lang.Override
+org.jhotdraw.draw.DelegationSelectionTool ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.DelegationSelectionTool ..> org.jhotdraw.app.action.Actions
+org.jhotdraw.draw.DelegationSelectionTool --|> org.jhotdraw.draw.SelectionTool
+org.jhotdraw.draw.DrawingPageable --|> org.jhotdraw.draw.Pageable
+org.jhotdraw.draw.FigureAdapter --|> org.jhotdraw.draw.FigureListener
+org.jhotdraw.draw.FigureEvent --|> org.jhotdraw.draw.EventObject
+org.jhotdraw.draw.FigureLayerComparator --|> org.jhotdraw.draw.Comparator
+org.jhotdraw.draw.FigureSelectionEvent --|> java.util.EventObject
+org.jhotdraw.draw.FloatingTextArea ..> java.lang.Override
+org.jhotdraw.draw.FloatingTextArea ..> javax.swing.BorderFactory
+org.jhotdraw.draw.FloatingTextArea ..> javax.swing.JScrollPane
+org.jhotdraw.draw.FloatingTextArea ..> javax.swing.JTextArea
+org.jhotdraw.draw.FloatingTextField ..> java.lang.Override
+org.jhotdraw.draw.FloatingTextField ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.FontSizeHandle --|> org.jhotdraw.draw.LocatorHandle
+org.jhotdraw.draw.FontSizeHandle ..> java.lang.Override
+org.jhotdraw.draw.FontSizeHandle ..> java.awt.event.KeyEvent
+org.jhotdraw.draw.FontSizeHandle ..> java.util.Locale
+org.jhotdraw.draw.FontSizeHandle ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.FontSizeHandle ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.FontSizeLocator ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.FontSizeLocator --|> org.jhotdraw.draw.Locator
+org.jhotdraw.draw.GeometryEdit --|> org.jhotdraw.draw.AbstractUndoableEdit
+org.jhotdraw.draw.GridConstrainer --|> org.jhotdraw.draw.AbstractConstrainer
+org.jhotdraw.draw.GroupFigure --|> org.jhotdraw.draw.AbstractCompositeFigure
+org.jhotdraw.draw.HandleEvent --|> org.jhotdraw.draw.EventObject
+org.jhotdraw.draw.ImageInputFormat ..> org.jhotdraw.util.Images
+org.jhotdraw.draw.ImageInputFormat --|> org.jhotdraw.draw.InputFormat
+org.jhotdraw.draw.ImageOutputFormat --|> org.jhotdraw.draw.OutputFormat
+org.jhotdraw.draw.LineFigure ..> java.lang.Override
+org.jhotdraw.draw.LineFigure --|> org.jhotdraw.draw.BezierFigure
+org.jhotdraw.draw.MoveHandle --|> org.jhotdraw.draw.LocatorHandle
+org.jhotdraw.draw.MoveHandle ..> java.lang.Override
+org.jhotdraw.draw.MoveHandle ..> java.awt.event.KeyEvent
+org.jhotdraw.draw.PictImageInputFormat ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.PictImageInputFormat ..> org.jhotdraw.util.Images
+org.jhotdraw.draw.PictImageInputFormat --|> org.jhotdraw.draw.InputFormat
+org.jhotdraw.draw.QuadTreeDrawing --|> org.jhotdraw.draw.AbstractDrawing
+org.jhotdraw.draw.QuadTreeDrawing ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.QuadTreeDrawing ..> java.lang.Override
+org.jhotdraw.draw.QuadTreeDrawing ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.QuadTreeDrawing ..> org.jhotdraw.geom.Dimension2DDouble
+org.jhotdraw.draw.QuadTreeDrawing ..> org.jhotdraw.geom.Geom
+org.jhotdraw.draw.QuadTreeDrawing ..> org.jhotdraw.geom.QuadTree
+org.jhotdraw.draw.RelativeLocator --|> org.jhotdraw.draw.AbstractLocator
+org.jhotdraw.draw.RelativeLocator ..> java.lang.Override
+org.jhotdraw.draw.RelativeLocator ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.RelativeLocator ..> org.jhotdraw.xml.DOMInput
+org.jhotdraw.draw.RelativeLocator ..> org.jhotdraw.xml.DOMOutput
+org.jhotdraw.draw.ResizeHandleKit ..> java.lang.Override
+org.jhotdraw.draw.ResizeHandleKit ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.RestoreDataEdit ..> java.lang.Override
+org.jhotdraw.draw.RestoreDataEdit --|> org.jhotdraw.draw.AbstractUndoableEdit
+org.jhotdraw.draw.RotateHandle --|> org.jhotdraw.draw.AbstractRotateHandle
+org.jhotdraw.draw.RotateHandle ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.SelectionTool --|> org.jhotdraw.draw.AbstractTool
+org.jhotdraw.draw.SelectionTool ..> java.lang.Override
+org.jhotdraw.draw.SelectionTool ..> java.awt.geom.Point2D
+org.jhotdraw.draw.SelectionTool ..> java.util.HashSet
+org.jhotdraw.draw.SelectionTool --|> org.jhotdraw.draw.ToolListener
+org.jhotdraw.draw.SetBoundsEdit --|> org.jhotdraw.draw.AbstractUndoableEdit
+org.jhotdraw.draw.TextAreaCreationTool ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.TextAreaCreationTool ..> java.lang.Override
+org.jhotdraw.draw.TextAreaCreationTool ..> javax.swing.undo.AbstractUndoableEdit
+org.jhotdraw.draw.TextAreaCreationTool ..> javax.swing.undo.UndoableEdit
+org.jhotdraw.draw.TextAreaCreationTool ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.TextAreaCreationTool --|> org.jhotdraw.draw.CreationTool
+org.jhotdraw.draw.TextAreaCreationTool ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.TextAreaCreationTool --|> org.jhotdraw.draw.ActionListener
+org.jhotdraw.draw.TextAreaEditingTool --|> org.jhotdraw.draw.AbstractTool
+org.jhotdraw.draw.TextAreaEditingTool ..> java.lang.Override
+org.jhotdraw.draw.TextAreaEditingTool ..> javax.swing.undo.AbstractUndoableEdit
+org.jhotdraw.draw.TextAreaEditingTool ..> javax.swing.undo.UndoableEdit
+org.jhotdraw.draw.TextAreaEditingTool ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.TextAreaEditingTool --|> org.jhotdraw.draw.ActionListener
+org.jhotdraw.draw.TextCreationTool ..> java.lang.Override
+org.jhotdraw.draw.TextCreationTool ..> java.awt.geom.Point2D
+org.jhotdraw.draw.TextCreationTool ..> javax.swing.undo.AbstractUndoableEdit
+org.jhotdraw.draw.TextCreationTool ..> javax.swing.undo.UndoableEdit
+org.jhotdraw.draw.TextCreationTool --|> org.jhotdraw.draw.CreationTool
+org.jhotdraw.draw.TextCreationTool ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.TextCreationTool --|> org.jhotdraw.draw.ActionListener
+org.jhotdraw.draw.TextEditingTool --|> org.jhotdraw.draw.AbstractTool
+org.jhotdraw.draw.TextEditingTool ..> java.lang.Override
+org.jhotdraw.draw.TextEditingTool ..> java.awt.geom.Point2D
+org.jhotdraw.draw.TextEditingTool ..> javax.swing.undo.AbstractUndoableEdit
+org.jhotdraw.draw.TextEditingTool ..> javax.swing.undo.UndoableEdit
+org.jhotdraw.draw.TextEditingTool ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.TextEditingTool --|> org.jhotdraw.draw.ActionListener
+org.jhotdraw.draw.TextInputFormat ..> org.jhotdraw.geom.Dimension2DDouble
+org.jhotdraw.draw.TextInputFormat --|> org.jhotdraw.draw.InputFormat
+org.jhotdraw.draw.TextOverflowHandle --|> org.jhotdraw.draw.AbstractHandle
+org.jhotdraw.draw.TextOverflowHandle ..> java.lang.Override
+org.jhotdraw.draw.TextOverflowHandle ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.TextOverflowHandle ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.ToolEvent --|> org.jhotdraw.draw.EventObject
+org.jhotdraw.draw.TransformEdit --|> org.jhotdraw.draw.AbstractUndoableEdit
+org.jhotdraw.draw.TransformHandleKit ..> java.lang.Override
+org.jhotdraw.draw.TransformHandleKit ..> org.jhotdraw.draw.HandleAttributeKeys
+org.jhotdraw.draw.TransformHandleKit ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.action.ApplyAttributesAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.ApplyAttributesAction ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.action.ApplyAttributesAction ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.action.ApplyAttributesAction ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.action.ApplyAttributesAction ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.action.AttributeAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.AttributeAction ..> java.lang.Override
+org.jhotdraw.draw.action.AttributeAction ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.action.AttributeAction ..> org.jhotdraw.app.action.Actions
+org.jhotdraw.draw.action.AttributeAction ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.action.AttributeToggler ..> java.lang.Override
+org.jhotdraw.draw.action.AttributeToggler --|> org.jhotdraw.draw.action.AbstractAction
+org.jhotdraw.draw.action.AttributeToggler ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.action.BringToFrontAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.BringToFrontAction ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.action.BringToFrontAction ..> java.lang.Override
+org.jhotdraw.draw.action.BringToFrontAction ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.action.ButtonFactory ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.action.ButtonFactory ..> java.lang.Override
+org.jhotdraw.draw.action.ButtonFactory ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.action.ButtonFactory ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.action.ButtonFactory ..> org.jhotdraw.gui.JFontChooser
+org.jhotdraw.draw.action.ButtonFactory ..> org.jhotdraw.gui.JPopupButton
+org.jhotdraw.draw.action.ColorIcon ..> java.awt.image.BufferedImage
+org.jhotdraw.draw.action.ColorIcon ..> org.jhotdraw.util.Images
+org.jhotdraw.draw.action.ColorIcon ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.action.ColorIcon --|> javax.swing.Icon
+org.jhotdraw.draw.action.DefaultAttributeAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.DefaultAttributeAction ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.action.DrawingAttributeAction --|> org.jhotdraw.draw.action.AbstractDrawingViewAction
+org.jhotdraw.draw.action.DrawingAttributeAction ..> java.lang.Override
+org.jhotdraw.draw.action.DrawingAttributeAction ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.action.DrawingAttributeAction ..> org.jhotdraw.app.action.Actions
+org.jhotdraw.draw.action.DrawingAttributeAction ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.action.DrawingColorChooserAction ..> java.lang.Override
+org.jhotdraw.draw.action.DrawingColorChooserAction --|> org.jhotdraw.draw.action.EditorColorChooserAction
+org.jhotdraw.draw.action.DrawingColorIcon ..> java.lang.Override
+org.jhotdraw.draw.action.DrawingColorIcon ..> java.beans.PropertyChangeEvent
+org.jhotdraw.draw.action.DrawingColorIcon ..> java.beans.PropertyChangeListener
+org.jhotdraw.draw.action.DrawingColorIcon --|> javax.swing.ImageIcon
+org.jhotdraw.draw.action.DrawingEditorProxy ..> java.awt.Container
+org.jhotdraw.draw.action.DrawingEditorProxy ..> java.awt.Cursor
+org.jhotdraw.draw.action.DrawingEditorProxy ..> java.util.Collection
+org.jhotdraw.draw.action.DrawingEditorProxy ..> java.util.Map
+org.jhotdraw.draw.action.DrawingEditorProxy --|> org.jhotdraw.beans.AbstractBean
+org.jhotdraw.draw.action.DrawingEditorProxy ..> org.jhotdraw.draw.AttributeKey
+org.jhotdraw.draw.action.DrawingEditorProxy ..> java.io.Serializable
+org.jhotdraw.draw.action.DrawingEditorProxy --|> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.action.DrawingEditorProxy ..> org.jhotdraw.draw.DrawingView
+org.jhotdraw.draw.action.DrawingEditorProxy ..> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.action.DrawingEditorProxy ..> org.jhotdraw.draw.Tool
+org.jhotdraw.draw.action.EditorColorChooserAction ..> java.lang.Override
+org.jhotdraw.draw.action.EditorColorChooserAction --|> org.jhotdraw.draw.action.AttributeAction
+org.jhotdraw.draw.action.EditorColorIcon --|> javax.swing.ImageIcon
+org.jhotdraw.draw.action.FontChooserHandler --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.FontChooserHandler ..> java.lang.Override
+org.jhotdraw.draw.action.FontChooserHandler ..> org.jhotdraw.app.action.Actions
+org.jhotdraw.draw.action.FontChooserHandler ..> org.jhotdraw.gui.JFontChooser
+org.jhotdraw.draw.action.FontChooserHandler ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.action.FontChooserHandler --|> org.jhotdraw.draw.action.PropertyChangeListener
+org.jhotdraw.draw.action.GroupAction --|> org.jhotdraw.draw.action.AbstractGroupAction
+org.jhotdraw.draw.action.GroupAction ..> java.lang.Override
+org.jhotdraw.draw.action.GroupAction ..> java.util.Collection
+org.jhotdraw.draw.action.GroupAction ..> java.util.LinkedList
+org.jhotdraw.draw.action.GroupAction ..> javax.swing.undo.AbstractUndoableEdit
+org.jhotdraw.draw.action.GroupAction ..> javax.swing.undo.CannotRedoException
+org.jhotdraw.draw.action.GroupAction ..> javax.swing.undo.CannotUndoException
+org.jhotdraw.draw.action.GroupAction ..> javax.swing.undo.UndoableEdit
+org.jhotdraw.draw.action.GroupAction ..> org.jhotdraw.samples.svg.figures.SVGGroupFigure
+org.jhotdraw.draw.action.GroupAction ..> org.jhotdraw.draw.CompositeFigure
+org.jhotdraw.draw.action.GroupAction ..> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.action.GroupAction ..> org.jhotdraw.draw.DrawingView
+org.jhotdraw.draw.action.GroupAction ..> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.action.IncreaseHandleDetailLevelAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.LineDecorationIcon ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.action.LineDecorationIcon --|> org.jhotdraw.draw.action.Icon
+org.jhotdraw.draw.action.PaletteMenuItemUI --|> javax.swing.plaf.basic.BasicMenuItemUI
+org.jhotdraw.draw.action.PickAttributesAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.PickAttributesAction ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.action.PickAttributesAction ..> java.lang.SuppressWarnings
+org.jhotdraw.draw.action.PickAttributesAction ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.action.PickAttributesAction ..> org.jhotdraw.draw.AttributeKeys
+org.jhotdraw.draw.action.SelectSameAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.SelectSameAction ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.action.SelectSameAction ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.action.SelectSameAction ..> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.action.SelectSameAction ..> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.action.SelectionColorChooserAction --|> org.jhotdraw.draw.action.EditorColorChooserAction
+org.jhotdraw.draw.action.SelectionColorChooserAction ..> org.jhotdraw.undo.CompositeEdit
+org.jhotdraw.draw.action.SelectionColorIcon ..> java.lang.Override
+org.jhotdraw.draw.action.SelectionColorIcon --|> javax.swing.ImageIcon
+org.jhotdraw.draw.action.SelectionComponentRepainter ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.action.SelectionComponentRepainter ..> java.lang.Override
+org.jhotdraw.draw.action.SelectionComponentRepainter ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.action.SelectionComponentRepainter --|> org.jhotdraw.draw.action.FigureAdapter
+org.jhotdraw.draw.action.SelectionComponentRepainter --|> org.jhotdraw.draw.action.FigureSelectionListener
+org.jhotdraw.draw.action.SelectionComponentRepainter --|> org.jhotdraw.draw.action.PropertyChangeListener
+org.jhotdraw.draw.action.SendToBackAction --|> org.jhotdraw.draw.action.AbstractSelectedAction
+org.jhotdraw.draw.action.SendToBackAction ..> dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint
+org.jhotdraw.draw.action.SendToBackAction ..> java.lang.Override
+org.jhotdraw.draw.action.SendToBackAction ..> org.jhotdraw.app.JHotDrawFeatures
+org.jhotdraw.draw.action.StrokeIcon --|> javax.swing.Icon
+org.jhotdraw.draw.action.ToggleGridAction --|> org.jhotdraw.draw.action.AbstractDrawingEditorAction
+org.jhotdraw.draw.action.ToggleGridAction ..> java.lang.Override
+org.jhotdraw.draw.action.ToggleGridAction ..> org.jhotdraw.util.ResourceBundleUtil
+org.jhotdraw.draw.action.UngroupAction --|> org.jhotdraw.draw.action.AbstractGroupAction
+org.jhotdraw.draw.action.UngroupAction ..> java.lang.Override
+org.jhotdraw.draw.action.UngroupAction ..> java.util.Collection
+org.jhotdraw.draw.action.UngroupAction ..> java.util.LinkedList
+org.jhotdraw.draw.action.UngroupAction ..> javax.swing.undo.AbstractUndoableEdit
+org.jhotdraw.draw.action.UngroupAction ..> javax.swing.undo.CannotRedoException
+org.jhotdraw.draw.action.UngroupAction ..> javax.swing.undo.CannotUndoException
+org.jhotdraw.draw.action.UngroupAction ..> org.jhotdraw.samples.svg.figures.SVGGroupFigure
+org.jhotdraw.draw.action.UngroupAction ..> org.jhotdraw.draw.CompositeFigure
+org.jhotdraw.draw.action.UngroupAction ..> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.action.UngroupAction ..> org.jhotdraw.draw.DrawingView
+org.jhotdraw.draw.action.UngroupAction ..> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.action.VerticalGridLayout --|> java.io.Serializable
+org.jhotdraw.draw.action.VerticalGridLayout --|> org.jhotdraw.draw.action.LayoutManager
+org.jhotdraw.draw.action.ZoomAction --|> org.jhotdraw.draw.action.AbstractDrawingViewAction
+org.jhotdraw.draw.action.ZoomAction ..> java.awt.Rectangle
+org.jhotdraw.draw.action.ZoomEditorAction --|> org.jhotdraw.draw.action.AbstractDrawingEditorAction
+org.jhotdraw.draw.action.ZoomEditorAction ..> org.jhotdraw.draw.DrawingEditor
+org.jhotdraw.draw.action.ZoomEditorAction ..> org.jhotdraw.draw.DrawingView
+org.jhotdraw.draw.TranslationDirection ..> java.awt.Point
+org.jhotdraw.draw.TranslationDirection ..> java.awt.geom.Point2D
+org.jhotdraw.draw.CompositeFigure --|> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.CompositeFigureListener --|> org.jhotdraw.draw.EventListener
+org.jhotdraw.draw.ConnectionFigure --|> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.Connector --|> java.lang.Cloneable
+org.jhotdraw.draw.Connector --|> org.jhotdraw.draw.Serializable
+org.jhotdraw.draw.Connector --|> org.jhotdraw.xml.DOMStorable
+org.jhotdraw.draw.Constrainer ..> javax.swing.event.ChangeListener
+org.jhotdraw.draw.DecoratedFigure --|> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.DragTracker --|> org.jhotdraw.draw.Tool
+org.jhotdraw.draw.Drawing ..> java.awt.Graphics2D
+org.jhotdraw.draw.Drawing --|> org.jhotdraw.draw.CompositeFigure
+org.jhotdraw.draw.Drawing --|> org.jhotdraw.draw.DOMStorable
+org.jhotdraw.draw.Drawing --|> org.jhotdraw.draw.Serializable
+org.jhotdraw.draw.Figure --|> java.lang.Cloneable
+org.jhotdraw.draw.Figure --|> org.jhotdraw.draw.Serializable
+org.jhotdraw.draw.Figure --|> org.jhotdraw.xml.DOMStorable
+org.jhotdraw.draw.FigureListener --|> org.jhotdraw.draw.EventListener
+org.jhotdraw.draw.FigureSelectionListener --|> java.util.EventListener
+org.jhotdraw.draw.Handle --|> org.jhotdraw.draw.KeyListener
+org.jhotdraw.draw.HandleListener --|> org.jhotdraw.draw.EventListener
+org.jhotdraw.draw.HandleTracker ..> java.util.Collection
+org.jhotdraw.draw.HandleTracker --|> org.jhotdraw.draw.Tool
+org.jhotdraw.draw.ImageHolderFigure --|> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.LineDecoration --|> java.lang.Cloneable
+org.jhotdraw.draw.LineDecoration --|> org.jhotdraw.draw.Serializable
+org.jhotdraw.draw.Liner --|> java.lang.Cloneable
+org.jhotdraw.draw.Liner --|> org.jhotdraw.draw.Serializable
+org.jhotdraw.draw.OutputFormat ..> java.awt.Dimension
+org.jhotdraw.draw.OutputFormat ..> java.awt.geom.AffineTransform
+org.jhotdraw.draw.SelectAreaTracker --|> org.jhotdraw.draw.Tool
+org.jhotdraw.draw.TextHolderFigure --|> org.jhotdraw.draw.Figure
+org.jhotdraw.draw.Tool --|> org.jhotdraw.draw.KeyListener
+org.jhotdraw.draw.Tool --|> org.jhotdraw.draw.MouseListener
+org.jhotdraw.draw.Tool --|> org.jhotdraw.draw.MouseMotionListener
+org.jhotdraw.draw.ToolListener --|> org.jhotdraw.draw.EventListener
+@enduml

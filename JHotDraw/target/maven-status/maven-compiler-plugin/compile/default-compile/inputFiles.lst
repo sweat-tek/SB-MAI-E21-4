@@ -13,6 +13,7 @@ C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\dra
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\geom\BezierPath.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\draw\action\GroupAction.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\geom\Bezier.java
+C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\samples\svg\CreateDrawingTest.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\draw\BezierOutlineHandle.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\draw\DrawingEditor.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\draw\TextAreaCreationTool.java
@@ -203,6 +204,7 @@ C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\app
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\gui\fontchooser\FontCollectionNode.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\app\action\Actions.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\samples\svg\SVGDrawingPanel.java
+C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\samples\svg\OutputFormatCreator.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\draw\action\MoveAction.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\draw\FigureAdapter.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\app\action\AboutAction.java
@@ -266,6 +268,7 @@ C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\apache\batik
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\gui\plaf\palette\PaletteFormattedTextFieldUI.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\draw\BezierFigure.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\draw\InputFormat.java
+C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\samples\svg\InputFormatCreator.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\draw\GridConstrainer.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\apache\batik\ext\awt\MultipleGradientPaintContext.java
 C:\Users\asbjo\IdeaProjects\SB-MAI-E21-4\JHotDraw\src\main\java\org\jhotdraw\draw\action\DrawingAttributeAction.java
