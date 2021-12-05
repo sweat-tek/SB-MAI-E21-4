@@ -56,6 +56,7 @@ public class LoadAction extends AbstractSaveBeforeAction {
         }
     }
     
+    
     protected void openFile(final View view, JFileChooser fileChooser) {
         final File file = fileChooser.getSelectedFile();
         

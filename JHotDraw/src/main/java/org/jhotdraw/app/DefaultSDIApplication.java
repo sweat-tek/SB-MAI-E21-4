@@ -123,8 +123,8 @@ public class DefaultSDIApplication extends AbstractApplication {
         m.putAction(CloseAction.ID, new CloseAction(this));
         m.putAction(PrintAction.ID, new PrintAction(this));
 
-        m.putAction(UndoAction.ID, new UndoAction(this));
-        m.putAction(RedoAction.ID, new RedoAction(this));
+        m.putAction(UndoRedoAction.undoID, new UndoRedoAction(this, UndoRedoAction.undoID));
+        m.putAction(UndoRedoAction.redoID, new UndoRedoAction(this, UndoRedoAction.redoID));
         m.putAction(CutAction.ID, new CutAction());
         m.putAction(CopyAction.ID, new CopyAction());
         m.putAction(PasteAction.ID, new PasteAction());
