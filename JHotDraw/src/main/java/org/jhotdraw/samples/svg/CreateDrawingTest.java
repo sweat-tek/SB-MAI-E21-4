@@ -16,16 +16,9 @@ import org.junit.Test;
 public class CreateDrawingTest {
     @Test
     public void testCreateDrawing() throws Exception {
-        
-// Assert that method returns Drawing object
+        // Assert that method returns Drawing object
         SVGView view = new SVGView();
         Drawing drawing = new QuadTreeDrawing();
         assertEquals(drawing, view.createDrawing());
-        
-        // Assert that method has LinkedList<InputFormat>
-        
-        // Assert that the method loads InputFormats
-        
-        
-    }
+    }           
 }
