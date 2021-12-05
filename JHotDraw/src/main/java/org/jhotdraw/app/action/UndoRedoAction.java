@@ -13,11 +13,11 @@
  */
 
 package org.jhotdraw.app.action;
-import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import java.awt.event.*;
 import javax.swing.*;
 import java.beans.*;
 import org.jhotdraw.util.*;
+import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import org.jhotdraw.app.Application;
 import org.jhotdraw.app.JHotDrawFeatures;
 import org.jhotdraw.app.View;
@@ -31,8 +31,10 @@ import org.jhotdraw.app.View;
  * @version 2.0 2006-06-15 Reworked.
  * <br>1.0 October 9, 2005 Created.
  */
-public class UndoAction extends AbstractViewAction {
-    public final static String ID = "edit.undo";
+public class UndoRedoAction extends AbstractViewAction {
+    public String ID; //ID 
+    public final static String undoID = "edit.undo";
+    public final static String redoID = "edit.redo";
     private ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.app.Labels");
     
     private PropertyChangeListener redoActionPropertyListener = new PropertyChangeListener() {
@@ -46,9 +48,10 @@ public class UndoAction extends AbstractViewAction {
         }
     };
     
-    /** Creates a new instance. */
-    public UndoAction(Application app) {
+    /** Creates a new instance. */ 
+    public UndoRedoAction(Application app, String ID) {//ID
         super(app);
+        this.ID = ID;                                    //ID
         labels.configureAction(this, ID);
     }
     
@@ -58,7 +61,7 @@ public class UndoAction extends AbstractViewAction {
         if (realRedoAction != null) {
             isEnabled = realRedoAction.isEnabled();
         }
-        setEnabled(isEnabled);
+        setEnabled(isEnabled);  
     }
     
     @Override protected void updateView(View oldValue, View newValue) {

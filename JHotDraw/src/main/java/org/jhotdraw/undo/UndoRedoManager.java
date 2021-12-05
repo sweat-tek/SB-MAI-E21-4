@@ -218,7 +218,7 @@ public class UndoRedoManager extends UndoManager {//javax.swing.undo.UndoManager
      * Updates the properties of the UndoAction
      * and of the RedoAction.
      */
-    private void updateActions() {
+    void updateActions() {
         String label;
         if (DEBUG) System.out.println("UndoManager.updateActions "+
                 editToBeUndone()
