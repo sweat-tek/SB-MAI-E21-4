@@ -86,19 +86,17 @@ public class SVGEllipseFigureTest {
 //        fail("The test case is a prototype.");
 //    }
 //
-//    /**
-//     * Test of getWidth method, of class SVGEllipseFigure.
-//     */
-//    @Test
-//    public void testGetWidth() {
-//        System.out.println("getWidth");
-//        SVGEllipseFigure instance = new SVGEllipseFigure();
-//        double expResult = 0.0;
-//        double result = instance.getWidth();
-//        assertEquals(expResult, result, 0.0);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    /**
+     * Test of getWidth method, of class SVGEllipseFigure.
+     */
+    @Test
+    public void testGetWidth() {
+        System.out.println("getWidth");
+        SVGEllipseFigure instance = new SVGEllipseFigure();
+        double expResult = 0.0;
+        double result = instance.getWidth();
+        assertEquals(expResult, result, 0.0);
+    }
 //
 //    /**
 //     * Test of getHeight method, of class SVGEllipseFigure.
