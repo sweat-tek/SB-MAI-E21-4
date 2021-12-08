@@ -13,26 +13,17 @@
  */
 package org.jhotdraw.samples.svg.gui;
 
-import java.beans.*;
-import java.util.prefs.*;
 import javax.swing.border.*;
-import org.jhotdraw.gui.*;
-import org.jhotdraw.samples.svg.*;
-import org.jhotdraw.undo.*;
+
+import org.jhotdraw.draw.action.ArrangeAction;
+import org.jhotdraw.draw.action.ArrangeType;
 import org.jhotdraw.util.*;
 
 import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
 import javax.swing.*;
-import javax.swing.event.*;
-import org.jhotdraw.app.action.*;
+
 import org.jhotdraw.draw.*;
-import org.jhotdraw.draw.action.*;
 import org.jhotdraw.gui.plaf.palette.*;
-import org.jhotdraw.samples.svg.action.*;
-import org.jhotdraw.samples.svg.figures.*;
-import static org.jhotdraw.samples.svg.SVGAttributeKeys.*;
 
 /**
  * ArrangeToolBar.
@@ -84,10 +75,12 @@ public class ArrangeToolBar extends AbstractToolBar {
                     GridBagConstraints gbc;
                     AbstractButton btn;
 
-                    btn = new JButton(new BringToFrontAction(editor));
+
+                    ArrangeAction tofrontaction = new ArrangeAction(editor, ArrangeType.TOFRONT);
+                    btn = new JButton(tofrontaction) ;
                     btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
                     btn.setText(null);
-                    labels.configureToolBarButton(btn, BringToFrontAction.ID);
+                    labels.configureToolBarButton(btn, tofrontaction.ID);
                     btn.putClientProperty("hideActionText", Boolean.TRUE);
                     gbc = new GridBagConstraints();
                     gbc.gridy = 0;
@@ -95,10 +88,12 @@ public class ArrangeToolBar extends AbstractToolBar {
                     p.add(btn, gbc);
 
 
-                    btn = new JButton(new SendToBackAction(editor));
+                    ArrangeAction tobackaction = new ArrangeAction(editor, ArrangeType.TOBACK);
+                    btn = new JButton(tobackaction);
                     btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
                     btn.setText(null);
-                    labels.configureToolBarButton(btn, SendToBackAction.ID);
+                    //labels.configureToolBarButton(btn, SendToBackAction.ID);
+                    labels.configureToolBarButton(btn, tobackaction.ID);
                     btn.putClientProperty("hideActionText", Boolean.TRUE);
                     btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
                     gbc = new GridBagConstraints();
