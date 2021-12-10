@@ -6,10 +6,9 @@
 package org.jhotdraw.samples.svg.figures;
 
 import com.tngtech.jgiven.Stage;
+import com.tngtech.jgiven.annotation.BeforeStage;
 import com.tngtech.jgiven.annotation.ProvidedScenarioState;
 import java.awt.geom.Point2D;
-import org.jhotdraw.draw.Figure;
-import org.jhotdraw.draw.LineFigure;
 
 /**
  *
@@ -17,44 +16,26 @@ import org.jhotdraw.draw.LineFigure;
  */
 public class GivenLine extends Stage<GivenLine> {
     
-    @ProvidedScenarioState
-    int x1;
     
     @ProvidedScenarioState
-    int x2;
+    Point2D.Double point1, point2;
     
-    @ProvidedScenarioState
-    int y1;
-    
-    @ProvidedScenarioState
-    int y2;
-    
-    public GivenLine x1() {
-        x1 = 2;
-        return this;
+    @BeforeStage
+    private void init() {
+        point1 = new Point2D.Double();
+        point2 = new Point2D.Double();
     }
     
-    public GivenLine x2() {
-        x2 = 6;
-        return this;
+    
+    public GivenLine point1(int x1, int y1) {
+        point1.setLocation(x1, y1);
+        return self();
     }
     
-    public GivenLine y1() {
-        y1 = 4;
-        return this;
+    public GivenLine point2(int x2, int y2) {
+        point2.setLocation(x2, y2);
+        return self();
     }
-    
-    public GivenLine y2() {
-        y2 = 10;
-        return this;
-    }
-    
-//    public GivenLine a_line_parameters() {
-//        LineFigure figure = new LineFigure();
-//        figure.setStartPoint(new Point2D.Double(x1, y1));
-//        figure.setEndPoint(new Point2D.Double(x2, y2));
-//        System.out.println(figure);
-//        return this;
-//    }
+
     
 }

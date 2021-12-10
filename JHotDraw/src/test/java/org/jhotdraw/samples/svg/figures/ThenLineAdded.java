@@ -19,7 +19,7 @@ import org.junit.Assert;
 public class ThenLineAdded extends Stage<ThenLineAdded> {
     
     @ExpectedScenarioState
-    LineFigure figure = new LineFigure();
+    LineFigure figure;
     
     @ExpectedScenarioState
     Point2D.Double point1;
@@ -35,8 +35,7 @@ public class ThenLineAdded extends Stage<ThenLineAdded> {
 
     public ThenLineAdded a_line_is_added () {
         
-        //figure.getBounds();
-        System.out.println("Point 1: "+point1+"\n Point 2: "+point2);
+        //System.out.println("Point 1: "+point1+"\n Point 2: "+point2);
         assertStartPoint(point1);
         assertEndPoint(point2);
         return self();

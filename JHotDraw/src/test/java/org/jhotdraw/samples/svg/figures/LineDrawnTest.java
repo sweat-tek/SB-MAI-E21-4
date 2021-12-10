@@ -16,7 +16,7 @@ public class LineDrawnTest extends ScenarioTest<GivenLine, WhenLineDrawn, ThenLi
     
     @Test
     public void drawLineTest() {
-        given().x1().and().y1().and().x2().and().y2();
+        given().point1(2,4).and().point2(6,10);
         when().line_drawn();
         then().a_line_is_added();
     }
