@@ -23,6 +23,8 @@ import org.jhotdraw.app.action.DuplicateAction;
 import org.jhotdraw.draw.*;
 import static org.jhotdraw.draw.AttributeKeys.CLOSED;
 import org.jhotdraw.draw.action.*;
+import org.jhotdraw.draw.action.ArrangeAction;
+import org.jhotdraw.draw.action.ArrangeType;
 import org.jhotdraw.gui.plaf.palette.PaletteButtonUI;
 import org.jhotdraw.samples.svg.PathTool;
 import org.jhotdraw.samples.svg.SVGCreateFromFileTool;
@@ -185,9 +187,9 @@ public class ToolsToolBar extends AbstractToolBar {
 
         a.add(null); // separator
 
-        a.add(new BringToFrontAction(editor));
-        a.add(new SendToBackAction(editor));
 
+        a.add(new ArrangeAction(editor, ArrangeType.TOFRONT));
+        a.add(new ArrangeAction(editor, ArrangeType.TOBACK));
         return a;
     }
 
