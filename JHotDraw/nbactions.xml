@@ -10,7 +10,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>-javaagent:C:\Users\steff\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar</exec.vmArgs>
+                <exec.vmArgs>-javaagent:\Users\jakob\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
                 <exec.mainClass>org.jhotdraw.samples.svg.Main</exec.mainClass>
@@ -27,7 +27,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>-javaagent:C:\Users\steff\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar -agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
+                <exec.vmArgs>-javaagent:\Users\jakob\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar -agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
                 <exec.mainClass>org.jhotdraw.samples.svg.Main</exec.mainClass>
@@ -45,7 +45,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>-javaagent:C:\Users\steff\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar</exec.vmArgs>
+                <exec.vmArgs>-javaagent:\Users\jakob\.m2\repository\org\aspectj\aspectjweaver\1.8.6\aspectjweaver-1.8.6.jar</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.mainClass>org.jhotdraw.samples.svg.Main</exec.mainClass>
                 <exec.executable>java</exec.executable>
