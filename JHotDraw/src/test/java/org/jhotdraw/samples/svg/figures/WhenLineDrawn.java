@@ -20,9 +20,11 @@ public class WhenLineDrawn extends Stage<WhenLineDrawn> {
 
     
     @ExpectedScenarioState
+    @ProvidedScenarioState
     Point2D.Double point1;
     
     @ExpectedScenarioState
+    @ProvidedScenarioState
     Point2D.Double point2;
     
     @ProvidedScenarioState
@@ -40,7 +42,6 @@ public class WhenLineDrawn extends Stage<WhenLineDrawn> {
     }
     
     public void addPoints() {
-        System.out.println("X & Y "+point1.toString()+point2.toString());
         figure.setStartPoint(point1);
         figure.setEndPoint(point2);
         figure.setBounds(point1, point2);
